@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122C1FA2AA2F00343723 /* AppDelegate.swift */; };
-		38EA122F1FA2AA2F00343723 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122E1FA2AA2F00343723 /* FirstViewController.swift */; };
-		38EA12311FA2AA2F00343723 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12301FA2AA2F00343723 /* SecondViewController.swift */; };
 		38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; };
 		38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12351FA2AA2F00343723 /* Assets.xcassets */; };
 		38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */; };
 		38EA12441FA2AA2F00343723 /* MementoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12431FA2AA2F00343723 /* MementoTests.swift */; };
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
+		F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */; };
+		F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */; };
+		F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D0711FA3BCA700C2844C /* MeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +38,6 @@
 /* Begin PBXFileReference section */
 		38EA12291FA2AA2F00343723 /* Memento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA122C1FA2AA2F00343723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		38EA122E1FA2AA2F00343723 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		38EA12301FA2AA2F00343723 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		38EA12331FA2AA2F00343723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		38EA12351FA2AA2F00343723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38EA12381FA2AA2F00343723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,9 @@
 		38EA124A1FA2AA2F00343723 /* MementoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MementoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA124E1FA2AA2F00343723 /* MementoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MementoUITests.swift; sourceTree = "<group>"; };
 		38EA12501FA2AA3000343723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControler.swift; sourceTree = "<group>"; };
+		F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
+		F4F0D0711FA3BCA700C2844C /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +102,13 @@
 			isa = PBXGroup;
 			children = (
 				38EA122C1FA2AA2F00343723 /* AppDelegate.swift */,
-				38EA122E1FA2AA2F00343723 /* FirstViewController.swift */,
-				38EA12301FA2AA2F00343723 /* SecondViewController.swift */,
 				38EA12321FA2AA2F00343723 /* Main.storyboard */,
 				38EA12351FA2AA2F00343723 /* Assets.xcassets */,
 				38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */,
 				38EA123A1FA2AA2F00343723 /* Info.plist */,
+				F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */,
+				F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */,
+				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -262,9 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38EA12311FA2AA2F00343723 /* SecondViewController.swift in Sources */,
+				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
 				38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */,
-				38EA122F1FA2AA2F00343723 /* FirstViewController.swift in Sources */,
+				F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */,
+				F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
