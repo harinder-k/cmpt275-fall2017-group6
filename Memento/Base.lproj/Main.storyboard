@@ -120,7 +120,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-add-512.png" translatesAutoresizingMaskIntoConstraints="NO" id="zBU-5W-auN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-add-512" translatesAutoresizingMaskIntoConstraints="NO" id="zBU-5W-auN">
                                 <rect key="frame" x="264" y="152" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -237,7 +237,7 @@
                                     <segue destination="sXB-so-hq8" kind="show" id="XUh-rB-ivc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-CM-inJ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="cYk-CM-inJ">
                                 <rect key="frame" x="264" y="180" width="240" height="169"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="169" id="JeC-8u-UxH"/>
@@ -363,8 +363,8 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="icon.png" width="270" height="280"/>
+        <image name="icon" width="270" height="280"/>
         <image name="second" width="30" height="30"/>
-        <image name="user-add-512.png" width="512" height="512"/>
+        <image name="user-add-512" width="512" height="512"/>
     </resources>
 </document>
