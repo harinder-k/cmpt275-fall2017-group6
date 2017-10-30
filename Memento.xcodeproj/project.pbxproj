@@ -13,6 +13,8 @@
 		38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */; };
 		38EA12441FA2AA2F00343723 /* MementoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12431FA2AA2F00343723 /* MementoTests.swift */; };
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
+		38F3233D1FA57E4700DED3E1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F3233C1FA57E4700DED3E1 /* icon.png */; };
+		38F323411FA5992800DED3E1 /* user-add-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 38F323401FA5992700DED3E1 /* user-add-512.png */; };
 		F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */; };
 		F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */; };
 		F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */; };
@@ -49,6 +51,8 @@
 		38EA124A1FA2AA2F00343723 /* MementoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MementoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA124E1FA2AA2F00343723 /* MementoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MementoUITests.swift; sourceTree = "<group>"; };
 		38EA12501FA2AA3000343723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38F3233C1FA57E4700DED3E1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../Desktop/icon.png; sourceTree = "<group>"; };
+		38F323401FA5992700DED3E1 /* user-add-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "user-add-512.png"; path = "../../../../Downloads/user-add-512.png"; sourceTree = "<group>"; };
 		F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesNavigationController.swift; sourceTree = "<group>"; };
 		F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControler.swift; sourceTree = "<group>"; };
 		F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		38EA122B1FA2AA2F00343723 /* Memento */ = {
 			isa = PBXGroup;
 			children = (
+				38F323401FA5992700DED3E1 /* user-add-512.png */,
+				38F3233C1FA57E4700DED3E1 /* icon.png */,
 				38EA122C1FA2AA2F00343723 /* AppDelegate.swift */,
 				38EA12321FA2AA2F00343723 /* Main.storyboard */,
 				38EA12351FA2AA2F00343723 /* Assets.xcassets */,
@@ -242,7 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */,
+				38F323411FA5992800DED3E1 /* user-add-512.png in Resources */,
 				38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */,
+				38F3233D1FA57E4700DED3E1 /* icon.png in Resources */,
 				38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
