@@ -1,18 +1,19 @@
 //
-//  StoriesNavigationController.swift
+//  TakeQuizViewController.swift
 //  Memento
 //
-//  Created by hkhakh on 10/27/17.
+//  Created by hkhakh on 10/30/17.
 //  Copyright © 2017 memTech. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class StoriesNavigationController:UINavigationController {
+class TakeQuizViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = stringPassed
     }
     
-    
+    var stringPassed = ""
 }
