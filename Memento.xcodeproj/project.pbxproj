@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1508281FA785F60044669B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1508271FA785F60044669B /* LoginController.swift */; };
+		0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */; };
 		38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122C1FA2AA2F00343723 /* AppDelegate.swift */; };
 		38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; };
 		38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12351FA2AA2F00343723 /* Assets.xcassets */; };
 		38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */; };
 		38EA12441FA2AA2F00343723 /* MementoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12431FA2AA2F00343723 /* MementoTests.swift */; };
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
+		3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */; };
+		4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */; };
 		F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */; };
 		F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */; };
 		F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */; };
@@ -37,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D1508271FA785F60044669B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38EA12291FA2AA2F00343723 /* Memento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA122C1FA2AA2F00343723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38EA12331FA2AA2F00343723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +55,13 @@
 		38EA124A1FA2AA2F00343723 /* MementoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MementoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA124E1FA2AA2F00343723 /* MementoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MementoUITests.swift; sourceTree = "<group>"; };
 		38EA12501FA2AA3000343723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3AFE2DEF758B764529E24144 /* Pods-MementoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FE4220CA13F896F986402DB /* Pods-MementoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		730138B39AF9161590813199 /* Pods_MementoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
+		F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
 		F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesNavigationController.swift; sourceTree = "<group>"; };
 		F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControler.swift; sourceTree = "<group>"; };
 		F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +88,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D1508261FA785A80044669B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0D1508271FA785F60044669B /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		35770510E7B68E246D71F097 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */,
+				E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */,
+				3AFE2DEF758B764529E24144 /* Pods-MementoUITests.debug.xcconfig */,
+				5FE4220CA13F896F986402DB /* Pods-MementoUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		38EA12201FA2AA2F00343723 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +121,8 @@
 				38EA12421FA2AA2F00343723 /* MementoTests */,
 				38EA124D1FA2AA2F00343723 /* MementoUITests */,
 				38EA122A1FA2AA2F00343723 /* Products */,
+				35770510E7B68E246D71F097 /* Pods */,
+				98F800370B11E6C47DF04C11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +139,7 @@
 		38EA122B1FA2AA2F00343723 /* Memento */ = {
 			isa = PBXGroup;
 			children = (
+				0D1508261FA785A80044669B /* Controller */,
 				38EA122C1FA2AA2F00343723 /* AppDelegate.swift */,
 				38EA12321FA2AA2F00343723 /* Main.storyboard */,
 				38EA12351FA2AA2F00343723 /* Assets.xcassets */,
@@ -112,6 +149,7 @@
 				F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */,
 				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
 				F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */,
+				0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */,
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -134,6 +172,16 @@
 			path = MementoUITests;
 			sourceTree = "<group>";
 		};
+		98F800370B11E6C47DF04C11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */,
+				730138B39AF9161590813199 /* Pods_MementoTests.framework */,
+				CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38EA12531FA2AA3000343723 /* Build configuration list for PBXNativeTarget "Memento" */;
 			buildPhases = (
+				77BCDB23B4BBEE77B9B99243 /* [CP] Check Pods Manifest.lock */,
 				38EA12251FA2AA2F00343723 /* Sources */,
 				38EA12261FA2AA2F00343723 /* Frameworks */,
 				38EA12271FA2AA2F00343723 /* Resources */,
+				24434CF99AFFC682BD5C3AE6 /* [CP] Embed Pods Frameworks */,
+				71F430974AD2065932EBCBD0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38EA12591FA2AA3000343723 /* Build configuration list for PBXNativeTarget "MementoUITests" */;
 			buildPhases = (
+				32614AA37B491475F475BCE7 /* [CP] Check Pods Manifest.lock */,
 				38EA12461FA2AA2F00343723 /* Sources */,
 				38EA12471FA2AA2F00343723 /* Frameworks */,
 				38EA12481FA2AA2F00343723 /* Resources */,
+				3251D3DB6FEC1C7DDB5E9EC5 /* [CP] Embed Pods Frameworks */,
+				6C625D0127E3660425C9B696 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -242,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */,
+				0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */,
 				38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */,
 				38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */,
 			);
@@ -263,12 +318,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24434CF99AFFC682BD5C3AE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Memento/Pods-Memento-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Memento/Pods-Memento-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3251D3DB6FEC1C7DDB5E9EC5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		32614AA37B491475F475BCE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MementoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C625D0127E3660425C9B696 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71F430974AD2065932EBCBD0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Memento/Pods-Memento-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		77BCDB23B4BBEE77B9B99243 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Memento-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		38EA12251FA2AA2F00343723 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
+				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
 				38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */,
 				F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */,
 				F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */,
@@ -436,10 +600,11 @@
 		};
 		38EA12541FA2AA3000343723 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WWTVWR8V84;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Memento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.memTech.Memento;
@@ -451,10 +616,11 @@
 		};
 		38EA12551FA2AA3000343723 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WWTVWR8V84;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Memento/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.memTech.Memento;
@@ -498,6 +664,7 @@
 		};
 		38EA125A1FA2AA3000343723 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3AFE2DEF758B764529E24144 /* Pods-MementoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +680,7 @@
 		};
 		38EA125B1FA2AA3000343723 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FE4220CA13F896F986402DB /* Pods-MementoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
