@@ -14,6 +14,7 @@ class QuizzesViewController:UIViewController {
         super.viewDidLoad()
     }
     
+    
     @IBAction func animalsButtonTapped(_ sender: Any) {
         let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
         takeQuizVC.stringPassed = "Animals Quiz"
