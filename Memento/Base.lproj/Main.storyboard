@@ -316,7 +316,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dd" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Uk-X9-fq5" userLabel="dd Text Field">
                                 <rect key="frame" x="540" y="189" width="39" height="30"/>
@@ -451,12 +451,15 @@
                                 <rect key="frame" x="331.5" y="599" width="105" height="30"/>
                                 <state key="normal" title="Famous People"/>
                                 <connections>
-                                    <action selector="famousPeopleButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="3Va-8Y-CWY"/>
+                                    <action selector="famousPeopleButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="N9X-e1-bKq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXN-AW-0mL">
                                 <rect key="frame" x="361.5" y="548" width="45" height="30"/>
                                 <state key="normal" title="Places"/>
+                                <connections>
+                                    <action selector="placesButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="b8t-2a-GRB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJr-Yh-5dW">
                                 <rect key="frame" x="357.5" y="497" width="54" height="30"/>

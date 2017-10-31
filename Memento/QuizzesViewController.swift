@@ -20,6 +20,18 @@ class QuizzesViewController:UIViewController {
         takeQuizVC.stringPassed = "Animals Quiz"
         navigationController?.pushViewController(takeQuizVC, animated: true)
     }
+    
+    @IBAction func placesButtonTapped(_ sender: Any) {
+        let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
+        takeQuizVC.stringPassed = "Places Quiz"
+        navigationController?.pushViewController(takeQuizVC, animated: true)
+    }
+    
+    @IBAction func famousPeopleButtonTapped(_ sender: Any) {
+        let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
+        takeQuizVC.stringPassed = "Famous People Quiz"
+        navigationController?.pushViewController(takeQuizVC, animated: true)
+    }
 }
 
 
