@@ -19,9 +19,20 @@ class StoriesViewController:UIViewController {
         
         // Logout button:
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-        
+        checkIfUserIsLoggedIn()
+     
+    }
+    @objc func checkIfUserIsLoggedIn() {
         if Auth.auth().currentUser?.uid == nil {
             perform(#selector(handleLogout), with: nil, afterDelay: 0)
+        }
+        else {
+            let uid = Auth.auth().currentUser?.uid
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+            }, withCancel: nil)
         }
     }
     @objc func handleLogout(){

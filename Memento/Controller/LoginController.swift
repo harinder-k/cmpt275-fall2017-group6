@@ -13,14 +13,16 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor(r: 60, g: 90, b:150)
+        view.backgroundColor = UIColor.white
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
+        //view.addSubview(dateOfBirthPciker)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
+        //setupDateOfBirthPicker()
         setupInputsContainerView()
         setupLoginRegisterButton()
         
@@ -103,10 +105,23 @@ class LoginController: UIViewController {
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    let confirmPasswordSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let dateOfBirthTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Date of birth"
+        tf.font = UIFont.boldSystemFont(ofSize: 20)
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile_image")
+        imageView.image = UIImage(named: "logo")
         /*
          image source: http://www.cambridge.org/elt/blog/profile-page/
          */
@@ -117,13 +132,24 @@ class LoginController: UIViewController {
     
     let loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login", "Register"])
-        sc.tintColor = UIColor.white
+        sc.tintColor = UIColor(r: 80, g: 101, b: 161)
         let font = UIFont.boldSystemFont(ofSize: 20)
         sc.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterControlToggle), for: .valueChanged)
         sc.translatesAutoresizingMaskIntoConstraints = false
         return sc
+    }()
+    
+    let dateOfBirthPciker: UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.datePickerMode = UIDatePickerMode.date
+        dp.backgroundColor = UIColor.white
+        dp.sizeToFit()
+        dp.layer.cornerRadius = 5
+        dp.layer.masksToBounds = true
+        dp.translatesAutoresizingMaskIntoConstraints = false
+        return dp
     }()
     // ------------------------------------------------------- //
     // ---------------- Seting up UI Objects ----------------- //
@@ -133,27 +159,36 @@ class LoginController: UIViewController {
     var emailTextFieldHeightAnchor: NSLayoutConstraint?
     var passwordTextFieldHeightAnchor: NSLayoutConstraint?
     var confirmPasswordTextFieldHeightAnchor: NSLayoutConstraint?
+    var dateOfBirthTextFieldHeightAnchor: NSLayoutConstraint?
 
-    func setupProfileImageView() {
-        // Need x, y, width, height constraint
-        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -12).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 255).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 255).isActive = true
-    }
     func setupLoginRegisterSegmentedControl() {
         // Need x, y, width, height constraint
         loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginRegisterSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
+        loginRegisterSegmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
-        loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    func setupProfileImageView() {
+        // Need x, y, width, height constraint
+        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        profileImageView.topAnchor.constraint(equalTo: loginRegisterSegmentedControl.bottomAnchor, constant: 50).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 255).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 255).isActive = true
+    }
+    /*
+    func setupDateOfBirthPicker(){
+        // Need x, y, width, height constraint
+        dateOfBirthPciker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        dateOfBirthPciker.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
+        dateOfBirthPciker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
+        dateOfBirthPciker.heightAnchor.constraint(equalToConstant: 150).isActive = true
+    } */
     func setupInputsContainerView() {
         // Need x, y, width, height constraint
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputsContainerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 150).isActive = true
+        inputsContainerView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
-        inputsContainerViewHeightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 400)
+        inputsContainerViewHeightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 375)
         inputsContainerViewHeightAnchor?.isActive = true
         inputsContainerView.addSubview(nameTextField)
         inputsContainerView.addSubview(nameSeperatorView)
@@ -162,6 +197,8 @@ class LoginController: UIViewController {
         inputsContainerView.addSubview(passwordTextField)
         inputsContainerView.addSubview(passwordSeperatorView)
         inputsContainerView.addSubview(confirmPasswordTextField)
+        inputsContainerView.addSubview(confirmPasswordSeperatorView)
+        inputsContainerView.addSubview(dateOfBirthTextField)
         
         setupNameTextField()
         setupNameSeperatorView()
@@ -170,20 +207,24 @@ class LoginController: UIViewController {
         setupPasswordTextField()
         setupPasswordSeperatorView()
         setupConfirmPasswordTextField()
+        setupConfirmPasswordSeperatorView()
+        setupDateOfBirthTextField()
+        
+        createDatePickerToolBar()
     }
     func setupLoginRegisterButton() {
         // Need x, y, width, height constraint
         loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 24).isActive = true
+        loginRegisterButton.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 50).isActive = true
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupNameTextField() {
         // Need x, y, width, height constraint
         nameTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 20).isActive = true
         nameTextField.topAnchor.constraint(equalTo: inputsContainerView.topAnchor).isActive = true
         nameTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4)
+        nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
         nameTextFieldHeightAnchor?.isActive = true
     }
     func setupNameSeperatorView(){
@@ -198,7 +239,7 @@ class LoginController: UIViewController {
         emailTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 20).isActive = true
         emailTextField.topAnchor.constraint(equalTo: nameSeperatorView.bottomAnchor).isActive = true
         emailTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        emailTextFieldHeightAnchor = emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4)
+        emailTextFieldHeightAnchor = emailTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
         emailTextFieldHeightAnchor?.isActive = true
     }
     func setupEmailSeperatorView(){
@@ -213,7 +254,7 @@ class LoginController: UIViewController {
         passwordTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 20).isActive = true
         passwordTextField.topAnchor.constraint(equalTo: emailSeperatorView.bottomAnchor).isActive = true
         passwordTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        passwordTextFieldHeightAnchor = passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4)
+        passwordTextFieldHeightAnchor = passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
         passwordTextFieldHeightAnchor?.isActive = true
     }
     func setupPasswordSeperatorView(){
@@ -228,22 +269,65 @@ class LoginController: UIViewController {
         confirmPasswordTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 20).isActive = true
         confirmPasswordTextField.topAnchor.constraint(equalTo: passwordSeperatorView.bottomAnchor).isActive = true
         confirmPasswordTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
-        confirmPasswordTextFieldHeightAnchor = confirmPasswordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/4)
+        confirmPasswordTextFieldHeightAnchor = confirmPasswordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
         confirmPasswordTextFieldHeightAnchor?.isActive = true
+    }
+    func setupConfirmPasswordSeperatorView(){
+        // Need x, y, width, height constraint
+        confirmPasswordSeperatorView.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor).isActive = true
+        confirmPasswordSeperatorView.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor).isActive = true
+        confirmPasswordSeperatorView.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        confirmPasswordSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    func setupDateOfBirthTextField() {
+        // Need x, y, width, height constraint
+        dateOfBirthTextField.leftAnchor.constraint(equalTo: inputsContainerView.leftAnchor, constant: 20).isActive = true
+        dateOfBirthTextField.topAnchor.constraint(equalTo: confirmPasswordTextField.bottomAnchor).isActive = true
+        dateOfBirthTextField.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        dateOfBirthTextFieldHeightAnchor = dateOfBirthTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
+        dateOfBirthTextFieldHeightAnchor?.isActive = true
     }
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
+    func createDatePickerToolBar() {
+        //toolbar
+        let tb = UIToolbar()
+        tb.sizeToFit()
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        doneButton.tintColor = UIColor.black
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPressed))
+        cancelButton.tintColor = UIColor.black
+        
+        tb.setItems([doneButton, UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),cancelButton], animated: true)
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        
+        dateOfBirthTextField.inputAccessoryView = tb
+        dateOfBirthTextField.inputView = dateOfBirthPciker
+    }
+    @objc func donePressed(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        dateOfBirthTextField.text = dateFormatter.string(from: dateOfBirthPciker.date)
+        self.view.endEditing(true)
+    }
+    @objc func cancelPressed(){
+        self.view.endEditing(true)
+    }
+ 
     @objc func handleLoginRegisterControlToggle() {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         
         loginRegisterButton.setTitle(title, for: .normal)
         
         // Change height of the input container view
-        inputsContainerViewHeightAnchor?.constant = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 200 : 400
+        inputsContainerViewHeightAnchor?.constant = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 150 : 375
         // Height of nameTextField and confirmPasswordTextField
-        let zeroHeightMultiplier:CGFloat = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 0 : 1/4
-        let halfHeightMultiplier:CGFloat = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 1/2 : 1/4
+        let zeroHeightMultiplier:CGFloat = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 0 : 1/5
+        let halfHeightMultiplier:CGFloat = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 1/2 : 1/5
         //Heights of email and password fields become 1/2 when login is selected
         // Change height of emailTextField
         emailTextFieldHeightAnchor?.isActive = false
@@ -253,7 +337,7 @@ class LoginController: UIViewController {
         passwordTextFieldHeightAnchor?.isActive = false
         passwordTextFieldHeightAnchor = passwordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: halfHeightMultiplier)
         passwordTextFieldHeightAnchor?.isActive = true
-        // Heights of name field and confirm password field become zero when login is selected
+        // Heights of name field and confirm password and date of birth field become zero when login is selected
         // Change height of nameTextField
         nameTextFieldHeightAnchor?.isActive = false
         nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: zeroHeightMultiplier)
@@ -262,6 +346,10 @@ class LoginController: UIViewController {
         confirmPasswordTextFieldHeightAnchor?.isActive = false
         confirmPasswordTextFieldHeightAnchor = confirmPasswordTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: zeroHeightMultiplier)
         confirmPasswordTextFieldHeightAnchor?.isActive = true
+        // Change height of dateOfBirthTextField
+        dateOfBirthTextFieldHeightAnchor?.isActive = false
+        dateOfBirthTextFieldHeightAnchor = dateOfBirthTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: zeroHeightMultiplier)
+        dateOfBirthTextFieldHeightAnchor?.isActive = true
         
     }
     @objc func handleLoginRegister() {
@@ -308,6 +396,10 @@ class LoginController: UIViewController {
             print("Form is not valid")
             return
         }
+        guard let dateOfBirth = dateOfBirthTextField.text else {
+            print("Form is not valid")
+            return
+        }
         if password != confirmPassword {
             print("Password and confirm password dont match")
             return
@@ -328,7 +420,7 @@ class LoginController: UIViewController {
             // Reference to users in database seperated by their uid
             let usersRef = ref.child("users").child(uid)
             // Values to save for this user
-            let values = ["name": name, "email": email]
+            let values = ["name": name, "email": email, "dateOfBirth": dateOfBirth]
             // Update users in database
             usersRef.updateChildValues(values) { (database_update_error, ref) in
                 if database_update_error != nil {
