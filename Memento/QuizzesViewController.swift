@@ -14,6 +14,7 @@ class QuizzesViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSLog("Loaded")
     }
     
     // Precondition: Animals Button is tapped

@@ -5,7 +5,7 @@
 //Version 1.1
 //Changes:
 //1.0 - Created file and added title using stringOassed
-//1.1 - Mapped buttons to functions
+//1.1 - Mapped buttons to functions and implemented basic quiz
 //Known bugs: Minor bug: Crashes the app
 
 
@@ -20,7 +20,7 @@ class TakeQuizViewController:UIViewController {
     
     var quizName = ""                                                                           // set by QuizVieeController based on which button is passed
     var questionNum = 0
-    var questionNumsUsed = [Int]()
+    //var questionNumsUsed = [Int]()
     var correctAnswer = ""
     
     @IBOutlet weak var questionLabel: UILabel!
@@ -35,10 +35,11 @@ class TakeQuizViewController:UIViewController {
         super.viewDidLoad()
         title = quizName + titleEnd
         
-        randomizeQuestionNumber()
+        //randomizeQuestionNumber()
         askQuestion()
     }
     
+    /*
     func randomizeQuestionNumber() {
         questionNum = Int(arc4random_uniform(UInt32(numberOfQuestions))) + 1
         for questionNumUsed in questionNumsUsed {
@@ -47,8 +48,10 @@ class TakeQuizViewController:UIViewController {
             }
         }
     }
+    */
     
     func askQuestion() {
+        questionNum = questionNum + 1
         questionLabel.text = "Pick C"
         option1Button.setTitle("A", for: UIControlState.normal)
         option2Button.setTitle("B", for: UIControlState.normal)
