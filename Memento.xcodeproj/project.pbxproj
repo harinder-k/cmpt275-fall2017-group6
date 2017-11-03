@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D1508281FA785F60044669B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1508271FA785F60044669B /* LoginController.swift */; };
 		0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */; };
+		0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B30FE1FABDEB10093C8F9 /* ResetPasswordController.swift */; };
 		38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122C1FA2AA2F00343723 /* AppDelegate.swift */; };
 		38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; };
 		38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12351FA2AA2F00343723 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		0D1508271FA785F60044669B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D2B30FE1FABDEB10093C8F9 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 		38EA12291FA2AA2F00343723 /* Memento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA122C1FA2AA2F00343723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38EA12331FA2AA2F00343723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				0D1508271FA785F60044669B /* LoginController.swift */,
+				0D2B30FE1FABDEB10093C8F9 /* ResetPasswordController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
+				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
 				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
 				38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */,
 				F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */,

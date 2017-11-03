@@ -14,17 +14,20 @@ class LoginController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.white
-        view.addSubview(profileImageView)
+        view.addSubview(logoImageView)
         view.addSubview(loginRegisterSegmentedControl)
         //view.addSubview(dateOfBirthPciker)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
+        view.addSubview(forgotPasswordButton)
+        forgotPasswordButton.isHidden = true
         
-        setupProfileImageView()
+        setupLogoImageView()
         setupLoginRegisterSegmentedControl()
         //setupDateOfBirthPicker()
         setupInputsContainerView()
         setupLoginRegisterButton()
+        setupForgotPassword()
         
     }
     // ------------------------------------------ //
@@ -119,7 +122,7 @@ class LoginController: UIViewController {
         return tf
     }()
     
-    let profileImageView: UIImageView = {
+    let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo")
         /*
@@ -151,6 +154,16 @@ class LoginController: UIViewController {
         dp.translatesAutoresizingMaskIntoConstraints = false
         return dp
     }()
+    let forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.white
+        button.setTitle("Forgot password?", for: .normal)
+        button.setTitleColor(UIColor(r: 80, g: 101, b: 161), for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleForgotPassword), for: .touchUpInside)
+        return button
+    }()
     // ------------------------------------------------------- //
     // ---------------- Seting up UI Objects ----------------- //
     // ------------------------------------------------------- //
@@ -161,6 +174,14 @@ class LoginController: UIViewController {
     var confirmPasswordTextFieldHeightAnchor: NSLayoutConstraint?
     var dateOfBirthTextFieldHeightAnchor: NSLayoutConstraint?
 
+    func setupForgotPassword() {
+        // Need x, y, width, height constraint
+        forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        forgotPasswordButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 50).isActive = true
+        forgotPasswordButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
+        forgotPasswordButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
     func setupLoginRegisterSegmentedControl() {
         // Need x, y, width, height constraint
         loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -168,25 +189,18 @@ class LoginController: UIViewController {
         loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
         loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-    func setupProfileImageView() {
+    func setupLogoImageView() {
         // Need x, y, width, height constraint
-        profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.topAnchor.constraint(equalTo: loginRegisterSegmentedControl.bottomAnchor, constant: 50).isActive = true
-        profileImageView.widthAnchor.constraint(equalToConstant: 255).isActive = true
-        profileImageView.heightAnchor.constraint(equalToConstant: 255).isActive = true
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoImageView.topAnchor.constraint(equalTo: loginRegisterSegmentedControl.bottomAnchor, constant: 50).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 255).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 255).isActive = true
     }
-    /*
-    func setupDateOfBirthPicker(){
-        // Need x, y, width, height constraint
-        dateOfBirthPciker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        dateOfBirthPciker.topAnchor.constraint(equalTo: inputsContainerView.bottomAnchor, constant: 12).isActive = true
-        dateOfBirthPciker.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
-        dateOfBirthPciker.heightAnchor.constraint(equalToConstant: 150).isActive = true
-    } */
+
     func setupInputsContainerView() {
         // Need x, y, width, height constraint
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        inputsContainerView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 12).isActive = true
+        inputsContainerView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 12).isActive = true
         inputsContainerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: -48).isActive = true
         inputsContainerViewHeightAnchor = inputsContainerView.heightAnchor.constraint(equalToConstant: 375)
         inputsContainerViewHeightAnchor?.isActive = true
@@ -200,6 +214,7 @@ class LoginController: UIViewController {
         inputsContainerView.addSubview(confirmPasswordSeperatorView)
         inputsContainerView.addSubview(dateOfBirthTextField)
         
+        
         setupNameTextField()
         setupNameSeperatorView()
         setupEmailTextField()
@@ -209,6 +224,7 @@ class LoginController: UIViewController {
         setupConfirmPasswordTextField()
         setupConfirmPasswordSeperatorView()
         setupDateOfBirthTextField()
+        
         
         createDatePickerToolBar()
     }
@@ -351,6 +367,13 @@ class LoginController: UIViewController {
         dateOfBirthTextFieldHeightAnchor = dateOfBirthTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: zeroHeightMultiplier)
         dateOfBirthTextFieldHeightAnchor?.isActive = true
         
+        if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
+            forgotPasswordButton.isHidden = false
+        }
+        else{
+            forgotPasswordButton.isHidden = true
+        }
+        
     }
     @objc func handleLoginRegister() {
         if loginRegisterSegmentedControl.selectedSegmentIndex == 0 {
@@ -378,6 +401,10 @@ class LoginController: UIViewController {
             // Successfully logged in user
             self.dismiss(animated: true, completion: nil)
         }
+    }
+    @objc func handleForgotPassword(){
+        let resetPasswordController = ResetPasswordController()
+        present(resetPasswordController, animated: true, completion: nil)
     }
     @objc func handleRegister() {
         guard let email = emailTextField.text else {
