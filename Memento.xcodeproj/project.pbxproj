@@ -18,10 +18,15 @@
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
 		3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */; };
 		4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */; };
+		F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */; };
+		F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */; };
+		F4B94FF31FA8004F00B6CB77 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */; };
+		F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */; };
 		F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */; };
 		F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */; };
 		F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */; };
 		F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D0711FA3BCA700C2844C /* MeViewController.swift */; };
+		FBA1EAD21FAC03CC00BB5883 /* Quiz in Resources */ = {isa = PBXBuildFile; fileRef = FBA1EAD11FAC03CB00BB5883 /* Quiz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +69,15 @@
 		CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
 		F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
+		F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
+		F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesNavigationController.swift; sourceTree = "<group>"; };
+		F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
+		F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeQuizViewController.swift; sourceTree = "<group>"; };
 		F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesNavigationController.swift; sourceTree = "<group>"; };
 		F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewControler.swift; sourceTree = "<group>"; };
 		F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesViewController.swift; sourceTree = "<group>"; };
 		F4F0D0711FA3BCA700C2844C /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		FBA1EAD11FAC03CB00BB5883 /* Quiz */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Quiz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0D1508261FA785A80044669B /* Controller */,
+				FBA1EAD11FAC03CB00BB5883 /* Quiz */,
 				38EA122C1FA2AA2F00343723 /* AppDelegate.swift */,
 				38EA12321FA2AA2F00343723 /* Main.storyboard */,
 				38EA12351FA2AA2F00343723 /* Assets.xcassets */,
@@ -153,6 +164,10 @@
 				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
 				F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */,
 				0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */,
+				F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */,
+				F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */,
+				F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */,
+				F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */,
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -298,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA1EAD21FAC03CC00BB5883 /* Quiz in Resources */,
 				38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */,
 				0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */,
 				38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */,
@@ -437,10 +453,14 @@
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
 				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
+				F4B94FF31FA8004F00B6CB77 /* AddMemoryViewController.swift in Sources */,
 				38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */,
 				F4E1408C1FA3FD7F009AF780 /* StoriesNavigationController.swift in Sources */,
+				F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */,
 				F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */,
+				F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */,
 				F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */,
+				F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
