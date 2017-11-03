@@ -8,21 +8,9 @@
 
 \f0\fs30 \cf2 \expnd0\expndtw0\kerning0
 \{\
-        "sport": \{\
-            "q1": \{\
-                "question": "Which one is correct team name in NBA?",\
-                "options": [\
-                    "New York Bulls",\
-                    "Los Angeles Kings",\
-                    "Golden State Warriros",\
-                    "Huston Rocket"\
-                ],\
-                "answer": "Huston Rocket"\
-            \}\
-        \},\
-        "maths": \{\
             "q1": \{\
                 "question": "5 + 7 = ?",\
+				"image": "",\
                 "options": [\
                     "10",\
                     "11",\
@@ -33,6 +21,7 @@
             \},\
             "q2": \{\
                 "question": "12 - 8 = ?",\
+				"image": "",\
                 "options": [\
                     "1",\
                     "2",\
@@ -41,6 +30,5 @@
                 ],\
                 "answer": "4"\
             \}\
-        \}\
 \}\
 }

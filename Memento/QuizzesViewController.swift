@@ -26,7 +26,7 @@ class QuizzesViewController:UIViewController {
     }
     
     // Precondition: Geography Button is tapped
-    // Postcondition: Animals Quiz is loaded
+    // Postcondition: Geography Quiz is loaded
     @IBAction func geographyButtonTapped(_ sender: Any) {
         let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
         takeQuizVC.quizName = "Geography"
