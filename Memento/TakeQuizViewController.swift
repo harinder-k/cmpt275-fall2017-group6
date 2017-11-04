@@ -48,8 +48,22 @@ class TakeQuizViewController:UIViewController {
     var quiz = [QuizQuestion]()                                                                 // array of structs to hold quiz content
     
     let animalQuestions = ["What is the fastest land animal?", "What is the tallest animal?", "What is a group of lions called?", "How many legs does a spider have?", "Which of the following animals is a herbivore?"]
+    
     let animalOptions = [["Deer", "Cougar", "Cheetah", "Penguin"], ["Antelope", "Giraffe", "Horse", "Ostrich"], ["Pride", "Gang", "School", "Pack"], ["4", "6", "7", "8"], ["Bear", "Fox", "Frog", "Elephant"]]
+    
     let animalAnswers = ["Cheetah", "Giraffe", "Pride", "8", "Elephant"]
+    
+    let geographyQuestions = ["Which country has the highest population?", "What is the capital of Spain?", "In which city is the Eiffel Tower located?", "Which country is the largest by land area?", "What is the biggest continent on Earth?"]
+    
+    let geographyOptions = [["India", "China", "United States of America", "Japan"], ["Madrid", "Seville", "Barcelona", "Valencia"], ["London", "Tokyo", "New York", "Paris"], ["Canada", "United States of America", "Russia", "China"], ["Africa", "Asia", "North America", "Antarctica"]]
+    
+    let geographyAnswers = ["China", "Madrid", "Paris", "Russia", "Aaia"]
+    
+    let famousPeopleQuestions = ["Who is the current president of the United States of America?", "Who invented the telephone?", "Which famous celebrity has the nickname 'The Rock'?", "Who discovered gravity?", "Who was the first person to walk on the moon?"]
+    
+    let famousPeopleOptions = [["Barack Obama", "Donald Trump", "Bill Clinton", "George W. Bush"], ["Nikola Tesla", "Thomas Edison", "Alenxander Graham Bell", "Alan Turing"], ["Dwayne Johnson", "Jason Statham", "Vin Diesel", "Matt Damon"], ["Albert Einstein", "Isaac Newton", "Neils Bohr", "Charles Darwin"], ["Buzz Aldrin", "Charles Conrad", "Alan Shepard", "Neil Armstrong"]]
+    
+    let famousPeopleAnswers = ["Donald Trump", "Alenxander Graham Bell", "Dwayne Johnson", "Isaac Newton", "Neil Armstrong"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,11 +81,15 @@ class TakeQuizViewController:UIViewController {
             for i in 0...4 {
                 quiz.append(QuizQuestion(question: animalQuestions[i], options: animalOptions[i], answer: animalAnswers[i]))
             }
-        }// else if quizName == "Geography" {
-//
-//        } else if quizName == "Famous People"{
-//
-//        }
+        } else if quizName == "Geography" {
+            for i in 0...4 {
+                quiz.append(QuizQuestion(question: geographyQuestions[i], options: geographyOptions[i], answer: geographyAnswers[i]))
+            }
+        } else if quizName == "Famous People"{
+            for i in 0...4 {
+                quiz.append(QuizQuestion(question: famousPeopleQuestions[i], options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
+            }
+        }
     }
     
     // Precondition:    THe user has not yet answered the question
