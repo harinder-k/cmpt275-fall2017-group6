@@ -1,11 +1,11 @@
-//File Name: QuizzesViewController.swift
-//Team Name: MemTech
-//Group number: Group 6
-//Developers: Abhi, Harinder
-//Version 1.0
-//Changes:
-//1.0 - Created file and functionality to buttons
-//Known bugs:
+// File Name: QuizzesViewController.swift
+// Team Name: MemTech
+// Group number: Group 6
+// Developers: Harinder
+// Version 1.0
+// Changes:
+// 1.0 - Created file and functionality to buttons
+// Known bugs:
 
 import Foundation
 import UIKit
@@ -14,7 +14,6 @@ class QuizzesViewController:UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSLog("Loaded")
     }
     
     // Precondition: Animals Button is tapped
