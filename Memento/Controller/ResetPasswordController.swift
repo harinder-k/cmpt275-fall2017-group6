@@ -1,6 +1,17 @@
 //
-//  ResetPasswordController.swift
-//  Memento
+//  File Name: ResetPasswordController.swift
+//  Team Name: MemTech
+//  Group Number: Group 6
+//  Developers: Fatemeh Darbehani
+//  Version 1.0
+//
+//  Todo:
+//  1. Check if email address exists and show appropriate alert
+//  2. Redirect to the start page after sending reset password email
+//
+//  Known bug:
+//  1. Reset password email takes too long to send
+//  2. Seperator bars missing above and below email text field
 //
 //  Created by fatemeh darbehani on 2017-11-02.
 //  Copyright © 2017 memTech. All rights reserved.

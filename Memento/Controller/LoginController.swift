@@ -1,10 +1,25 @@
 //
-//  LoginController.swift
-//  Memento
+//  File Name: LoginController.swift
+//  Team Name: MemTech
+//  Group Number: Group 6
+//  Developers: Fatemeh Darbehani
+//  Version 1.0
+//
+//  Todo:
+//  1. Check if password is at least 6 characters and show appropriate alert
+//  2. For signup: Check if user already exists and show appropriate alert
+//  3. Check email format and show appropriate alert
+//  4. For signin: Check is user exists and show apporpriate alert
+//
+//  Known bugs:
+//  1. Seperator bar missing above name text field
+//  2. Layout is not shown correctly in lanscape mode
 //
 //  Created by fatemeh darbehani on 2017-10-30.
 //  Copyright © 2017 memTech. All rights reserved.
 //
+
+
 
 import UIKit
 import Firebase
