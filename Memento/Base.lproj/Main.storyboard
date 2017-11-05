@@ -84,6 +84,7 @@
                                 </constraints>
                                 <state key="normal" image="132220-200"/>
                                 <connections>
+                                    <action selector="NewStoryButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="UmG-ID-Es6"/>
                                     <segue destination="2ZW-S1-QaQ" kind="show" id="ZNo-eL-obL"/>
                                 </connections>
                             </button>
