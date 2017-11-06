@@ -21,7 +21,7 @@ class Memory{
     }
     
     func setDateRange(start: [Int], finish: [Int] ){
-        dateRange="\(start[0])//\(start[1])//\(start[2]) - (finish[0])//\(finish[1])//\(start[2]) "
+        self.dateRange="\(start[0])//\(start[1])//\(start[2]) - (finish[0])//\(finish[1])//\(start[2]) "
     }
     
     func addMoment(newMom: Moment){
@@ -31,22 +31,22 @@ class Memory{
     }
     
     func remMoment(index: Int){
-        if (index < getSize()){
+        if (index < self.getSize()){
             self.Moments.remove(at: index)
-            if !(index == getSize()){
+            if !(index == self.getSize()){
             self.shiftOrderDown(start: index)
             }
         }
     }
     
     func shiftOrderDown(start: Int){
-        for i in start...(getSize() - 1){
+        for i in start...(self.getSize() - 1){
             self.Moments[i].setPos(index: i)
         }
     }
     
     func getSize()->Int{
-        return Moments.count
+        return self.Moments.count
     }
     
     func swapMoment(first: Moment, second: Moment){
@@ -56,13 +56,14 @@ class Memory{
     }
     
     func setLatestMoment(pic: UIImage){
-        self.Moments[getSize()-1].setPic(pic: pic)
+        self.Moments[self.getSize()-1].setPic(pic: pic)
     }
 }
 
 class Moment{
     
     var picture : UIImage
+    var location : String
     var date : [Int] = []
     var position : Int
     
@@ -70,8 +71,12 @@ class Moment{
         self.picture = UIImage(named: "plus")!
         self.date = [0,0,0]
         self.position = 0
+        self.location = ""
     }
     
+    func setLoc(loc: String){
+        self.location = loc
+    }
     func setPic(pic : UIImage){
         self.picture = pic
     }
@@ -89,5 +94,8 @@ class Moment{
     }
     func getPic()-> UIImage{
         return self.picture
+    }
+    func getLoc()->String{
+        return self.location
     }
 }
