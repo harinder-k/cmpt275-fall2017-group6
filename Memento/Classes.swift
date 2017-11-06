@@ -54,6 +54,10 @@ class Memory{
         first.setPos(index: second.getPos())
         second.setPos(index: temp)
     }
+    
+    func setLatestMoment(pic: UIImage){
+        self.Moments[getSize()-1].setPic(pic: pic)
+    }
 }
 
 class Moment{
@@ -79,5 +83,11 @@ class Moment{
     }
     func getPos()-> Int{
         return self.position
+    }
+    func getDate()->[Int]{
+        return self.date
+    }
+    func getPic()-> UIImage{
+        return self.picture
     }
 }

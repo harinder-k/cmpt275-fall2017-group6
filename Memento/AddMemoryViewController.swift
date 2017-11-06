@@ -19,7 +19,8 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     var memArray: [Memory] = []
     //var MemList = Memory()
-    
+    //var tempMom = Moment()
+    //tempMom.setPic(pic: UIImage(named: "plus")!)
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -42,7 +43,7 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memArray.count
-        //MemList.Moments.count
+        //MemList.getSize()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -52,9 +53,9 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
         cell.location.text = memArray[indexPath.item].memLoc
         cell.image.image = memArray[indexPath.item].memImage
         
-        /*cell.date.text = MemList.Moments[indexPath.item].memDate
-         cell.location.text = MemList.Moments[indexPath.item].memLoc
-         cell.image.image = MemList.Moments[indexPath.item].memImage
+        /*cell.date.text = "n/a"
+         cell.location.text = "n/a"
+         cell.image.image = MemList.Moments[indexPath.item].getPic()
          */
         
         cell.button.tag = indexPath.item
@@ -101,11 +102,10 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
         guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else{
             fatalError("Expected a dictionary containing an image but was provided the following: \(info)")
         }
+        //MemList.Moments.addMoment(newMom: tempMom)
+        //MemList.setLatestMoment(pic: selectedImage)
         memArray.append(Memory(memDate: "Date", memLoc: "Location", memImage: UIImage(named: "plus")!))
-        //var tempMom = Moment(initLoc: "Location", initDate: [0, 0, 0], initPic: UIImage(named: "plus")!, index: numCell)
-        //MemList.Moments.append(tempMom)
         memArray[numCell].memImage = selectedImage
-        //MemList.Moments[numCell].setImage(image: selectedImage)
         numCell = numCell + 1
         dismiss(animated: true, completion: nil)
         collectionView.reloadData()
