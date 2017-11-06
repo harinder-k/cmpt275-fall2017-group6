@@ -7,6 +7,7 @@
 //1.0 - Created file and added title using stringOassed
 //1.1 - Mapped buttons to functions and implemented basic quiz
 //1.2 - Implemented quiz
+//TODO: Move to json
 //Known bugs:
 
 

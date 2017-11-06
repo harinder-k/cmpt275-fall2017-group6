@@ -1,10 +1,11 @@
-//
-//  StoriesNavigationController.swift
-//  Memento
-//
-//  Created by hkhakh on 10/27/17.
-//  Copyright © 2017 memTech. All rights reserved.
-//
+//File Name: StoriesNavigationController.swift
+//Team Name: MemTech
+//Group number: Group 6
+//Developers: Harinder
+//Version 1.0
+//Changes:
+//1.0 - Created file
+//Known bugs:
 
 import Foundation
 import UIKit
