@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -668,14 +668,79 @@
                     <view key="view" contentMode="scaleToFill" id="8lO-3k-OgC">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVY-1a-Ejx">
+                                <rect key="frame" x="254" y="175" width="260" height="30"/>
+                                <color key="backgroundColor" red="0.31374776363372803" green="0.3946269154548645" blue="0.99952179193496704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="K4O-fs-9GP"/>
+                                    <constraint firstAttribute="width" constant="260" id="Umm-R7-vzJ"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="MpX-dj-vCj" kind="show" id="B6i-kA-DA7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IVY-1a-Ejx" firstAttribute="centerY" secondItem="8lO-3k-OgC" secondAttribute="centerY" constant="-322" id="TBA-D9-2VY"/>
+                            <constraint firstItem="IVY-1a-Ejx" firstAttribute="centerX" secondItem="8lO-3k-OgC" secondAttribute="centerX" id="Z5a-gM-oMB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iBi-2N-fz9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" id="Q46-hY-uVQ"/>
+                    <navigationItem key="navigationItem" id="X8Z-BS-T2l" userLabel="Me"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cgh-hJ-D4Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="1567"/>
+            <point key="canvasLocation" x="1565.625" y="1565.625"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="bQ5-fj-5N8">
+            <objects>
+                <viewController title="About" id="MpX-dj-vCj" userLabel="About View Controller" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3T7-xs-1UW">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aua-wa-7q2">
+                                <rect key="frame" x="133" y="249" width="502" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="502" id="bZf-tC-P9K"/>
+                                    <constraint firstAttribute="height" constant="104" id="d0O-8F-8OT"/>
+                                </constraints>
+                                <string key="text">Memento is an IPad app that helps Alzheimer’s patients create an autobiography with friends and family who would like to spend time with the patient but don’t feel comfortable doing so.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="km2-1u-3Gs">
+                                <rect key="frame" x="133" y="345" width="502" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="2G3-96-7JI"/>
+                                    <constraint firstAttribute="width" constant="502" id="ARE-g8-uiH"/>
+                                </constraints>
+                                <string key="text">Memento is being developed by a team of SFU Computer Engineering students, namely Fatemeh Darbehani,   Harinderpal Khakh, Abhishek Mahajan, Matthew Thomas, and Tim Woinoski.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="km2-1u-3Gs" firstAttribute="centerY" secondItem="3T7-xs-1UW" secondAttribute="centerY" constant="-115" id="8q6-0l-QLt"/>
+                            <constraint firstItem="aua-wa-7q2" firstAttribute="centerX" secondItem="3T7-xs-1UW" secondAttribute="centerX" id="G0l-ne-cjv"/>
+                            <constraint firstItem="aua-wa-7q2" firstAttribute="centerY" secondItem="3T7-xs-1UW" secondAttribute="centerY" constant="-211" id="N5r-ck-urP"/>
+                            <constraint firstItem="km2-1u-3Gs" firstAttribute="centerX" secondItem="3T7-xs-1UW" secondAttribute="centerX" id="X7l-Bh-4dV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r8d-z8-ggj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSo-lL-Fx5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2301.5625" y="1566.796875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -689,7 +754,7 @@
                     <connections>
                         <segue destination="xPk-9V-4sh" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="Vtf-kG-gpY" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="tsA-IA-ovc" kind="relationship" relationship="viewControllers" id="7Af-fy-agY"/>
+                        <segue destination="okL-Dy-mtI" kind="relationship" relationship="viewControllers" id="7Af-fy-agY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -733,6 +798,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDn-d5-gf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="832.8125" y="451.75781249999994"/>
+        </scene>
+        <!--Me-->
+        <scene sceneID="2bB-6t-aFx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="okL-Dy-mtI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Me" id="Q46-hY-uVQ"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Rx-Mb-azG">
+                        <rect key="frame" x="0.0" y="20" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="tsA-IA-ovc" kind="relationship" relationship="rootViewController" id="USx-eT-Lo2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1tB-CL-Cmy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="832.8125" y="1566.796875"/>
         </scene>
     </scenes>
     <resources>
