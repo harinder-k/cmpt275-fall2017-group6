@@ -1,0 +1,10 @@
+framework module Lightbox {
+  umbrella header "Lightbox-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module Lightbox.__Swift {
+    exclude header "Lightbox-Swift.h"
+}

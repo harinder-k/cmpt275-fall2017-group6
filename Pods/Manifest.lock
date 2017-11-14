@@ -1,4 +1,5 @@
 PODS:
+  - Cache (4.1.2)
   - Firebase/Auth (4.4.0):
     - Firebase/Core
     - FirebaseAuth (= 4.3.0)
@@ -43,20 +44,33 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.12)
+  - Hue (3.0.0)
+  - ImagePicker (3.0.0)
+  - Imaginary (3.0.1):
+    - Cache (~> 4.0)
   - leveldb-library (1.18.3)
+  - Lightbox (2.0.0):
+    - Hue (~> 3.0)
+    - Imaginary (~> 3.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - NohanaImagePicker (0.9.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Hue
+  - ImagePicker
+  - Lightbox
+  - NohanaImagePicker
 
 SPEC CHECKSUMS:
+  Cache: bd0233fc688b5e83a27bcd87807db7e6f23adcc5
   Firebase: 3e92884a63e8f76d107c43a67d2ab9071e1eda10
   FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
   FirebaseAuth: e0087d479709b20b9613b804704a928d6eafb052
@@ -66,9 +80,14 @@ SPEC CHECKSUMS:
   FirebaseStorage: 0cca42d9b889a0227c3a50121f45a4469fc9eb27
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
+  Hue: b8fe1e43eef13631331eebecb2198b68e2622f95
+  ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
+  Imaginary: d8b6437d1bc49fc088615bc4dbb9e9380c2ba94c
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
+  Lightbox: 83ec9f4aba4c79fc7bb9bcd263386df9969f09bb
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  NohanaImagePicker: b39fa5623cabab69597ea6f6a2d6729b9895cd2b
 
-PODFILE CHECKSUM: e69497c292863a84a72a6d098ed3be11e37fe058
+PODFILE CHECKSUM: ba8859c0c0a4d33d1835c5d93200fc5c0c3e6d6e
 
 COCOAPODS: 1.3.1

@@ -1,0 +1,440 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MomentCell"
+provides-nominal:
+- "17NohanaImagePicker10MomentCellC"
+provides-member:
+- ["17NohanaImagePicker10MomentCellC", ""]
+provides-dynamic-lookup:
+- "draw"
+depends-top-level:
+- !private "-"
+- !private "/"
+- !private "??"
+- "AlbumCell"
+- !private "CGFloat"
+- "CGRect"
+- "MomentCell"
+- "NohanaImagePickerController"
+- !private "UIColor"
+- !private "UIRectFill"
+- !private "UIScreen"
+depends-member:
+- !private ["17NohanaImagePicker9AlbumCellC", "CGFloat"]
+- ["17NohanaImagePicker9AlbumCellC", "CGRect"]
+- ["17NohanaImagePicker9AlbumCellC", "NohanaImagePickerController"]
+- !private ["17NohanaImagePicker9AlbumCellC", "UIColor"]
+- !private ["17NohanaImagePicker9AlbumCellC", "UIRectFill"]
+- !private ["17NohanaImagePicker9AlbumCellC", "UIScreen"]
+- ["17NohanaImagePicker9AlbumCellC", "config"]
+- !private ["17NohanaImagePicker9AlbumCellC", "deinit"]
+- ["17NohanaImagePicker9AlbumCellC", "draw"]
+- !private ["17NohanaImagePicker9AlbumCellC", "frame"]
+- ["17NohanaImagePicker9AlbumCellC", "init"]
+- ["17NohanaImagePicker9AlbumCellC", ""]
+- !private ["So15CALayerDelegateP", "CGRect"]
+- !private ["So15CALayerDelegateP", "UIColor"]
+- !private ["So15CALayerDelegateP", "UIRectFill"]
+- !private ["So15CALayerDelegateP", "UIScreen"]
+- !private ["So15CALayerDelegateP", "config"]
+- !private ["So15CALayerDelegateP", "draw"]
+- !private ["So15CALayerDelegateP", "frame"]
+- !private ["So15CALayerDelegateP", "init"]
+- ["So15CALayerDelegateP", ""]
+- !private ["SC6CGRectV", "init"]
+- !private ["SC6CGRectV", "size"]
+- !private ["SC6CGSizeV", "height"]
+- !private ["SC6CGSizeV", "width"]
+- !private ["s7CVarArgP", "CGRect"]
+- ["s7CVarArgP", "Config"]
+- !private ["s7CVarArgP", "UIColor"]
+- !private ["s7CVarArgP", "UIRectFill"]
+- !private ["s7CVarArgP", "UIScreen"]
+- !private ["s7CVarArgP", "config"]
+- !private ["s7CVarArgP", "draw"]
+- !private ["s7CVarArgP", "frame"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "main"]
+- !private ["s7CVarArgP", "scale"]
+- !private ["s7CVarArgP", "setFill"]
+- ["s7CVarArgP", ""]
+- !private ["17NohanaImagePicker0abC10ControllerC6ConfigV5ColorV", "separator"]
+- !private ["17NohanaImagePicker0abC10ControllerC6ConfigV", "color"]
+- !private ["s28CustomDebugStringConvertibleP", "CGRect"]
+- ["s28CustomDebugStringConvertibleP", "Config"]
+- !private ["s28CustomDebugStringConvertibleP", "UIColor"]
+- !private ["s28CustomDebugStringConvertibleP", "UIRectFill"]
+- !private ["s28CustomDebugStringConvertibleP", "UIScreen"]
+- !private ["s28CustomDebugStringConvertibleP", "config"]
+- !private ["s28CustomDebugStringConvertibleP", "draw"]
+- !private ["s28CustomDebugStringConvertibleP", "frame"]
+- !private ["s28CustomDebugStringConvertibleP", "height"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "main"]
+- !private ["s28CustomDebugStringConvertibleP", "scale"]
+- !private ["s28CustomDebugStringConvertibleP", "setFill"]
+- !private ["s28CustomDebugStringConvertibleP", "size"]
+- !private ["s28CustomDebugStringConvertibleP", "width"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "height"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s29CustomPlaygroundQuickLookableP", "size"]
+- !private ["s29CustomPlaygroundQuickLookableP", "width"]
+- !private ["s17CustomReflectableP", "height"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "size"]
+- !private ["s17CustomReflectableP", "width"]
+- !private ["s23CustomStringConvertibleP", "CGRect"]
+- ["s23CustomStringConvertibleP", "Config"]
+- !private ["s23CustomStringConvertibleP", "UIColor"]
+- !private ["s23CustomStringConvertibleP", "UIRectFill"]
+- !private ["s23CustomStringConvertibleP", "UIScreen"]
+- !private ["s23CustomStringConvertibleP", "config"]
+- !private ["s23CustomStringConvertibleP", "draw"]
+- !private ["s23CustomStringConvertibleP", "frame"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "main"]
+- !private ["s23CustomStringConvertibleP", "scale"]
+- !private ["s23CustomStringConvertibleP", "setFill"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "height"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "size"]
+- !private ["s9DecodableP", "width"]
+- !private ["s9EncodableP", "height"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "size"]
+- !private ["s9EncodableP", "width"]
+- !private ["s9EquatableP", "CGRect"]
+- ["s9EquatableP", "Config"]
+- !private ["s9EquatableP", "UIColor"]
+- !private ["s9EquatableP", "UIRectFill"]
+- !private ["s9EquatableP", "UIScreen"]
+- !private ["s9EquatableP", "config"]
+- !private ["s9EquatableP", "draw"]
+- !private ["s9EquatableP", "frame"]
+- !private ["s9EquatableP", "height"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "main"]
+- !private ["s9EquatableP", "scale"]
+- !private ["s9EquatableP", "setFill"]
+- !private ["s9EquatableP", "size"]
+- !private ["s9EquatableP", "width"]
+- ["s9EquatableP", ""]
+- !private ["s8HashableP", "CGRect"]
+- ["s8HashableP", "Config"]
+- !private ["s8HashableP", "UIColor"]
+- !private ["s8HashableP", "UIRectFill"]
+- !private ["s8HashableP", "UIScreen"]
+- !private ["s8HashableP", "config"]
+- !private ["s8HashableP", "draw"]
+- !private ["s8HashableP", "frame"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "main"]
+- !private ["s8HashableP", "scale"]
+- !private ["s8HashableP", "setFill"]
+- ["s8HashableP", ""]
+- !private ["17NohanaImagePicker10MomentCellC", "CGFloat"]
+- ["17NohanaImagePicker10MomentCellC", "CGRect"]
+- ["17NohanaImagePicker10MomentCellC", "NohanaImagePickerController"]
+- !private ["17NohanaImagePicker10MomentCellC", "UIColor"]
+- !private ["17NohanaImagePicker10MomentCellC", "UIRectFill"]
+- !private ["17NohanaImagePicker10MomentCellC", "UIScreen"]
+- ["17NohanaImagePicker10MomentCellC", "config"]
+- ["17NohanaImagePicker10MomentCellC", "deinit"]
+- ["17NohanaImagePicker10MomentCellC", "draw"]
+- !private ["17NohanaImagePicker10MomentCellC", "frame"]
+- ["17NohanaImagePicker10MomentCellC", "init"]
+- !private ["So8NSCodingP", "CGRect"]
+- ["So8NSCodingP", "Config"]
+- !private ["So8NSCodingP", "UIColor"]
+- !private ["So8NSCodingP", "UIRectFill"]
+- !private ["So8NSCodingP", "UIScreen"]
+- !private ["So8NSCodingP", "config"]
+- !private ["So8NSCodingP", "draw"]
+- !private ["So8NSCodingP", "frame"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "setFill"]
+- ["So8NSCodingP", ""]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "setFill"]
+- ["So26NSExtensionRequestHandlingP", "Config"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderReadingP", "setFill"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So21NSItemProviderWritingP", "setFill"]
+- !private ["So8NSObjectC", "CGFloat"]
+- ["So8NSObjectC", "CGRect"]
+- ["So8NSObjectC", "Config"]
+- ["So8NSObjectC", "NohanaImagePickerController"]
+- !private ["So8NSObjectC", "UIColor"]
+- !private ["So8NSObjectC", "UIRectFill"]
+- !private ["So8NSObjectC", "UIScreen"]
+- ["So8NSObjectC", "config"]
+- ["So8NSObjectC", "draw"]
+- !private ["So8NSObjectC", "frame"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "main"]
+- !private ["So8NSObjectC", "scale"]
+- !private ["So8NSObjectC", "setFill"]
+- !private ["So16NSObjectProtocolP", "CGRect"]
+- ["So16NSObjectProtocolP", "Config"]
+- !private ["So16NSObjectProtocolP", "UIColor"]
+- !private ["So16NSObjectProtocolP", "UIRectFill"]
+- !private ["So16NSObjectProtocolP", "UIScreen"]
+- !private ["So16NSObjectProtocolP", "config"]
+- !private ["So16NSObjectProtocolP", "draw"]
+- !private ["So16NSObjectProtocolP", "frame"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "main"]
+- !private ["So16NSObjectProtocolP", "scale"]
+- !private ["So16NSObjectProtocolP", "setFill"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So14NSSecureCodingP", "setFill"]
+- ["17NohanaImagePicker0abC10ControllerC", "Config"]
+- !private ["So29UIAccessibilityIdentificationP", "CGRect"]
+- !private ["So29UIAccessibilityIdentificationP", "UIColor"]
+- !private ["So29UIAccessibilityIdentificationP", "UIRectFill"]
+- !private ["So29UIAccessibilityIdentificationP", "UIScreen"]
+- !private ["So29UIAccessibilityIdentificationP", "config"]
+- !private ["So29UIAccessibilityIdentificationP", "draw"]
+- !private ["So29UIAccessibilityIdentificationP", "frame"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- ["So29UIAccessibilityIdentificationP", ""]
+- !private ["So12UIAppearanceP", "CGRect"]
+- !private ["So12UIAppearanceP", "UIColor"]
+- !private ["So12UIAppearanceP", "UIRectFill"]
+- !private ["So12UIAppearanceP", "UIScreen"]
+- !private ["So12UIAppearanceP", "config"]
+- !private ["So12UIAppearanceP", "draw"]
+- !private ["So12UIAppearanceP", "frame"]
+- !private ["So12UIAppearanceP", "init"]
+- ["So12UIAppearanceP", ""]
+- !private ["So21UIAppearanceContainerP", "CGRect"]
+- ["So21UIAppearanceContainerP", "Config"]
+- !private ["So21UIAppearanceContainerP", "UIColor"]
+- !private ["So21UIAppearanceContainerP", "UIRectFill"]
+- !private ["So21UIAppearanceContainerP", "UIScreen"]
+- !private ["So21UIAppearanceContainerP", "config"]
+- !private ["So21UIAppearanceContainerP", "draw"]
+- !private ["So21UIAppearanceContainerP", "frame"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- ["So21UIAppearanceContainerP", ""]
+- !private ["So7UIColorC", "init"]
+- !private ["So7UIColorC", "setFill"]
+- ["So18UIContentContainerP", "Config"]
+- !private ["So17UICoordinateSpaceP", "CGRect"]
+- !private ["So17UICoordinateSpaceP", "UIColor"]
+- !private ["So17UICoordinateSpaceP", "UIRectFill"]
+- !private ["So17UICoordinateSpaceP", "UIScreen"]
+- !private ["So17UICoordinateSpaceP", "config"]
+- !private ["So17UICoordinateSpaceP", "draw"]
+- !private ["So17UICoordinateSpaceP", "frame"]
+- !private ["So17UICoordinateSpaceP", "init"]
+- ["So17UICoordinateSpaceP", ""]
+- !private ["So13UIDynamicItemP", "CGRect"]
+- !private ["So13UIDynamicItemP", "UIColor"]
+- !private ["So13UIDynamicItemP", "UIRectFill"]
+- !private ["So13UIDynamicItemP", "UIScreen"]
+- !private ["So13UIDynamicItemP", "config"]
+- !private ["So13UIDynamicItemP", "draw"]
+- !private ["So13UIDynamicItemP", "frame"]
+- !private ["So13UIDynamicItemP", "init"]
+- ["So13UIDynamicItemP", ""]
+- !private ["So18UIFocusEnvironmentP", "CGRect"]
+- ["So18UIFocusEnvironmentP", "Config"]
+- !private ["So18UIFocusEnvironmentP", "UIColor"]
+- !private ["So18UIFocusEnvironmentP", "UIRectFill"]
+- !private ["So18UIFocusEnvironmentP", "UIScreen"]
+- !private ["So18UIFocusEnvironmentP", "config"]
+- !private ["So18UIFocusEnvironmentP", "draw"]
+- !private ["So18UIFocusEnvironmentP", "frame"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So11UIFocusItemP", "CGRect"]
+- !private ["So11UIFocusItemP", "UIColor"]
+- !private ["So11UIFocusItemP", "UIRectFill"]
+- !private ["So11UIFocusItemP", "UIScreen"]
+- !private ["So11UIFocusItemP", "config"]
+- !private ["So11UIFocusItemP", "draw"]
+- !private ["So11UIFocusItemP", "frame"]
+- !private ["So11UIFocusItemP", "init"]
+- ["So11UIFocusItemP", ""]
+- !private ["So27UIGestureRecognizerDelegateP", "CGRect"]
+- !private ["So27UIGestureRecognizerDelegateP", "UIColor"]
+- !private ["So27UIGestureRecognizerDelegateP", "UIRectFill"]
+- !private ["So27UIGestureRecognizerDelegateP", "UIScreen"]
+- !private ["So27UIGestureRecognizerDelegateP", "config"]
+- !private ["So27UIGestureRecognizerDelegateP", "draw"]
+- !private ["So27UIGestureRecognizerDelegateP", "frame"]
+- !private ["So27UIGestureRecognizerDelegateP", "init"]
+- ["So27UIGestureRecognizerDelegateP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "CGRect"]
+- ["So30UIPasteConfigurationSupportingP", "Config"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIColor"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIRectFill"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIScreen"]
+- !private ["So30UIPasteConfigurationSupportingP", "config"]
+- !private ["So30UIPasteConfigurationSupportingP", "draw"]
+- !private ["So30UIPasteConfigurationSupportingP", "frame"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So11UIResponderC", "CGFloat"]
+- ["So11UIResponderC", "CGRect"]
+- ["So11UIResponderC", "Config"]
+- ["So11UIResponderC", "NohanaImagePickerController"]
+- !private ["So11UIResponderC", "UIColor"]
+- !private ["So11UIResponderC", "UIRectFill"]
+- !private ["So11UIResponderC", "UIScreen"]
+- ["So11UIResponderC", "config"]
+- ["So11UIResponderC", "draw"]
+- !private ["So11UIResponderC", "frame"]
+- ["So11UIResponderC", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "CGRect"]
+- ["So30UIResponderStandardEditActionsP", "Config"]
+- !private ["So30UIResponderStandardEditActionsP", "UIColor"]
+- !private ["So30UIResponderStandardEditActionsP", "UIRectFill"]
+- !private ["So30UIResponderStandardEditActionsP", "UIScreen"]
+- !private ["So30UIResponderStandardEditActionsP", "config"]
+- !private ["So30UIResponderStandardEditActionsP", "draw"]
+- !private ["So30UIResponderStandardEditActionsP", "frame"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So8UIScreenC", "main"]
+- !private ["So8UIScreenC", "scale"]
+- ["So16UIStateRestoringP", "Config"]
+- !private ["So15UITableViewCellC", "CGFloat"]
+- ["So15UITableViewCellC", "CGRect"]
+- ["So15UITableViewCellC", "NohanaImagePickerController"]
+- !private ["So15UITableViewCellC", "UIColor"]
+- !private ["So15UITableViewCellC", "UIRectFill"]
+- !private ["So15UITableViewCellC", "UIScreen"]
+- ["So15UITableViewCellC", "config"]
+- ["So15UITableViewCellC", "draw"]
+- !private ["So15UITableViewCellC", "frame"]
+- ["So15UITableViewCellC", "init"]
+- !private ["So18UITraitEnvironmentP", "CGRect"]
+- ["So18UITraitEnvironmentP", "Config"]
+- !private ["So18UITraitEnvironmentP", "UIColor"]
+- !private ["So18UITraitEnvironmentP", "UIRectFill"]
+- !private ["So18UITraitEnvironmentP", "UIScreen"]
+- !private ["So18UITraitEnvironmentP", "config"]
+- !private ["So18UITraitEnvironmentP", "draw"]
+- !private ["So18UITraitEnvironmentP", "frame"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "main"]
+- !private ["So18UITraitEnvironmentP", "scale"]
+- ["So18UITraitEnvironmentP", ""]
+- !private ["So6UIViewC", "CGFloat"]
+- ["So6UIViewC", "CGRect"]
+- ["So6UIViewC", "NohanaImagePickerController"]
+- !private ["So6UIViewC", "UIColor"]
+- !private ["So6UIViewC", "UIRectFill"]
+- !private ["So6UIViewC", "UIScreen"]
+- ["So6UIViewC", "config"]
+- ["So6UIViewC", "draw"]
+- !private ["So6UIViewC", "frame"]
+- ["So6UIViewC", "init"]
+- ["So16UIViewControllerC", "Config"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "CGRect"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIColor"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIRectFill"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIScreen"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "config"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "draw"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "frame"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
+- !private ["s26_ExpressibleByColorLiteralP", "init"]
+- !private ["s26_ExpressibleByColorLiteralP", "setFill"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "CGRect"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "Config"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIColor"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIRectFill"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIScreen"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "config"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "draw"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "frame"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "main"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "scale"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "setFill"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "height"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "size"]
+- !private ["s21_ObjectiveCBridgeableP", "width"]
+depends-nominal:
+- "17NohanaImagePicker9AlbumCellC"
+- "So15CALayerDelegateP"
+- !private "SC6CGRectV"
+- !private "SC6CGSizeV"
+- "s7CVarArgP"
+- !private "17NohanaImagePicker0abC10ControllerC6ConfigV5ColorV"
+- !private "17NohanaImagePicker0abC10ControllerC6ConfigV"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- "s8HashableP"
+- "17NohanaImagePicker10MomentCellC"
+- "So8NSCodingP"
+- !private "So9NSCopyingP"
+- "So26NSExtensionRequestHandlingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- "17NohanaImagePicker0abC10ControllerC"
+- "So29UIAccessibilityIdentificationP"
+- "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- !private "So7UIColorC"
+- "So18UIContentContainerP"
+- "So17UICoordinateSpaceP"
+- "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So27UIGestureRecognizerDelegateP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- !private "So8UIScreenC"
+- "So16UIStateRestoringP"
+- "So15UITableViewCellC"
+- "So18UITraitEnvironmentP"
+- "So6UIViewC"
+- "So16UIViewControllerC"
+- "s37_DefaultCustomPlaygroundQuickLookableP"
+- !private "s26_ExpressibleByColorLiteralP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/NohanaImagePicker/NohanaImagePicker-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/NohanaImagePicker.build/unextended-module.modulemap"
+interface-hash: "1bf938739426aec28047ec3c4fd3605b"

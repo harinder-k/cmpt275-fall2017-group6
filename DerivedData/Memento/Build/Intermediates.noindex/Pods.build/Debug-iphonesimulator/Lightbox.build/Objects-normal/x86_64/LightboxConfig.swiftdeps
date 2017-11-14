@@ -1,0 +1,417 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "LightboxConfig"
+provides-nominal:
+- "8Lightbox0A6ConfigC"
+- "8Lightbox0A6ConfigC13PageIndicatorV"
+- "8Lightbox0A6ConfigC11CloseButtonV"
+- "8Lightbox0A6ConfigC12DeleteButtonV"
+- "8Lightbox0A6ConfigC9InfoLabelV"
+- "8Lightbox0A6ConfigC4ZoomV"
+provides-member:
+- ["8Lightbox0A6ConfigC", ""]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", ""]
+- ["8Lightbox0A6ConfigC11CloseButtonV", ""]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", ""]
+- ["8Lightbox0A6ConfigC9InfoLabelV", ""]
+- ["8Lightbox0A6ConfigC4ZoomV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AVPlayer"
+- "AVPlayerViewController"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- "CGFloat"
+- "CGSize"
+- "LightboxConfig"
+- "LoadingIndicator"
+- "NSAttributedStringKey"
+- "NSLocalizedString"
+- "NSMutableParagraphStyle"
+- "StringLiteralType"
+- "UIColor"
+- "UIFont"
+- "UIImage"
+- "UIView"
+- "UIViewController"
+- "URL"
+- "Void"
+depends-member:
+- ["So8AVPlayerC", "init"]
+- ["So8AVPlayerC", "play"]
+- ["So22AVPlayerViewControllerC", "init"]
+- ["So22AVPlayerViewControllerC", "player"]
+- ["s23BidirectionalCollectionP", "init"]
+- ["So15CALayerDelegateP", "init"]
+- ["s7CVarArgP", "alignment"]
+- ["s7CVarArgP", "boldSystemFont"]
+- ["s7CVarArgP", "init"]
+- ["s7CVarArgP", "play"]
+- ["s7CVarArgP", "player"]
+- ["s7CVarArgP", "present"]
+- ["s7CVarArgP", "systemFont"]
+- ["s7CVarArgP", "white"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "CGSize"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "NSAttributedStringKey"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "NSLocalizedString"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "NSMutableParagraphStyle"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "UIColor"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "UIFont"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "UIImage"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "enabled"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "image"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "init"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "size"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "text"]
+- ["8Lightbox0A6ConfigC11CloseButtonV", "textAttributes"]
+- ["s10CollectionP", "init"]
+- ["s10ComparableP", "init"]
+- ["s28CustomDebugStringConvertibleP", "alignment"]
+- ["s28CustomDebugStringConvertibleP", "boldSystemFont"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "play"]
+- ["s28CustomDebugStringConvertibleP", "player"]
+- ["s28CustomDebugStringConvertibleP", "present"]
+- ["s28CustomDebugStringConvertibleP", "systemFont"]
+- ["s28CustomDebugStringConvertibleP", "white"]
+- ["s29CustomPlaygroundQuickLookableP", "init"]
+- ["s17CustomReflectableP", "init"]
+- ["s23CustomStringConvertibleP", "alignment"]
+- ["s23CustomStringConvertibleP", "boldSystemFont"]
+- ["s23CustomStringConvertibleP", "init"]
+- ["s23CustomStringConvertibleP", "play"]
+- ["s23CustomStringConvertibleP", "player"]
+- ["s23CustomStringConvertibleP", "present"]
+- ["s23CustomStringConvertibleP", "systemFont"]
+- ["s23CustomStringConvertibleP", "white"]
+- ["s9DecodableP", "init"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "CGSize"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "NSAttributedStringKey"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "NSLocalizedString"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "NSMutableParagraphStyle"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "UIColor"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "UIFont"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "UIImage"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "enabled"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "image"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "init"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "size"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "text"]
+- ["8Lightbox0A6ConfigC12DeleteButtonV", "textAttributes"]
+- ["s9EncodableP", "init"]
+- ["s9EquatableP", "alignment"]
+- ["s9EquatableP", "boldSystemFont"]
+- ["s9EquatableP", "center"]
+- ["s9EquatableP", "font"]
+- ["s9EquatableP", "foregroundColor"]
+- ["s9EquatableP", "init"]
+- ["s9EquatableP", "paragraphStyle"]
+- ["s9EquatableP", "play"]
+- ["s9EquatableP", "player"]
+- ["s9EquatableP", "present"]
+- ["s9EquatableP", "systemFont"]
+- ["s9EquatableP", "white"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["s8HashableP", "alignment"]
+- ["s8HashableP", "boldSystemFont"]
+- ["s8HashableP", "center"]
+- ["s8HashableP", "font"]
+- ["s8HashableP", "foregroundColor"]
+- ["s8HashableP", "init"]
+- ["s8HashableP", "paragraphStyle"]
+- ["s8HashableP", "play"]
+- ["s8HashableP", "player"]
+- ["s8HashableP", "present"]
+- ["s8HashableP", "systemFont"]
+- ["s8HashableP", "white"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "NSAttributedStringKey"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "NSLocalizedString"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "UIColor"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "UIFont"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "ellipsisColor"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "ellipsisText"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "enabled"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "init"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "textAttributes"]
+- ["8Lightbox0A6ConfigC9InfoLabelV", "textColor"]
+- ["8Lightbox0A6ConfigC", "AVPlayer"]
+- ["8Lightbox0A6ConfigC", "AVPlayerViewController"]
+- ["8Lightbox0A6ConfigC", "CGFloat"]
+- ["8Lightbox0A6ConfigC", "CGSize"]
+- ["8Lightbox0A6ConfigC", "CloseButton"]
+- ["8Lightbox0A6ConfigC", "DeleteButton"]
+- ["8Lightbox0A6ConfigC", "InfoLabel"]
+- ["8Lightbox0A6ConfigC", "LoadingIndicator"]
+- ["8Lightbox0A6ConfigC", "NSAttributedStringKey"]
+- ["8Lightbox0A6ConfigC", "NSLocalizedString"]
+- ["8Lightbox0A6ConfigC", "NSMutableParagraphStyle"]
+- ["8Lightbox0A6ConfigC", "PageIndicator"]
+- ["8Lightbox0A6ConfigC", "UIColor"]
+- ["8Lightbox0A6ConfigC", "UIFont"]
+- ["8Lightbox0A6ConfigC", "UIImage"]
+- ["8Lightbox0A6ConfigC", "UIView"]
+- ["8Lightbox0A6ConfigC", "UIViewController"]
+- ["8Lightbox0A6ConfigC", "URL"]
+- ["8Lightbox0A6ConfigC", "Void"]
+- ["8Lightbox0A6ConfigC", "Zoom"]
+- ["8Lightbox0A6ConfigC", "deinit"]
+- ["8Lightbox0A6ConfigC", "handleVideo"]
+- ["8Lightbox0A6ConfigC", "hideStatusBar"]
+- ["8Lightbox0A6ConfigC", "init"]
+- ["8Lightbox0A6ConfigC", "makeLoadingIndicator"]
+- ["8Lightbox16LoadingIndicatorC", "deinit"]
+- ["8Lightbox16LoadingIndicatorC", "init"]
+- ["s25LosslessStringConvertibleP", "init"]
+- ["s10MirrorPathP", "init"]
+- ["SC21NSAttributedStringKeyV", "font"]
+- ["SC21NSAttributedStringKeyV", "foregroundColor"]
+- ["SC21NSAttributedStringKeyV", "paragraphStyle"]
+- ["So8NSCodingP", "alignment"]
+- ["So8NSCodingP", "init"]
+- ["So8NSCodingP", "player"]
+- ["So8NSCodingP", "present"]
+- ["So8NSCodingP", "white"]
+- ["So9NSCopyingP", "alignment"]
+- ["So9NSCopyingP", "boldSystemFont"]
+- ["So9NSCopyingP", "init"]
+- ["So9NSCopyingP", "systemFont"]
+- ["So9NSCopyingP", "white"]
+- ["So26NSExtensionRequestHandlingP", "init"]
+- ["So26NSExtensionRequestHandlingP", "player"]
+- ["So26NSExtensionRequestHandlingP", "present"]
+- ["So21NSItemProviderReadingP", "init"]
+- ["So21NSItemProviderReadingP", "white"]
+- ["So21NSItemProviderWritingP", "init"]
+- ["So21NSItemProviderWritingP", "white"]
+- ["So16NSMutableCopyingP", "alignment"]
+- ["So16NSMutableCopyingP", "init"]
+- ["So23NSMutableParagraphStyleC", "alignment"]
+- ["So23NSMutableParagraphStyleC", "init"]
+- ["So8NSObjectC", "alignment"]
+- ["So8NSObjectC", "boldSystemFont"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "play"]
+- ["So8NSObjectC", "player"]
+- ["So8NSObjectC", "present"]
+- ["So8NSObjectC", "systemFont"]
+- ["So8NSObjectC", "white"]
+- ["So16NSObjectProtocolP", "alignment"]
+- ["So16NSObjectProtocolP", "boldSystemFont"]
+- ["So16NSObjectProtocolP", "init"]
+- ["So16NSObjectProtocolP", "play"]
+- ["So16NSObjectProtocolP", "player"]
+- ["So16NSObjectProtocolP", "present"]
+- ["So16NSObjectProtocolP", "systemFont"]
+- ["So16NSObjectProtocolP", "white"]
+- ["So16NSParagraphStyleC", "alignment"]
+- ["So16NSParagraphStyleC", "init"]
+- ["So14NSSecureCodingP", "alignment"]
+- ["So14NSSecureCodingP", "init"]
+- ["So14NSSecureCodingP", "white"]
+- ["So8NSStringC", "init"]
+- ["SC15NSTextAlignmentO", "center"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "NSAttributedStringKey"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "NSMutableParagraphStyle"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "UIColor"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "UIFont"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "enabled"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "init"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "separatorColor"]
+- ["8Lightbox0A6ConfigC13PageIndicatorV", "textAttributes"]
+- ["s26RangeReplaceableCollectionP", "init"]
+- ["s16RawRepresentableP", "center"]
+- ["s16RawRepresentableP", "font"]
+- ["s16RawRepresentableP", "foregroundColor"]
+- ["s16RawRepresentableP", "paragraphStyle"]
+- ["s8SequenceP", "init"]
+- ["SS", "init"]
+- ["s14StringProtocolP", "init"]
+- ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", "init"]
+- ["So29UIAccessibilityIdentificationP", "init"]
+- ["So12UIAppearanceP", "init"]
+- ["So21UIAppearanceContainerP", "init"]
+- ["So21UIAppearanceContainerP", "player"]
+- ["So21UIAppearanceContainerP", "present"]
+- ["So7UIColorC", "init"]
+- ["So7UIColorC", "white"]
+- ["So18UIContentContainerP", "init"]
+- ["So18UIContentContainerP", "player"]
+- ["So18UIContentContainerP", "present"]
+- ["So17UICoordinateSpaceP", "init"]
+- ["So13UIDynamicItemP", "init"]
+- ["So18UIFocusEnvironmentP", "init"]
+- ["So18UIFocusEnvironmentP", "player"]
+- ["So18UIFocusEnvironmentP", "present"]
+- ["So11UIFocusItemP", "init"]
+- ["So6UIFontC", "boldSystemFont"]
+- ["So6UIFontC", "systemFont"]
+- ["So30UIPasteConfigurationSupportingP", "init"]
+- ["So30UIPasteConfigurationSupportingP", "player"]
+- ["So30UIPasteConfigurationSupportingP", "present"]
+- ["So11UIResponderC", "init"]
+- ["So11UIResponderC", "player"]
+- ["So11UIResponderC", "present"]
+- ["So30UIResponderStandardEditActionsP", "init"]
+- ["So30UIResponderStandardEditActionsP", "player"]
+- ["So30UIResponderStandardEditActionsP", "present"]
+- ["So16UIStateRestoringP", "init"]
+- ["So16UIStateRestoringP", "player"]
+- ["So16UIStateRestoringP", "present"]
+- ["So18UITraitEnvironmentP", "init"]
+- ["So18UITraitEnvironmentP", "player"]
+- ["So18UITraitEnvironmentP", "present"]
+- ["So16UIViewControllerC", "init"]
+- ["So16UIViewControllerC", "player"]
+- ["So16UIViewControllerC", "present"]
+- ["8Lightbox0A6ConfigC4ZoomV", "CGFloat"]
+- ["8Lightbox0A6ConfigC4ZoomV", "init"]
+- ["8Lightbox0A6ConfigC4ZoomV", "maximumScale"]
+- ["8Lightbox0A6ConfigC4ZoomV", "minimumScale"]
+- ["s23_BidirectionalIndexableP", "init"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "init"]
+- ["s26_ExpressibleByColorLiteralP", "white"]
+- ["s33_ExpressibleByStringInterpolationP", "init"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "init"]
+- ["s14_IndexableBaseP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "alignment"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "boldSystemFont"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "play"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "player"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "present"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "systemFont"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "white"]
+- ["s21_ObjectiveCBridgeableP", "font"]
+- ["s21_ObjectiveCBridgeableP", "foregroundColor"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "paragraphStyle"]
+- ["s26_RangeReplaceableIndexableP", "init"]
+- ["s20_SwiftNewtypeWrapperP", "font"]
+- ["s20_SwiftNewtypeWrapperP", "foregroundColor"]
+- ["s20_SwiftNewtypeWrapperP", "paragraphStyle"]
+- ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "So8AVPlayerC"
+- "So22AVPlayerViewControllerC"
+- "s23BidirectionalCollectionP"
+- "So15CALayerDelegateP"
+- "s7CVarArgP"
+- "8Lightbox0A6ConfigC11CloseButtonV"
+- "s10CollectionP"
+- "s10ComparableP"
+- "s28CustomDebugStringConvertibleP"
+- "s29CustomPlaygroundQuickLookableP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "s9DecodableP"
+- "8Lightbox0A6ConfigC12DeleteButtonV"
+- "s9EncodableP"
+- "s9EquatableP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- "8Lightbox0A6ConfigC9InfoLabelV"
+- "8Lightbox0A6ConfigC"
+- "8Lightbox16LoadingIndicatorC"
+- "s25LosslessStringConvertibleP"
+- "s10MirrorPathP"
+- "SC21NSAttributedStringKeyV"
+- "So8NSCodingP"
+- "So9NSCopyingP"
+- "So26NSExtensionRequestHandlingP"
+- "So21NSItemProviderReadingP"
+- "So21NSItemProviderWritingP"
+- "So16NSMutableCopyingP"
+- "So23NSMutableParagraphStyleC"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- "So16NSParagraphStyleC"
+- "So14NSSecureCodingP"
+- "So8NSStringC"
+- "SC15NSTextAlignmentO"
+- "8Lightbox0A6ConfigC13PageIndicatorV"
+- "s26RangeReplaceableCollectionP"
+- "s16RawRepresentableP"
+- "s8SequenceP"
+- "SS"
+- "s14StringProtocolP"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "So29UIAccessibilityIdentificationP"
+- "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- "So7UIColorC"
+- "So18UIContentContainerP"
+- "So17UICoordinateSpaceP"
+- "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So6UIFontC"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- "So16UIStateRestoringP"
+- "So18UITraitEnvironmentP"
+- "So16UIViewControllerC"
+- "8Lightbox0A6ConfigC4ZoomV"
+- "s23_BidirectionalIndexableP"
+- "s37_DefaultCustomPlaygroundQuickLookableP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s26_ExpressibleByColorLiteralP"
+- "s33_ExpressibleByStringInterpolationP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "s21_ObjectiveCBridgeableP"
+- "s26_RangeReplaceableIndexableP"
+- "s20_SwiftNewtypeWrapperP"
+- "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Cache/Cache.framework/Modules/Cache.swiftmodule/x86_64.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Hue/Hue.framework/Modules/Hue.swiftmodule/x86_64.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Imaginary/Imaginary.framework/Modules/Imaginary.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/Cache/Cache-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/Hue/Hue-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/Lightbox/Lightbox-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/Imaginary/Imaginary-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Cache/Cache.framework/Headers/Cache-Swift.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Hue/Hue.framework/Headers/Hue-Swift.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Imaginary/Imaginary.framework/Headers/Imaginary-Swift.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Lightbox.build/unextended-module.modulemap"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Cache.build/module.modulemap"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Hue.build/module.modulemap"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Imaginary.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.1.sdk/System/Library/Frameworks/AVKit.framework/Headers/AVKit.apinotes"
+interface-hash: "cc1426774183870818222188425ff318"

@@ -1,0 +1,226 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "PhotoKitAsset"
+provides-nominal:
+- "17NohanaImagePicker13PhotoKitAssetC"
+provides-member:
+- ["17NohanaImagePicker13PhotoKitAssetC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "AnyObject"
+- "Asset"
+- "AssignmentPrecedence"
+- !private "BooleanLiteralType"
+- "CGSize"
+- "CastingPrecedence"
+- !private "Dictionary"
+- "ImageData"
+- "Int"
+- !private "NSObject"
+- "PHAsset"
+- !private "PHImageManager"
+- !private "PHImageRequestOptions"
+- "PhotoKitAsset"
+- "Void"
+depends-member:
+- !private ["17NohanaImagePicker5AssetP", "ImageData"]
+- !private ["17NohanaImagePicker5AssetP", "PHImageManager"]
+- !private ["17NohanaImagePicker5AssetP", "PHImageRequestOptions"]
+- !private ["17NohanaImagePicker5AssetP", "asset"]
+- ["17NohanaImagePicker5AssetP", "identifier"]
+- ["17NohanaImagePicker5AssetP", "image"]
+- ["17NohanaImagePicker5AssetP", ""]
+- !private ["s23BidirectionalCollectionP", "hash"]
+- !private ["s7CVarArgP", "default"]
+- !private ["s7CVarArgP", "hash"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isNetworkAccessAllowed"]
+- !private ["s7CVarArgP", "localIdentifier"]
+- !private ["s7CVarArgP", "requestImage"]
+- !private ["s10CollectionP", "hash"]
+- !private ["s10ComparableP", "hash"]
+- !private ["s28CustomDebugStringConvertibleP", "default"]
+- !private ["s28CustomDebugStringConvertibleP", "hash"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isNetworkAccessAllowed"]
+- !private ["s28CustomDebugStringConvertibleP", "localIdentifier"]
+- !private ["s28CustomDebugStringConvertibleP", "requestImage"]
+- !private ["s29CustomPlaygroundQuickLookableP", "hash"]
+- !private ["s17CustomReflectableP", "hash"]
+- !private ["s23CustomStringConvertibleP", "default"]
+- !private ["s23CustomStringConvertibleP", "hash"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isNetworkAccessAllowed"]
+- !private ["s23CustomStringConvertibleP", "localIdentifier"]
+- !private ["s23CustomStringConvertibleP", "requestImage"]
+- !private ["s9DecodableP", "hash"]
+- !private ["s9EncodableP", "hash"]
+- !private ["s9EquatableP", "aspectFit"]
+- !private ["s9EquatableP", "default"]
+- !private ["s9EquatableP", "hash"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "isNetworkAccessAllowed"]
+- !private ["s9EquatableP", "localIdentifier"]
+- !private ["s9EquatableP", "requestImage"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "hash"]
+- !private ["s26ExpressibleByStringLiteralP", "hash"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "hash"]
+- !private ["s8HashableP", "aspectFit"]
+- !private ["s8HashableP", "default"]
+- !private ["s8HashableP", "hash"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "isNetworkAccessAllowed"]
+- !private ["s8HashableP", "localIdentifier"]
+- !private ["s8HashableP", "requestImage"]
+- !private ["17NohanaImagePicker0B4DataV", "init"]
+- !private ["s25LosslessStringConvertibleP", "hash"]
+- !private ["s10MirrorPathP", "hash"]
+- !private ["So8NSCodingP", "hash"]
+- !private ["So9NSCopyingP", "hash"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So9NSCopyingP", "isNetworkAccessAllowed"]
+- !private ["So9NSCopyingP", "localIdentifier"]
+- !private ["So21NSItemProviderReadingP", "hash"]
+- !private ["So21NSItemProviderWritingP", "hash"]
+- !private ["So16NSMutableCopyingP", "hash"]
+- !private ["So8NSObjectC", "default"]
+- !private ["So8NSObjectC", "hash"]
+- !private ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isNetworkAccessAllowed"]
+- !private ["So8NSObjectC", "localIdentifier"]
+- !private ["So8NSObjectC", "requestImage"]
+- !private ["So16NSObjectProtocolP", "default"]
+- !private ["So16NSObjectProtocolP", "hash"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "isNetworkAccessAllowed"]
+- !private ["So16NSObjectProtocolP", "localIdentifier"]
+- !private ["So16NSObjectProtocolP", "requestImage"]
+- !private ["So14NSSecureCodingP", "hash"]
+- !private ["So8NSStringC", "hash"]
+- !private ["So7PHAssetC", "localIdentifier"]
+- !private ["SC18PHImageContentModeO", "aspectFit"]
+- !private ["So14PHImageManagerC", "default"]
+- !private ["So14PHImageManagerC", "requestImage"]
+- !private ["So21PHImageRequestOptionsC", "init"]
+- !private ["So21PHImageRequestOptionsC", "isNetworkAccessAllowed"]
+- !private ["So8PHObjectC", "localIdentifier"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "AnyObject"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "CGSize"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "Dictionary"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "ImageData"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "Int"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "NSObject"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "PHAsset"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "PHImageManager"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "PHImageRequestOptions"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "Void"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "asset"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "deinit"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "identifier"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "image"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "init"]
+- ["17NohanaImagePicker13PhotoKitAssetC", "originalAsset"]
+- !private ["s26RangeReplaceableCollectionP", "hash"]
+- !private ["s16RawRepresentableP", "aspectFit"]
+- !private ["s8SequenceP", "hash"]
+- !private ["SS", "hash"]
+- !private ["s14StringProtocolP", "hash"]
+- !private ["s16TextOutputStreamP", "hash"]
+- !private ["s20TextOutputStreamableP", "hash"]
+- !private ["s23_BidirectionalIndexableP", "hash"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "hash"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "hash"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "hash"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "hash"]
+- !private ["s33_ExpressibleByStringInterpolationP", "hash"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "hash"]
+- !private ["s10_IndexableP", "hash"]
+- !private ["s14_IndexableBaseP", "hash"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "hash"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isNetworkAccessAllowed"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "localIdentifier"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "requestImage"]
+- !private ["s21_ObjectiveCBridgeableP", "hash"]
+- !private ["s26_RangeReplaceableIndexableP", "hash"]
+- !private ["s16_SwiftStringViewP", "hash"]
+depends-nominal:
+- "17NohanaImagePicker5AssetP"
+- !private "s23BidirectionalCollectionP"
+- !private "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s8HashableP"
+- !private "17NohanaImagePicker0B4DataV"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "So7PHAssetC"
+- !private "SC18PHImageContentModeO"
+- !private "So14PHImageManagerC"
+- !private "So21PHImageRequestOptionsC"
+- !private "So8PHObjectC"
+- "17NohanaImagePicker13PhotoKitAssetC"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "s8SequenceP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/NohanaImagePicker/NohanaImagePicker-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/NohanaImagePicker.build/unextended-module.modulemap"
+interface-hash: "bf1877a266f4ed3066a4097c9702a80a"
