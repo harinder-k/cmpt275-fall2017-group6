@@ -1,0 +1,21 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "c54dfdcc5ea7f248cb7a585a285ee2ce"
+build_time: [1510630119, 529311000]
+inputs:
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/View/EditMemoryCell.swift": [1510625729, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/QuizzesViewController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/Controller/ResetPasswordController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/Controller/LoginController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/View/MemoryCell.swift": [1510394288, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/AppDelegate.swift": [1510375746, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/Controller/MemoryViewController.swift": [1510629751, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/AddInfoViewController.swift": [1510630118, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/StoriesNavigationController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/QuizzesNavigationController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/MeViewController.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/EditStoryViewController.swift": [1510298452, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/StoriesViewControler.swift": [1509746299, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/Controller/EditMemoryLauncher.swift": [1510629617, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/MemoriesCollectionViewCell.swift": [1510287102, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/Model/Memory.swift": [1510359051, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Memento/TakeQuizViewController.swift": [1510287102, 0]

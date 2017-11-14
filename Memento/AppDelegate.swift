@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Photos
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        UINavigationBar.appearance().barTintColor = UIColor(r: 80, g: 101, b:161)
+        UINavigationBar.appearance().tintColor = UIColor.black
+
+        
+       /*
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({ status in
+                if status == .authorized{
+                    
+                }
+                else {
+                    let alert = UIAlertController(title: "Photo Access Denied", message: "App requires access to photo library", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+                }
+            })
+        }
+        else if photos == .authorized {
+            
+        } */
         // Override point for customization after application launch.
         return true
     }

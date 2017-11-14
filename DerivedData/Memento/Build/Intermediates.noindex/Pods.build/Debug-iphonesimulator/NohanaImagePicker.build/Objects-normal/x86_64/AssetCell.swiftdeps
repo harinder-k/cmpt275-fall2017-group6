@@ -1,0 +1,663 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "AssetCell"
+provides-nominal:
+- "17NohanaImagePicker9AssetCellC"
+provides-member:
+- ["17NohanaImagePicker9AssetCellC", ""]
+provides-dynamic-lookup:
+- "didPushPickButton"
+- "imageView"
+- "overlayView"
+- "pickButton"
+- "willMove"
+depends-top-level:
+- !private "!"
+- !private "??"
+- "Asset"
+- "AssetCell"
+- "AssignmentPrecedence"
+- !private "BooleanLiteralType"
+- "NohanaImagePickerController"
+- !private "StringLiteralType"
+- "UIButton"
+- "UICollectionViewCell"
+- !private "UIControlState"
+- !private "UIImage"
+- "UIImageView"
+- "UIView"
+depends-member:
+- ["17NohanaImagePicker9AssetCellC", "Asset"]
+- ["17NohanaImagePicker9AssetCellC", "NohanaImagePickerController"]
+- ["17NohanaImagePicker9AssetCellC", "UIButton"]
+- !private ["17NohanaImagePicker9AssetCellC", "UIControlState"]
+- !private ["17NohanaImagePicker9AssetCellC", "UIImage"]
+- ["17NohanaImagePicker9AssetCellC", "UIImageView"]
+- ["17NohanaImagePicker9AssetCellC", "UIView"]
+- ["17NohanaImagePicker9AssetCellC", "asset"]
+- ["17NohanaImagePicker9AssetCellC", "deinit"]
+- ["17NohanaImagePicker9AssetCellC", "didPushPickButton"]
+- ["17NohanaImagePicker9AssetCellC", "imageView"]
+- ["17NohanaImagePicker9AssetCellC", "init"]
+- ["17NohanaImagePicker9AssetCellC", "nohanaImagePickerController"]
+- ["17NohanaImagePicker9AssetCellC", "overlayView"]
+- ["17NohanaImagePicker9AssetCellC", "pickButton"]
+- ["17NohanaImagePicker9AssetCellC", "update"]
+- ["17NohanaImagePicker9AssetCellC", "willMove"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["So15CALayerDelegateP", "UIControlState"]
+- !private ["So15CALayerDelegateP", "UIImage"]
+- !private ["So15CALayerDelegateP", "asset"]
+- !private ["So15CALayerDelegateP", "init"]
+- !private ["So15CALayerDelegateP", "isHidden"]
+- !private ["So15CALayerDelegateP", "isSelected"]
+- !private ["So15CALayerDelegateP", "nohanaImagePickerController"]
+- !private ["So15CALayerDelegateP", "overlayView"]
+- !private ["So15CALayerDelegateP", "pickButton"]
+- !private ["So15CALayerDelegateP", "setImage"]
+- !private ["So15CALayerDelegateP", "willMove"]
+- ["So15CALayerDelegateP", ""]
+- !private ["s7CVarArgP", "UIControlState"]
+- !private ["s7CVarArgP", "UIImage"]
+- !private ["s7CVarArgP", "asset"]
+- !private ["s7CVarArgP", "assetBundle"]
+- !private ["s7CVarArgP", "canPickAsset"]
+- !private ["s7CVarArgP", "config"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isHidden"]
+- !private ["s7CVarArgP", "isSelected"]
+- !private ["s7CVarArgP", "nohanaImagePickerController"]
+- !private ["s7CVarArgP", "overlayView"]
+- !private ["s7CVarArgP", "pickButton"]
+- !private ["s7CVarArgP", "pickedAssetList"]
+- !private ["s7CVarArgP", "setImage"]
+- !private ["s7CVarArgP", "willMove"]
+- ["s7CVarArgP", ""]
+- !private ["s10CollectionP", "drop"]
+- !private ["s10CollectionP", "init"]
+- !private ["s10CollectionP", "isPicked"]
+- !private ["s10CollectionP", "pick"]
+- !private ["s10ComparableP", "init"]
+- !private ["17NohanaImagePicker0abC10ControllerC6ConfigV", "image"]
+- !private ["s28CustomDebugStringConvertibleP", "UIControlState"]
+- !private ["s28CustomDebugStringConvertibleP", "UIImage"]
+- !private ["s28CustomDebugStringConvertibleP", "asset"]
+- !private ["s28CustomDebugStringConvertibleP", "assetBundle"]
+- !private ["s28CustomDebugStringConvertibleP", "canPickAsset"]
+- !private ["s28CustomDebugStringConvertibleP", "config"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isHidden"]
+- !private ["s28CustomDebugStringConvertibleP", "isSelected"]
+- !private ["s28CustomDebugStringConvertibleP", "nohanaImagePickerController"]
+- !private ["s28CustomDebugStringConvertibleP", "overlayView"]
+- !private ["s28CustomDebugStringConvertibleP", "pickButton"]
+- !private ["s28CustomDebugStringConvertibleP", "pickedAssetList"]
+- !private ["s28CustomDebugStringConvertibleP", "setImage"]
+- !private ["s28CustomDebugStringConvertibleP", "willMove"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s23CustomStringConvertibleP", "UIControlState"]
+- !private ["s23CustomStringConvertibleP", "UIImage"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "asset"]
+- !private ["s23CustomStringConvertibleP", "assetBundle"]
+- !private ["s23CustomStringConvertibleP", "canPickAsset"]
+- !private ["s23CustomStringConvertibleP", "config"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isHidden"]
+- !private ["s23CustomStringConvertibleP", "isSelected"]
+- !private ["s23CustomStringConvertibleP", "nohanaImagePickerController"]
+- !private ["s23CustomStringConvertibleP", "overlayView"]
+- !private ["s23CustomStringConvertibleP", "pickButton"]
+- !private ["s23CustomStringConvertibleP", "pickedAssetList"]
+- !private ["s23CustomStringConvertibleP", "setImage"]
+- !private ["s23CustomStringConvertibleP", "willMove"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EquatableP", "UIControlState"]
+- !private ["s9EquatableP", "UIImage"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "asset"]
+- !private ["s9EquatableP", "assetBundle"]
+- !private ["s9EquatableP", "canPickAsset"]
+- !private ["s9EquatableP", "config"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "isHidden"]
+- !private ["s9EquatableP", "isSelected"]
+- !private ["s9EquatableP", "nohanaImagePickerController"]
+- !private ["s9EquatableP", "overlayView"]
+- !private ["s9EquatableP", "pickButton"]
+- !private ["s9EquatableP", "pickedAssetList"]
+- !private ["s9EquatableP", "selected"]
+- !private ["s9EquatableP", "setImage"]
+- !private ["s9EquatableP", "willMove"]
+- ["s9EquatableP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "selected"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "UIControlState"]
+- !private ["s8HashableP", "UIImage"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "asset"]
+- !private ["s8HashableP", "assetBundle"]
+- !private ["s8HashableP", "canPickAsset"]
+- !private ["s8HashableP", "config"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "isHidden"]
+- !private ["s8HashableP", "isSelected"]
+- !private ["s8HashableP", "nohanaImagePickerController"]
+- !private ["s8HashableP", "overlayView"]
+- !private ["s8HashableP", "pickButton"]
+- !private ["s8HashableP", "pickedAssetList"]
+- !private ["s8HashableP", "setImage"]
+- !private ["s8HashableP", "willMove"]
+- ["s8HashableP", ""]
+- !private ["17NohanaImagePicker0abC10ControllerC6ConfigV0B0V", "droppedSmall"]
+- !private ["17NohanaImagePicker0abC10ControllerC6ConfigV0B0V", "pickedSmall"]
+- !private ["17NohanaImagePicker8ItemListP", "drop"]
+- !private ["17NohanaImagePicker8ItemListP", "isPicked"]
+- !private ["17NohanaImagePicker8ItemListP", "pick"]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["So8NSCodingP", "UIControlState"]
+- !private ["So8NSCodingP", "UIImage"]
+- !private ["So8NSCodingP", "asset"]
+- !private ["So8NSCodingP", "assetBundle"]
+- !private ["So8NSCodingP", "canPickAsset"]
+- !private ["So8NSCodingP", "config"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "isHidden"]
+- !private ["So8NSCodingP", "isSelected"]
+- !private ["So8NSCodingP", "nohanaImagePickerController"]
+- !private ["So8NSCodingP", "overlayView"]
+- !private ["So8NSCodingP", "pickButton"]
+- !private ["So8NSCodingP", "pickedAssetList"]
+- !private ["So8NSCodingP", "setImage"]
+- !private ["So8NSCodingP", "willMove"]
+- ["So8NSCodingP", ""]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "assetBundle"]
+- !private ["So26NSExtensionRequestHandlingP", "canPickAsset"]
+- !private ["So26NSExtensionRequestHandlingP", "config"]
+- !private ["So26NSExtensionRequestHandlingP", "pickedAssetList"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
+- ["So8NSObjectC", "Asset"]
+- ["So8NSObjectC", "NohanaImagePickerController"]
+- ["So8NSObjectC", "UIButton"]
+- !private ["So8NSObjectC", "UIControlState"]
+- !private ["So8NSObjectC", "UIImage"]
+- ["So8NSObjectC", "UIImageView"]
+- ["So8NSObjectC", "UIView"]
+- ["So8NSObjectC", "asset"]
+- !private ["So8NSObjectC", "assetBundle"]
+- !private ["So8NSObjectC", "canPickAsset"]
+- !private ["So8NSObjectC", "config"]
+- ["So8NSObjectC", "didPushPickButton"]
+- ["So8NSObjectC", "imageView"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isHidden"]
+- !private ["So8NSObjectC", "isSelected"]
+- ["So8NSObjectC", "nohanaImagePickerController"]
+- ["So8NSObjectC", "overlayView"]
+- ["So8NSObjectC", "pickButton"]
+- !private ["So8NSObjectC", "pickedAssetList"]
+- !private ["So8NSObjectC", "setImage"]
+- ["So8NSObjectC", "update"]
+- ["So8NSObjectC", "willMove"]
+- !private ["So16NSObjectProtocolP", "UIControlState"]
+- !private ["So16NSObjectProtocolP", "UIImage"]
+- !private ["So16NSObjectProtocolP", "asset"]
+- !private ["So16NSObjectProtocolP", "assetBundle"]
+- !private ["So16NSObjectProtocolP", "canPickAsset"]
+- !private ["So16NSObjectProtocolP", "config"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "isHidden"]
+- !private ["So16NSObjectProtocolP", "isSelected"]
+- !private ["So16NSObjectProtocolP", "nohanaImagePickerController"]
+- !private ["So16NSObjectProtocolP", "overlayView"]
+- !private ["So16NSObjectProtocolP", "pickButton"]
+- !private ["So16NSObjectProtocolP", "pickedAssetList"]
+- !private ["So16NSObjectProtocolP", "setImage"]
+- !private ["So16NSObjectProtocolP", "willMove"]
+- ["So16NSObjectProtocolP", ""]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So8NSStringC", "init"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "assetBundle"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "canPickAsset"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "config"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "pickedAssetList"]
+- !private ["s9OptionSetP", "init"]
+- !private ["s9OptionSetP", "selected"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "deinit"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "drop"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "isPicked"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "pick"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s16RawRepresentableP", "init"]
+- !private ["s16RawRepresentableP", "selected"]
+- !private ["s8SequenceP", "drop"]
+- !private ["s8SequenceP", "init"]
+- !private ["s8SequenceP", "isPicked"]
+- !private ["s8SequenceP", "pick"]
+- !private ["s10SetAlgebraP", "init"]
+- !private ["s10SetAlgebraP", "selected"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "isHidden"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "isSelected"]
+- !private ["So48UIAccessibilityContentSizeCategoryImageAdjustingP", "setImage"]
+- !private ["So29UIAccessibilityIdentificationP", "UIControlState"]
+- !private ["So29UIAccessibilityIdentificationP", "UIImage"]
+- !private ["So29UIAccessibilityIdentificationP", "asset"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "isHidden"]
+- !private ["So29UIAccessibilityIdentificationP", "isSelected"]
+- !private ["So29UIAccessibilityIdentificationP", "nohanaImagePickerController"]
+- !private ["So29UIAccessibilityIdentificationP", "overlayView"]
+- !private ["So29UIAccessibilityIdentificationP", "pickButton"]
+- !private ["So29UIAccessibilityIdentificationP", "setImage"]
+- !private ["So29UIAccessibilityIdentificationP", "willMove"]
+- ["So29UIAccessibilityIdentificationP", ""]
+- !private ["So12UIAppearanceP", "UIControlState"]
+- !private ["So12UIAppearanceP", "UIImage"]
+- !private ["So12UIAppearanceP", "asset"]
+- !private ["So12UIAppearanceP", "init"]
+- !private ["So12UIAppearanceP", "isHidden"]
+- !private ["So12UIAppearanceP", "isSelected"]
+- !private ["So12UIAppearanceP", "nohanaImagePickerController"]
+- !private ["So12UIAppearanceP", "overlayView"]
+- !private ["So12UIAppearanceP", "pickButton"]
+- !private ["So12UIAppearanceP", "setImage"]
+- !private ["So12UIAppearanceP", "willMove"]
+- ["So12UIAppearanceP", ""]
+- !private ["So21UIAppearanceContainerP", "UIControlState"]
+- !private ["So21UIAppearanceContainerP", "UIImage"]
+- !private ["So21UIAppearanceContainerP", "asset"]
+- !private ["So21UIAppearanceContainerP", "assetBundle"]
+- !private ["So21UIAppearanceContainerP", "canPickAsset"]
+- !private ["So21UIAppearanceContainerP", "config"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "isHidden"]
+- !private ["So21UIAppearanceContainerP", "isSelected"]
+- !private ["So21UIAppearanceContainerP", "nohanaImagePickerController"]
+- !private ["So21UIAppearanceContainerP", "overlayView"]
+- !private ["So21UIAppearanceContainerP", "pickButton"]
+- !private ["So21UIAppearanceContainerP", "pickedAssetList"]
+- !private ["So21UIAppearanceContainerP", "setImage"]
+- !private ["So21UIAppearanceContainerP", "willMove"]
+- ["So21UIAppearanceContainerP", ""]
+- !private ["So8UIButtonC", "isHidden"]
+- !private ["So8UIButtonC", "isSelected"]
+- !private ["So8UIButtonC", "setImage"]
+- ["So24UICollectionReusableViewC", "Asset"]
+- ["So24UICollectionReusableViewC", "NohanaImagePickerController"]
+- ["So24UICollectionReusableViewC", "UIButton"]
+- !private ["So24UICollectionReusableViewC", "UIControlState"]
+- !private ["So24UICollectionReusableViewC", "UIImage"]
+- ["So24UICollectionReusableViewC", "UIImageView"]
+- ["So24UICollectionReusableViewC", "UIView"]
+- ["So24UICollectionReusableViewC", "asset"]
+- ["So24UICollectionReusableViewC", "didPushPickButton"]
+- ["So24UICollectionReusableViewC", "imageView"]
+- ["So24UICollectionReusableViewC", "init"]
+- ["So24UICollectionReusableViewC", "nohanaImagePickerController"]
+- ["So24UICollectionReusableViewC", "overlayView"]
+- ["So24UICollectionReusableViewC", "pickButton"]
+- ["So24UICollectionReusableViewC", "update"]
+- ["So24UICollectionReusableViewC", "willMove"]
+- ["So20UICollectionViewCellC", "Asset"]
+- ["So20UICollectionViewCellC", "NohanaImagePickerController"]
+- ["So20UICollectionViewCellC", "UIButton"]
+- !private ["So20UICollectionViewCellC", "UIControlState"]
+- !private ["So20UICollectionViewCellC", "UIImage"]
+- ["So20UICollectionViewCellC", "UIImageView"]
+- ["So20UICollectionViewCellC", "UIView"]
+- ["So20UICollectionViewCellC", "asset"]
+- ["So20UICollectionViewCellC", "didPushPickButton"]
+- ["So20UICollectionViewCellC", "imageView"]
+- ["So20UICollectionViewCellC", "init"]
+- ["So20UICollectionViewCellC", "nohanaImagePickerController"]
+- ["So20UICollectionViewCellC", "overlayView"]
+- ["So20UICollectionViewCellC", "pickButton"]
+- ["So20UICollectionViewCellC", "update"]
+- ["So20UICollectionViewCellC", "willMove"]
+- ["So20UICollectionViewCellC", ""]
+- !private ["So18UIContentContainerP", "assetBundle"]
+- !private ["So18UIContentContainerP", "canPickAsset"]
+- !private ["So18UIContentContainerP", "config"]
+- !private ["So18UIContentContainerP", "pickedAssetList"]
+- !private ["So9UIControlC", "isHidden"]
+- !private ["So9UIControlC", "isSelected"]
+- !private ["So9UIControlC", "setImage"]
+- !private ["SC14UIControlStateV", "init"]
+- !private ["SC14UIControlStateV", "selected"]
+- !private ["So17UICoordinateSpaceP", "UIControlState"]
+- !private ["So17UICoordinateSpaceP", "UIImage"]
+- !private ["So17UICoordinateSpaceP", "asset"]
+- !private ["So17UICoordinateSpaceP", "init"]
+- !private ["So17UICoordinateSpaceP", "isHidden"]
+- !private ["So17UICoordinateSpaceP", "isSelected"]
+- !private ["So17UICoordinateSpaceP", "nohanaImagePickerController"]
+- !private ["So17UICoordinateSpaceP", "overlayView"]
+- !private ["So17UICoordinateSpaceP", "pickButton"]
+- !private ["So17UICoordinateSpaceP", "setImage"]
+- !private ["So17UICoordinateSpaceP", "willMove"]
+- ["So17UICoordinateSpaceP", ""]
+- !private ["So13UIDynamicItemP", "UIControlState"]
+- !private ["So13UIDynamicItemP", "UIImage"]
+- !private ["So13UIDynamicItemP", "asset"]
+- !private ["So13UIDynamicItemP", "init"]
+- !private ["So13UIDynamicItemP", "isHidden"]
+- !private ["So13UIDynamicItemP", "isSelected"]
+- !private ["So13UIDynamicItemP", "nohanaImagePickerController"]
+- !private ["So13UIDynamicItemP", "overlayView"]
+- !private ["So13UIDynamicItemP", "pickButton"]
+- !private ["So13UIDynamicItemP", "setImage"]
+- !private ["So13UIDynamicItemP", "willMove"]
+- ["So13UIDynamicItemP", ""]
+- !private ["So18UIFocusEnvironmentP", "UIControlState"]
+- !private ["So18UIFocusEnvironmentP", "UIImage"]
+- !private ["So18UIFocusEnvironmentP", "asset"]
+- !private ["So18UIFocusEnvironmentP", "assetBundle"]
+- !private ["So18UIFocusEnvironmentP", "canPickAsset"]
+- !private ["So18UIFocusEnvironmentP", "config"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "isHidden"]
+- !private ["So18UIFocusEnvironmentP", "isSelected"]
+- !private ["So18UIFocusEnvironmentP", "nohanaImagePickerController"]
+- !private ["So18UIFocusEnvironmentP", "overlayView"]
+- !private ["So18UIFocusEnvironmentP", "pickButton"]
+- !private ["So18UIFocusEnvironmentP", "pickedAssetList"]
+- !private ["So18UIFocusEnvironmentP", "setImage"]
+- !private ["So18UIFocusEnvironmentP", "willMove"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So11UIFocusItemP", "UIControlState"]
+- !private ["So11UIFocusItemP", "UIImage"]
+- !private ["So11UIFocusItemP", "asset"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "isHidden"]
+- !private ["So11UIFocusItemP", "isSelected"]
+- !private ["So11UIFocusItemP", "nohanaImagePickerController"]
+- !private ["So11UIFocusItemP", "overlayView"]
+- !private ["So11UIFocusItemP", "pickButton"]
+- !private ["So11UIFocusItemP", "setImage"]
+- !private ["So11UIFocusItemP", "willMove"]
+- ["So11UIFocusItemP", ""]
+- !private ["So7UIImageC", "init"]
+- !private ["So39UIItemProviderPresentationSizeProvidingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIControlState"]
+- !private ["So30UIPasteConfigurationSupportingP", "UIImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "asset"]
+- !private ["So30UIPasteConfigurationSupportingP", "assetBundle"]
+- !private ["So30UIPasteConfigurationSupportingP", "canPickAsset"]
+- !private ["So30UIPasteConfigurationSupportingP", "config"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "isHidden"]
+- !private ["So30UIPasteConfigurationSupportingP", "isSelected"]
+- !private ["So30UIPasteConfigurationSupportingP", "nohanaImagePickerController"]
+- !private ["So30UIPasteConfigurationSupportingP", "overlayView"]
+- !private ["So30UIPasteConfigurationSupportingP", "pickButton"]
+- !private ["So30UIPasteConfigurationSupportingP", "pickedAssetList"]
+- !private ["So30UIPasteConfigurationSupportingP", "setImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "willMove"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- ["So11UIResponderC", "Asset"]
+- ["So11UIResponderC", "NohanaImagePickerController"]
+- ["So11UIResponderC", "UIButton"]
+- !private ["So11UIResponderC", "UIControlState"]
+- !private ["So11UIResponderC", "UIImage"]
+- ["So11UIResponderC", "UIImageView"]
+- ["So11UIResponderC", "UIView"]
+- ["So11UIResponderC", "asset"]
+- !private ["So11UIResponderC", "assetBundle"]
+- !private ["So11UIResponderC", "canPickAsset"]
+- !private ["So11UIResponderC", "config"]
+- ["So11UIResponderC", "didPushPickButton"]
+- ["So11UIResponderC", "imageView"]
+- ["So11UIResponderC", "init"]
+- !private ["So11UIResponderC", "isHidden"]
+- !private ["So11UIResponderC", "isSelected"]
+- ["So11UIResponderC", "nohanaImagePickerController"]
+- ["So11UIResponderC", "overlayView"]
+- ["So11UIResponderC", "pickButton"]
+- !private ["So11UIResponderC", "pickedAssetList"]
+- !private ["So11UIResponderC", "setImage"]
+- ["So11UIResponderC", "update"]
+- ["So11UIResponderC", "willMove"]
+- !private ["So30UIResponderStandardEditActionsP", "UIControlState"]
+- !private ["So30UIResponderStandardEditActionsP", "UIImage"]
+- !private ["So30UIResponderStandardEditActionsP", "asset"]
+- !private ["So30UIResponderStandardEditActionsP", "assetBundle"]
+- !private ["So30UIResponderStandardEditActionsP", "canPickAsset"]
+- !private ["So30UIResponderStandardEditActionsP", "config"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "isHidden"]
+- !private ["So30UIResponderStandardEditActionsP", "isSelected"]
+- !private ["So30UIResponderStandardEditActionsP", "nohanaImagePickerController"]
+- !private ["So30UIResponderStandardEditActionsP", "overlayView"]
+- !private ["So30UIResponderStandardEditActionsP", "pickButton"]
+- !private ["So30UIResponderStandardEditActionsP", "pickedAssetList"]
+- !private ["So30UIResponderStandardEditActionsP", "setImage"]
+- !private ["So30UIResponderStandardEditActionsP", "willMove"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So35UISpringLoadedInteractionSupportingP", "isHidden"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "isSelected"]
+- !private ["So35UISpringLoadedInteractionSupportingP", "setImage"]
+- !private ["So16UIStateRestoringP", "assetBundle"]
+- !private ["So16UIStateRestoringP", "canPickAsset"]
+- !private ["So16UIStateRestoringP", "config"]
+- !private ["So16UIStateRestoringP", "pickedAssetList"]
+- !private ["So18UITraitEnvironmentP", "UIControlState"]
+- !private ["So18UITraitEnvironmentP", "UIImage"]
+- !private ["So18UITraitEnvironmentP", "asset"]
+- !private ["So18UITraitEnvironmentP", "assetBundle"]
+- !private ["So18UITraitEnvironmentP", "canPickAsset"]
+- !private ["So18UITraitEnvironmentP", "config"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "isHidden"]
+- !private ["So18UITraitEnvironmentP", "isSelected"]
+- !private ["So18UITraitEnvironmentP", "nohanaImagePickerController"]
+- !private ["So18UITraitEnvironmentP", "overlayView"]
+- !private ["So18UITraitEnvironmentP", "pickButton"]
+- !private ["So18UITraitEnvironmentP", "pickedAssetList"]
+- !private ["So18UITraitEnvironmentP", "setImage"]
+- !private ["So18UITraitEnvironmentP", "willMove"]
+- ["So18UITraitEnvironmentP", ""]
+- ["So6UIViewC", "Asset"]
+- ["So6UIViewC", "NohanaImagePickerController"]
+- ["So6UIViewC", "UIButton"]
+- !private ["So6UIViewC", "UIControlState"]
+- !private ["So6UIViewC", "UIImage"]
+- ["So6UIViewC", "UIImageView"]
+- ["So6UIViewC", "UIView"]
+- ["So6UIViewC", "asset"]
+- ["So6UIViewC", "didPushPickButton"]
+- ["So6UIViewC", "imageView"]
+- ["So6UIViewC", "init"]
+- !private ["So6UIViewC", "isHidden"]
+- !private ["So6UIViewC", "isSelected"]
+- ["So6UIViewC", "nohanaImagePickerController"]
+- ["So6UIViewC", "overlayView"]
+- ["So6UIViewC", "pickButton"]
+- !private ["So6UIViewC", "setImage"]
+- ["So6UIViewC", "update"]
+- ["So6UIViewC", "willMove"]
+- !private ["So16UIViewControllerC", "assetBundle"]
+- !private ["So16UIViewControllerC", "canPickAsset"]
+- !private ["So16UIViewControllerC", "config"]
+- !private ["So16UIViewControllerC", "pickedAssetList"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIControlState"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "UIImage"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "asset"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "init"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isHidden"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "isSelected"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "nohanaImagePickerController"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "overlayView"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "pickButton"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "setImage"]
+- !private ["s37_DefaultCustomPlaygroundQuickLookableP", "willMove"]
+- ["s37_DefaultCustomPlaygroundQuickLookableP", ""]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s26_ExpressibleByImageLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s10_IndexableP", "drop"]
+- !private ["s10_IndexableP", "init"]
+- !private ["s10_IndexableP", "isPicked"]
+- !private ["s10_IndexableP", "pick"]
+- !private ["s14_IndexableBaseP", "drop"]
+- !private ["s14_IndexableBaseP", "init"]
+- !private ["s14_IndexableBaseP", "isPicked"]
+- !private ["s14_IndexableBaseP", "pick"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIControlState"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UIImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "asset"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "assetBundle"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "canPickAsset"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "config"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isHidden"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isSelected"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "nohanaImagePickerController"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "overlayView"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pickButton"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "pickedAssetList"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "setImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "willMove"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- "17NohanaImagePicker9AssetCellC"
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- "So15CALayerDelegateP"
+- "s7CVarArgP"
+- !private "s10CollectionP"
+- !private "s10ComparableP"
+- !private "17NohanaImagePicker0abC10ControllerC6ConfigV"
+- "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "s8HashableP"
+- !private "17NohanaImagePicker0abC10ControllerC6ConfigV0B0V"
+- !private "17NohanaImagePicker8ItemListP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So26NSExtensionRequestHandlingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "17NohanaImagePicker0abC10ControllerC"
+- !private "s9OptionSetP"
+- !private "17NohanaImagePicker15PickedAssetListC"
+- !private "s26RangeReplaceableCollectionP"
+- !private "s16RawRepresentableP"
+- !private "s8SequenceP"
+- !private "s10SetAlgebraP"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So48UIAccessibilityContentSizeCategoryImageAdjustingP"
+- "So29UIAccessibilityIdentificationP"
+- "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- !private "So8UIButtonC"
+- "So24UICollectionReusableViewC"
+- "So20UICollectionViewCellC"
+- !private "So18UIContentContainerP"
+- !private "So9UIControlC"
+- !private "SC14UIControlStateV"
+- "So17UICoordinateSpaceP"
+- "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- !private "So7UIImageC"
+- !private "So39UIItemProviderPresentationSizeProvidingP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- !private "So35UISpringLoadedInteractionSupportingP"
+- !private "So16UIStateRestoringP"
+- "So18UITraitEnvironmentP"
+- "So6UIViewC"
+- !private "So16UIViewControllerC"
+- !private "s23_BidirectionalIndexableP"
+- "s37_DefaultCustomPlaygroundQuickLookableP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s26_ExpressibleByImageLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s10_IndexableP"
+- !private "s14_IndexableBaseP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/NohanaImagePicker/NohanaImagePicker-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/NohanaImagePicker.build/unextended-module.modulemap"
+interface-hash: "a6dc4a80aa2d09654da6c6a981df354e"
