@@ -14,13 +14,6 @@
 import Foundation
 import UIKit
 
-struct QuizQuestion {
-    var question: String
-//    var imageName: String
-    var options = [String]()
-    var answer: String
-}
-
 class TakeQuizViewController:UIViewController {
     let titleEnd = " Quiz"
     let correctAnswerMessage = "Correct Answer!"
@@ -50,19 +43,19 @@ class TakeQuizViewController:UIViewController {
     
     let animalQuestions = ["What is the fastest land animal?", "What is the tallest animal?", "What is a group of lions called?", "How many legs does a spider have?", "Which of the following animals is a herbivore?"]
     
-    let animalOptions = [["Deer", "Cougar", "Cheetah", "Penguin"], ["Antelope", "Giraffe", "Horse", "Ostrich"], ["Pride", "Gang", "School", "Pack"], ["4", "6", "7", "8"], ["Bear", "Fox", "Frog", "Elephant"]]
+    let animalOptions = [Options(option1: "Deer", option2: "Cougar", option3: "Cheetah", option4: "Penguin"), Options(option1: "Antelope", option2: "Giraffe", option3: "Horse", option4: "Ostrich"), Options(option1: "Pride", option2: "Gang", option3: "School", option4: "Pack"), Options(option1: "4", option2: "6", option3: "7", option4: "8"), Options(option1: "Bear", option2: "Fox", option3: "Frog", option4: "Elephant")]
     
     let animalAnswers = ["Cheetah", "Giraffe", "Pride", "8", "Elephant"]
     
     let geographyQuestions = ["Which country has the highest population?", "What is the capital of Spain?", "In which city is the Eiffel Tower located?", "Which country is the largest by land area?", "What is the biggest continent on Earth?"]
     
-    let geographyOptions = [["India", "China", "United States of America", "Japan"], ["Madrid", "Seville", "Barcelona", "Valencia"], ["London", "Tokyo", "New York", "Paris"], ["Canada", "United States of America", "Russia", "China"], ["Africa", "Asia", "North America", "Antarctica"]]
+    let geographyOptions = [Options(option1: "India", option2: "China", option3: "United States of America", option4: "Japan"), Options(option1: "Madrid", option2: "Seville", option3: "Barcelona", option4: "Valencia"), Options(option1: "London", option2: "Tokyo", option3: "New York", option4: "Paris"), Options(option1: "Canada", option2: "United States of America", option3: "Russia", option4: "China"), Options(option1: "Africa", option2: "Asia", option3: "North America", option4: "Antarctica")]
     
     let geographyAnswers = ["China", "Madrid", "Paris", "Russia", "Aaia"]
     
     let famousPeopleQuestions = ["Who is the current president of the United States of America?", "Who invented the telephone?", "Which famous celebrity has the nickname 'The Rock'?", "Who discovered gravity?", "Who was the first person to walk on the moon?"]
     
-    let famousPeopleOptions = [["Barack Obama", "Donald Trump", "Bill Clinton", "George W. Bush"], ["Nikola Tesla", "Thomas Edison", "Alenxander Graham Bell", "Alan Turing"], ["Dwayne Johnson", "Jason Statham", "Vin Diesel", "Matt Damon"], ["Albert Einstein", "Isaac Newton", "Neils Bohr", "Charles Darwin"], ["Buzz Aldrin", "Charles Conrad", "Alan Shepard", "Neil Armstrong"]]
+    let famousPeopleOptions = [Options(option1: "Barack Obama", option2: "Donald Trump", option3: "Bill Clinton", option4: "George W. Bush"), Options(option1: "Nikola Tesla", option2: "Thomas Edison", option3: "Alenxander Graham Bell", option4: "Alan Turing"), Options(option1: "Dwayne Johnson", option2: "Jason Statham", option3: "Vin Diesel", option4: "Matt Damon"), Options(option1: "Albert Einstein", option2: "Isaac Newton", option3: "Neils Bohr", option4: "Charles Darwin"), Options(option1: "Buzz Aldrin", option2: "Charles Conrad", option3: "Alan Shepard", option4: "Neil Armstrong")]
     
     let famousPeopleAnswers = ["Donald Trump", "Alenxander Graham Bell", "Dwayne Johnson", "Isaac Newton", "Neil Armstrong"]
     
@@ -80,15 +73,15 @@ class TakeQuizViewController:UIViewController {
     func makeQuiz() {
         if quizName == "Animals" {
             for i in 0...4 {
-                quiz.append(QuizQuestion(question: animalQuestions[i], options: animalOptions[i], answer: animalAnswers[i]))
+                quiz.append(QuizQuestion(question: animalQuestions[i], imageName: "", options: animalOptions[i], answer: animalAnswers[i]))
             }
         } else if quizName == "Geography" {
             for i in 0...4 {
-                quiz.append(QuizQuestion(question: geographyQuestions[i], options: geographyOptions[i], answer: geographyAnswers[i]))
+                quiz.append(QuizQuestion(question: geographyQuestions[i], imageName: "", options: geographyOptions[i], answer: geographyAnswers[i]))
             }
         } else if quizName == "Famous People"{
             for i in 0...4 {
-                quiz.append(QuizQuestion(question: famousPeopleQuestions[i], options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
+                quiz.append(QuizQuestion(question: famousPeopleQuestions[i], imageName: "", options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
             }
         }
     }
@@ -156,10 +149,10 @@ class TakeQuizViewController:UIViewController {
         unansweredState()
         questionNum = questionNum + 1
         questionLabel.text = quiz[questionNum].question
-        option1Button.setTitle(quiz[questionNum].options[0], for: UIControlState.normal)
-        option2Button.setTitle(quiz[questionNum].options[1], for: UIControlState.normal)
-        option3Button.setTitle(quiz[questionNum].options[2], for: UIControlState.normal)
-        option4Button.setTitle(quiz[questionNum].options[3], for: UIControlState.normal)
+        option1Button.setTitle(quiz[questionNum].options.option1, for: UIControlState.normal)
+        option2Button.setTitle(quiz[questionNum].options.option2, for: UIControlState.normal)
+        option3Button.setTitle(quiz[questionNum].options.option3, for: UIControlState.normal)
+        option4Button.setTitle(quiz[questionNum].options.option4, for: UIControlState.normal)
         
         correctAnswer = quiz[questionNum].answer
     }

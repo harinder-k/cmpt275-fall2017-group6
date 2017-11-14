@@ -501,68 +501,85 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select a topic to begin a quiz." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-jG-Hbz">
-                                <rect key="frame" x="244.5" y="360" width="279" height="21"/>
+                                <rect key="frame" x="245" y="104" width="279" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-qv-3Vv">
+                                <rect key="frame" x="20" y="160" width="728" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="General"/>
+                                    <segment title="Personal"/>
+                                </segments>
+                                <connections>
+                                    <action selector="quizTypeValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="frq-Hy-luC"/>
+                                </connections>
+                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJr-Yh-5dW">
-                                <rect key="frame" x="310" y="496" width="148" height="32"/>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.396078431372549" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="310" y="401" width="148" height="50"/>
+                                <color key="backgroundColor" red="0.31379348039627075" green="0.39459976553916931" blue="0.63105958700180054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="3ls-tO-3ax"/>
-                                    <constraint firstAttribute="width" constant="148" id="bUX-NY-6F9"/>
+                                    <constraint firstAttribute="height" constant="50" id="WE3-th-JAz"/>
+                                    <constraint firstAttribute="width" constant="148" id="YmK-oo-xGa"/>
                                 </constraints>
                                 <state key="normal" title="Animals">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="animalsButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="hC9-ft-UNf"/>
+                                    <action selector="firstQuizButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="I6f-cs-2VA"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RP3-gM-4Oq">
-                                <rect key="frame" x="310" y="547" width="148" height="32"/>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.396078431372549" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="310" y="472" width="148" height="50"/>
+                                <color key="backgroundColor" red="0.31379348039627075" green="0.39459976553916931" blue="0.63105958700180054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="2qD-l4-cFc"/>
-                                    <constraint firstAttribute="width" constant="148" id="sFd-bN-XAk"/>
+                                    <constraint firstAttribute="width" constant="148" id="FcN-Iu-cMM"/>
+                                    <constraint firstAttribute="height" constant="50" id="uLI-ZD-Wga"/>
                                 </constraints>
                                 <state key="normal" title="Geography">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="geographyButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="7DW-LY-c9X"/>
+                                    <action selector="secondQuizButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Cic-OI-ip4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4z-n3-mSa">
-                                <rect key="frame" x="310" y="598" width="148" height="32"/>
-                                <color key="backgroundColor" red="0.31374776363372803" green="0.3946269154548645" blue="0.99952179193496704" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="310" y="541" width="148" height="50"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.3946269154548645" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="148" id="JjN-7G-OQX"/>
-                                    <constraint firstAttribute="height" constant="32" id="XgF-au-ZRL"/>
+                                    <constraint firstAttribute="width" constant="148" id="ggv-4F-nHs"/>
+                                    <constraint firstAttribute="height" constant="50" id="v4e-F9-1he"/>
                                 </constraints>
                                 <state key="normal" title="Famous People">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="famousPeopleButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="N9X-e1-bKq"/>
+                                    <action selector="thirdQuizButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0Xp-fG-N08"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="EFi-0R-LS7"/>
-                            <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="51" id="Mni-4Y-RrC"/>
+                            <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Fed-Y6-nGu"/>
                             <constraint firstItem="Ncf-jG-Hbz" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="VTe-BB-bDI"/>
-                            <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="a7p-In-v59"/>
-                            <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="g2n-im-qXS"/>
-                            <constraint firstItem="M4z-n3-mSa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="kWg-KX-xwp"/>
-                            <constraint firstItem="Ncf-jG-Hbz" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-141.5" id="lMb-S3-J3M"/>
-                            <constraint firstItem="M4z-n3-mSa" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="102" id="qEd-sc-fHf"/>
+                            <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-15" id="W73-mS-69f"/>
+                            <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="bei-Pb-8FZ"/>
+                            <constraint firstItem="Ncf-jG-Hbz" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-397.5" id="lMb-S3-J3M"/>
+                            <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-86" id="qgf-8x-swr"/>
+                            <constraint firstItem="M4z-n3-mSa" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="54" id="rz0-GY-VVg"/>
+                            <constraint firstItem="M4z-n3-mSa" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="t40-IO-Wu4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quizzes" id="CQZ-oZ-OC9" userLabel="Quizzes"/>
+                    <connections>
+                        <outlet property="firstQuizButton" destination="ZJr-Yh-5dW" id="peM-4u-iCs"/>
+                        <outlet property="quizTypeSegmentedControl" destination="i3r-qv-3Vv" id="kl6-Il-gPl"/>
+                        <outlet property="secondQuizButton" destination="RP3-gM-4Oq" id="q0w-Yp-caC"/>
+                        <outlet property="thirdQuizButton" destination="M4z-n3-mSa" id="AZj-bU-foD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -644,15 +661,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21J-fQ-2D0" userLabel="Next Button">
-                                <rect key="frame" x="293.5" y="789" width="181" height="40"/>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.396078431372549" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="293.5" y="784" width="181" height="50"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.396078431372549" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="181" id="Qdx-PI-WMS"/>
-                                    <constraint firstAttribute="height" constant="40" id="XTd-sG-8nN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="mMO-bO-5WS"/>
                                 </constraints>
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextButtonTapped:" destination="cLw-iG-oJm" eventType="touchUpInside" id="Pze-Rc-LRf"/>
                                 </connections>

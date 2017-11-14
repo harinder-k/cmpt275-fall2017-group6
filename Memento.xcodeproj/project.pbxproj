@@ -18,6 +18,7 @@
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
 		3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */; };
 		4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */; };
+		F46D656B1FBB7E8900BA56CD /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */; };
 		F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */; };
 		F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */; };
 		F4B94FF31FA8004F00B6CB77 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */; };
@@ -70,6 +71,7 @@
 		CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
 		F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
+		F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
 		F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
 		F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesNavigationController.swift; sourceTree = "<group>"; };
 		F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */,
 				F4B94FF21FA8004F00B6CB77 /* AddMemoryViewController.swift */,
 				F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */,
+				F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */,
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */,
 				F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */,
 				F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */,
+				F46D656B1FBB7E8900BA56CD /* QuizQuestion.swift in Sources */,
 				F56ACEC81FB0F7080089C53F /* MemoriesCollectionViewCell.swift in Sources */,
 				F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */,
 			);
