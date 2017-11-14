@@ -9,8 +9,23 @@
 import Foundation
 import UIKit
 
-class EditStoryViewController:UIViewController {
+class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    @IBOutlet weak var timeLineView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //nothing has been done yet
+        var memory: UICollectionViewCell = UICollectionViewCell()
+        
+        return memory
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //nothing has been done yet
+        return 5
+    }
+    
 }
