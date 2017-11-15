@@ -506,17 +506,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-qv-3Vv">
-                                <rect key="frame" x="20" y="160" width="728" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="General"/>
-                                    <segment title="Personal"/>
-                                </segments>
-                                <connections>
-                                    <action selector="quizTypeValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="frq-Hy-luC"/>
-                                </connections>
-                            </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJr-Yh-5dW">
                                 <rect key="frame" x="310" y="401" width="148" height="50"/>
                                 <color key="backgroundColor" red="0.31379348039627075" green="0.39459976553916931" blue="0.63105958700180054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -559,13 +548,36 @@
                                     <action selector="thirdQuizButtonTapped:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="0Xp-fG-N08"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="i3r-qv-3Vv">
+                                <rect key="frame" x="20" y="149" width="728" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B0Z-mC-FsD"/>
+                                    <constraint firstAttribute="width" constant="728" id="SyT-ZT-aov"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="General"/>
+                                    <segment title="Personal"/>
+                                </segments>
+                                <color key="tintColor" red="0.31372549019607843" green="0.39459976553916931" blue="0.63105958700180054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cormerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="quizTypeValueChanged:" destination="8rJ-Kc-sve" eventType="valueChanged" id="frq-Hy-luC"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="Fed-Y6-nGu"/>
+                            <constraint firstItem="i3r-qv-3Vv" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-338" id="RJk-ga-Ggl"/>
                             <constraint firstItem="Ncf-jG-Hbz" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="VTe-BB-bDI"/>
                             <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-15" id="W73-mS-69f"/>
                             <constraint firstItem="RP3-gM-4Oq" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="bei-Pb-8FZ"/>
+                            <constraint firstItem="i3r-qv-3Vv" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="gGV-WV-BrE"/>
                             <constraint firstItem="Ncf-jG-Hbz" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-397.5" id="lMb-S3-J3M"/>
                             <constraint firstItem="ZJr-Yh-5dW" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="-86" id="qgf-8x-swr"/>
                             <constraint firstItem="M4z-n3-mSa" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" constant="54" id="rz0-GY-VVg"/>

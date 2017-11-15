@@ -13,7 +13,7 @@ import UIKit
 
 class QuizzesViewController:UIViewController {
     
-    var quizTypeSelected = 0                                                            // 0 denotes general quizzes and 1 denotes personal quizzes
+    var personalQuizTypeSelected = false                                                                                                   // 0 denotes general quizzes and 1 denotes personal quizzes
     
     @IBOutlet weak var quizTypeSegmentedControl: UISegmentedControl!
     
@@ -29,7 +29,7 @@ class QuizzesViewController:UIViewController {
     }
     
     func changeQuizType() {
-        if quizTypeSelected == 0 {
+        if !personalQuizTypeSelected {
             firstQuizButton.setTitle(generalQuizTypes[0], for: UIControlState.normal)
             secondQuizButton.setTitle(generalQuizTypes[1], for: UIControlState.normal)
             thirdQuizButton.setTitle(generalQuizTypes[2], for: UIControlState.normal)
@@ -41,7 +41,7 @@ class QuizzesViewController:UIViewController {
     }
     
     @IBAction func quizTypeValueChanged(_ sender: Any) {
-        quizTypeSelected = quizTypeSegmentedControl.selectedSegmentIndex
+        personalQuizTypeSelected = (quizTypeSegmentedControl.selectedSegmentIndex == 1)
         changeQuizType()
     }
     
@@ -50,6 +50,7 @@ class QuizzesViewController:UIViewController {
     @IBAction func firstQuizButtonTapped(_ sender: Any) {
         let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
         takeQuizVC.quizName = (firstQuizButton.titleLabel?.text)!
+        takeQuizVC.personalQuizSelected = personalQuizTypeSelected
         navigationController?.pushViewController(takeQuizVC, animated: true)
     }
     
@@ -58,6 +59,7 @@ class QuizzesViewController:UIViewController {
     @IBAction func secondQuizButtonTapped(_ sender: Any) {
         let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
         takeQuizVC.quizName = (secondQuizButton.titleLabel?.text)!
+        takeQuizVC.personalQuizSelected = personalQuizTypeSelected
         navigationController?.pushViewController(takeQuizVC, animated: true)
     }
     
@@ -66,6 +68,7 @@ class QuizzesViewController:UIViewController {
     @IBAction func thirdQuizButtonTapped(_ sender: Any) {
         let takeQuizVC = storyboard?.instantiateViewController(withIdentifier: "TakeQuizViewController") as! TakeQuizViewController
         takeQuizVC.quizName = (thirdQuizButton.titleLabel?.text)!
+        takeQuizVC.personalQuizSelected = personalQuizTypeSelected
         navigationController?.pushViewController(takeQuizVC, animated: true)
     }
 }

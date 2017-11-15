@@ -8,17 +8,19 @@
 //1.1 - Mapped buttons to functions and implemented basic quiz
 //1.2 - Implemented quiz
 //TODO: Move to json
-//Known bugs:
+//Known bugs: Crashes when askQuestions() is called with personal quizzes
 
 
 import Foundation
 import UIKit
+import Firebase
 
 class TakeQuizViewController:UIViewController {
     let titleEnd = " Quiz"
+    var personalQuizSelected = false
     let correctAnswerMessage = "Correct Answer!"
     let wrongAnswerMessage = "Wrong Answer"
-    let numberOfQuestions = 5
+    var numberOfQuestions = 5
     
     var correctAnswer = ""
     
@@ -63,26 +65,58 @@ class TakeQuizViewController:UIViewController {
         super.viewDidLoad()
         title = quizName + titleEnd
         
-        makeQuiz()
+        if personalQuizSelected {
+            makePersonalQuiz()
+        } else {
+            makeGeneralQuiz()
+        }
 //        extractFromJson()
         askQuestion()
     }
     
-    // Precondition:    Quiz content is available
+    // Precondition:    Personal quiz content is avvilable
     // Postcondition:   Quiz content is arranged into array of structs
-    func makeQuiz() {
-        if quizName == "Animals" {
-            for i in 0...4 {
+    func makePersonalQuiz() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let quizSnapshot = snapshot.childSnapshot(forPath: "quizzes")
+            let value = quizSnapshot.value as? NSDictionary
+            let quiz = value?["people"] as? NSDictionary
+            print(quiz)
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let username = value?["username"] as? String ?? ""
+//            let user = User()
+//            let quiz = user.quizzes as [QuizQuestion]
+            
+            // ...
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    // Precondition:    General quiz content is available
+    // Postcondition:   Quiz content is arranged into array of structs
+    func makeGeneralQuiz() {
+        switch (quizName) {
+            case "Animals":
+                for i in 0...(numberOfQuestions - 1) {
                 quiz.append(QuizQuestion(question: animalQuestions[i], imageName: "", options: animalOptions[i], answer: animalAnswers[i]))
             }
-        } else if quizName == "Geography" {
-            for i in 0...4 {
+            case "Geography":
+                for i in 0...(numberOfQuestions - 1) {
                 quiz.append(QuizQuestion(question: geographyQuestions[i], imageName: "", options: geographyOptions[i], answer: geographyAnswers[i]))
             }
-        } else if quizName == "Famous People"{
-            for i in 0...4 {
+            case "Famous People":
+                for i in 0...(numberOfQuestions - 1)  {
                 quiz.append(QuizQuestion(question: famousPeopleQuestions[i], imageName: "", options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
             }
+            default:
+            break
         }
     }
     
