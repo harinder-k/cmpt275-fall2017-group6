@@ -8,7 +8,7 @@
 //1.1 - Mapped buttons to functions and implemented basic quiz
 //1.2 - Implemented quiz
 //TODO: Move to json
-//Known bugs: Crashes when askQuestions() is called with personal quizzes
+//Known bugs: Crashes with personal quizzes
 
 
 import Foundation
@@ -82,21 +82,23 @@ class TakeQuizViewController:UIViewController {
         
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            // Get user value
             let quizSnapshot = snapshot.childSnapshot(forPath: "quizzes")
             let value = quizSnapshot.value as? NSDictionary
-            let quiz = value?["people"] as? NSDictionary
-            print(quiz)
-//            // Get user value
-//            let value = snapshot.value as? NSDictionary
-//            let username = value?["username"] as? String ?? ""
-//            let user = User()
-//            let quiz = user.quizzes as [QuizQuestion]
+            let personalQuiz = value?["people"] as? NSDictionary
+            //self.numberOfQuestions = (personalQuiz?.count)!
+            self.numberOfQuestions = 1
             
-            // ...
+            //for i in 0...((personalQuiz?.count)! - 1) {
+            for i in 0...(0) {
+                let questionAtIndex = personalQuiz!["\(i+1)"] as! [String:Any]
+                let optionsArray = questionAtIndex["options"] as! [String]
+                let optionsAtIndex = Options(option1: optionsArray[0], option2: optionsArray[1], option3: optionsArray[2], option4: optionsArray[3])
+                self.quiz.append(QuizQuestion(question: questionAtIndex["question"] as! String, imageName: questionAtIndex["imageName"] as! String, options: optionsAtIndex, answer: questionAtIndex["answer"] as! String))
+            }
         }) { (error) in
             print(error.localizedDescription)
         }
+        print(quiz)
     }
     
     // Precondition:    General quiz content is available

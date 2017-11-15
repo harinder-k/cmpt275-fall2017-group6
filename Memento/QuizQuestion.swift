@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct Options: Codable {
+struct Options {
     var option1: String
     var option2: String
     var option3: String
     var option4: String
 }
 
-struct QuizQuestion: Codable {
+struct QuizQuestion {
     var question: String
     var imageName: String
     var options: Options
