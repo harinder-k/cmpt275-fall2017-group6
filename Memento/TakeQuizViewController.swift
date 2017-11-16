@@ -71,7 +71,7 @@ class TakeQuizViewController:UIViewController {
             makeGeneralQuiz()
         }
 //        extractFromJson()
-        askQuestion()
+        //askQuestion()
     }
     
     // Precondition:    Personal quiz content is avvilable
@@ -82,23 +82,29 @@ class TakeQuizViewController:UIViewController {
         
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
-            let quizSnapshot = snapshot.childSnapshot(forPath: "quizzes")
-            let value = quizSnapshot.value as? NSDictionary
-            let personalQuiz = value?["people"] as? NSDictionary
-            //self.numberOfQuestions = (personalQuiz?.count)!
-            self.numberOfQuestions = 1
+            let quizzesSnapshot = snapshot.childSnapshot(forPath: "quizzes")
+            let peopleQuizSnapshot = quizzesSnapshot.childSnapshot(forPath: "people")
             
-            //for i in 0...((personalQuiz?.count)! - 1) {
-            for i in 0...(0) {
-                let questionAtIndex = personalQuiz!["\(i+1)"] as! [String:Any]
-                let optionsArray = questionAtIndex["options"] as! [String]
-                let optionsAtIndex = Options(option1: optionsArray[0], option2: optionsArray[1], option3: optionsArray[2], option4: optionsArray[3])
-                self.quiz.append(QuizQuestion(question: questionAtIndex["question"] as! String, imageName: questionAtIndex["imageName"] as! String, options: optionsAtIndex, answer: questionAtIndex["answer"] as! String))
+            print("\(peopleQuizSnapshot.value)")
+            var personalQuizQuestion = [PersonalQuizQuestion]()
+            for i in 0...1 {
+                let questionIndex = "\(i+1)"
+                let questionSnapshot = peopleQuizSnapshot.childSnapshot(forPath: questionIndex) as DataSnapshot
+                let questionValue = quizzesSnapshot.value as! [String:Any]
+                quizzesSnapshot.value(forKeyPath: "questions")
+                personalQuizQuestion.append(PersonalQuizQuestion(question: quizzesSnapshot.value(forKeyPath: "questions") as! String, imageName: quizzesSnapshot.value(forKeyPath: "imageName") as! String, option1: quizzesSnapshot.value(forKeyPath: "option1") as! String, option2: quizzesSnapshot.value(forKeyPath: "option2") as! String, option3: quizzesSnapshot.value(forKeyPath: "option3") as! String, option4: quizzesSnapshot.value(forKeyPath: "option4") as! String, answer: quizzesSnapshot.value(forKeyPath: "answer") as! String))
+//                personalQuizQuestion.append(PersonalQuizQuestion(question: questionValue["question"] as! String, imageName: questionValue["imageName"] as! String, option1: questionValue["option1"] as! String, option2: questionValue["option2"] as! String, option3: questionValue["option3"] as! String, option4: questionValue["option4"] as! String, answer: questionValue["answer"] as! String))
+                print(personalQuizQuestion[i])
             }
+            
+            
+//            let peopleDict = peopleQuizSnapshot.value as! [String:AnyObject]
+//            let q1 = peopleDict["1"]!
+//            let question = q1["question"]
+//            print(question)
         }) { (error) in
             print(error.localizedDescription)
         }
-        print(quiz)
     }
     
     // Precondition:    General quiz content is available
