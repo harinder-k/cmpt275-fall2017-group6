@@ -13,6 +13,7 @@ class MemoryCell: UICollectionViewCell {
         setupViews()
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
