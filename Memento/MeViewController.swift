@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import Firebase
 
-class MeViewController:UIViewController {
+class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var email = ""
     var name = ""
     var DOB = ""
@@ -19,15 +19,20 @@ class MeViewController:UIViewController {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var ageField: UITextField!
+    @IBOutlet weak var profileImage: UIImageView!
     
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFromDatabase()
         print(name)
+        
+        imagePicker.delegate = self
     }
     
-    func fetchFromDatabase(){
+    
+    func fetchFromDatabase(){      //Fetch the information from the firebase database
         let uid = Auth.auth().currentUser?.uid
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -41,12 +46,31 @@ class MeViewController:UIViewController {
         }, withCancel: nil)
     }
     
-    func putItOnProfile(){
+    func putItOnProfile(){   //Display all the information on the me tab
         nameField.text = name
         emailField.text = email
         ageField.text = DOB
     }
     
+    @IBAction func addProfilePicTapped(_ sender: Any) {
+        imagePicker.allowsEditing = false;
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImage.contentMode = .scaleAspectFit
+            profileImage.image = pickedImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 
