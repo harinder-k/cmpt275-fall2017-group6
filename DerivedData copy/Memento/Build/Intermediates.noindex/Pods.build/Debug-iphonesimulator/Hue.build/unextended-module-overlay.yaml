@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Products/Debug-iphonesimulator/Hue/Hue.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/Hue.build/unextended-module.modulemap',
+    }]
+  }]
+}

@@ -1,0 +1,6 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "be78d4c141a141ee18a5d8030c804b5b"
+build_time: [1510390858, 337056000]
+inputs:
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Hue/Source/iOS/UIColor+Hue.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Hue/Source/iOS/UIImage+Hue.swift": [1510352485, 0]

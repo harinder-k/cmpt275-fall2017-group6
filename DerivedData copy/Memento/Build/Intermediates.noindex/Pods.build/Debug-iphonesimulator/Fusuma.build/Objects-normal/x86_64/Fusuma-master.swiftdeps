@@ -1,0 +1,11 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "d3bc1196671e525965c34fb35e0d5f44"
+build_time: [1510350774, 547754000]
+inputs:
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSAlbumView.swift": !dirty [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSAlbumViewCell.swift": [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSCameraView.swift": !dirty [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSConstants.swift": [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSImageCropView.swift": [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FSVideoCameraView.swift": !dirty [1510350173, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Fusuma/Sources/FusumaViewController.swift": [1510350173, 0]
