@@ -9,14 +9,25 @@
 import UIKit
 
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
     @IBOutlet weak var timeLineView: UICollectionView!
+    @IBOutlet weak var testTextField: UITextField!
+    
     let reuseIdentifier = "cell"
+    var timelineData: [MemoryData] = []
+    var chatchMemData: MemoryData = MemoryData()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     // @Tim: Update collectionView + Memory array inside this function
     @IBAction func AddMemoryButtonPressed(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "segAddMem", sender: self)
+        
+        /*
         // Need this to get memory back from MemoryViewController
         let memoryViewController = storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
         
@@ -27,13 +38,15 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
             return newMemory.photos.count
         }
         navigationController?.pushViewController(memoryViewController, animated: true)
+        */
     }
     
     //Requried fuction for a UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //nothing has been done yet
+        let memoryCell = UICollectionViewCell()
         //var memory: UICollectionViewCell = UICollectionViewCell()
-        let memoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewMemoryCell
+        //let memoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewMemoryCell
         
         //memoryCell.image = 
         
@@ -54,48 +67,16 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     
 }
 
-//Memory Cell Class
-class MyCollectionViewMemoryCell: UICollectionViewCell {
+//Variable for each memory in the timeline
+class MemoryData {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+    var images: [UIImage] = []
+    var memTitle: String
+    var addedText: String
+    
+    init() {
+        memTitle = "My day"
+        addedText = "I had lots of fun!"
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    var image: UIImage? {
-        didSet {
-            if let newImage = image {
-                thumbnailImageView.image = newImage
-            }
-        }
-    }
-    
-    let thumbnailImageView : UIImageView = {
-        let imageView = UIImageView()
-        imageView.backgroundColor = UIColor.white
-        imageView.layer.cornerRadius = 10
-        imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "add_photo")
-        /*
-         images source : https://www.iconfinder.com/icons/213524/add_image_new_photo_photograph_photography_picture_icon
-         */
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    func setupViews() {
-        self.addSubview(thumbnailImageView)
-        let hConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView])
-        let vConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView])
-        
-        NSLayoutConstraint.activate(hConstraint)
-        NSLayoutConstraint.activate(vConstraint)
-    }
-    
     
 }

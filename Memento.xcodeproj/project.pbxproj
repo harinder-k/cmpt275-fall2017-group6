@@ -19,7 +19,6 @@
 		0D9CDFB81FB653D100DDFB2A /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9CDFB91FB653D100DDFB2A /* ImagePicker.framework */; };
 		0DA261B31FB65D960031D3A8 /* NohanaImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA261B41FB65D960031D3A8 /* NohanaImagePicker.framework */; };
 		38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122C1FA2AA2F00343723 /* AppDelegate.swift */; };
-		38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; };
 		38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12351FA2AA2F00343723 /* Assets.xcassets */; };
 		38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */; };
 		38EA12441FA2AA2F00343723 /* MementoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12431FA2AA2F00343723 /* MementoTests.swift */; };
@@ -33,6 +32,7 @@
 		F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */; };
 		F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */; };
 		F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F0D0711FA3BCA700C2844C /* MeViewController.swift */; };
+		F5285D7D1FBF6AA600AB8D47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; settings = {ASSET_TAGS = (segAddMem, ); }; };
 		F56ACEC81FB0F7080089C53F /* MemoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F56ACEC71FB0F7080089C53F /* MemoriesCollectionViewCell.swift */; };
 		FBA1EAD21FAC03CC00BB5883 /* Quiz in Resources */ = {isa = PBXBuildFile; fileRef = FBA1EAD11FAC03CB00BB5883 /* Quiz */; };
 /* End PBXBuildFile section */
@@ -312,6 +312,9 @@
 		38EA12211FA2AA2F00343723 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					segAddMem,
+				);
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = memTech;
@@ -358,10 +361,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBA1EAD21FAC03CC00BB5883 /* Quiz in Resources */,
+				F5285D7D1FBF6AA600AB8D47 /* Main.storyboard in Resources */,
 				38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */,
 				0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */,
 				38EA12361FA2AA2F00343723 /* Assets.xcassets in Resources */,
-				38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
