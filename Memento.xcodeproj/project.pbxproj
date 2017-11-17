@@ -18,6 +18,7 @@
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
 		3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */; };
 		4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */; };
+		EB85C0E41FBE8AD200EF2DB2 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85C0E31FBE8AD200EF2DB2 /* DescriptionView.swift */; };
 		EBBC29A51FB113340052FB5C /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC29A41FB113340052FB5C /* Classes.swift */; };
 		F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */; };
 		F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */; };
@@ -70,6 +71,7 @@
 		B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
+		EB85C0E31FBE8AD200EF2DB2 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		EBBC29A41FB113340052FB5C /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
 		F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */,
 				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
 				F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */,
+				EB85C0E31FBE8AD200EF2DB2 /* DescriptionView.swift */,
 				0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */,
 				F56ACEC71FB0F7080089C53F /* MemoriesCollectionViewCell.swift */,
 				F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */,
@@ -457,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
+				EB85C0E41FBE8AD200EF2DB2 /* DescriptionView.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
 				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
 				EBBC29A51FB113340052FB5C /* Classes.swift in Sources */,
@@ -636,7 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XM6475YHW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Memento/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -653,7 +657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XM6475YHW9;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Memento/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

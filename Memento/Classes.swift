@@ -58,6 +58,7 @@ class Memory{
     func setLatestMoment(pic: UIImage){
         self.Moments[self.getSize()-1].setPic(pic: pic)
     }
+    
 }
 
 class Moment{
@@ -66,12 +67,14 @@ class Moment{
     var location : String
     var date : [Int] = []
     var position : Int
+
     
     init(){
         self.picture = UIImage(named: "plus")!
         self.date = [0,0,0]
         self.position = 0
         self.location = ""
+
     }
     
     func setLoc(loc: String){
@@ -98,4 +101,5 @@ class Moment{
     func getLoc()->String{
         return self.location
     }
+ 
 }

@@ -10,19 +10,13 @@ import UIKit
 
 class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
     
-    /*struct Memory{
-        
-        var memDate : String
-        var memLoc : String
-        var memImage : UIImage
-    }*/
-    
-    //var memArray: [Memory] = []
-    
     var MemList = Memory()
     var tempMom = Moment()
+    var selectedCell = -1
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var delete: UIBarButtonItem!
+    var lastpress = false
     
     var numCell = 0
     
@@ -31,11 +25,20 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
         
         /*memArray.append(Memory(memDate: "Date", memLoc: "Location", memImage: UIImage(named: "plus")!))
         */
+        
+     
+        self.delete?.isEnabled = false
         self.tempMom.setPic(pic: UIImage(named: "plus")!)
         self.MemList.addMoment(newMom: tempMom)
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        var layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsetsMake(0, 5, 0, 5)
+        layout.minimumInteritemSpacing = 5
+        layout.itemSize = CGSize(width: (self.collectionView.frame.size.width - 20)/3, height: (self.collectionView.frame.size.height/3))
+        
         // Do any additional setup after loading the view.
     }
     
@@ -52,41 +55,45 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memCell", for: indexPath) as! MemoriesCollectionViewCell
         print(indexPath.description)
-        /*cell.date.text = memArray[indexPath.item].memDate
-        cell.location.text = memArray[indexPath.item].memLoc
-        cell.image.image = memArray[indexPath.item].memImage
-        */
         
-        cell.date.text = "n/a"
-        cell.location.text = "n/a"
         cell.image.image = self.MemList.Moments[indexPath.item].getPic()
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 0.5
         
-        cell.button.tag = indexPath.item
-        if (cell.button.tag + 1 == self.MemList.getSize()){
-            
-            cell.button.setTitle("Add Image", for: .normal)
-            cell.button.removeTarget(nil, action:nil, for: .allEvents)
-            cell.button.addTarget(self, action: #selector(importImage), for: .touchUpInside)
-        }
-        else{
-            cell.button.removeTarget(nil, action:nil, for: .allEvents)
-            cell.button.setTitle("Delete memory", for: .normal)
-            cell.button.addTarget(self, action: #selector(deleteImage), for: .touchUpInside)
-        }
         
         return cell
     }
+
     
-    @objc func deleteImage(sender: UIButton){
-      
-        // numCell = numCell - 1
-        //memArray.remove(at: sender.tag)
-        self.MemList.remMoment(index: sender.tag)
-        collectionView.reloadData()
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
         
+        if(indexPath.item + 1 == self.MemList.getSize()){
+            self.importImage()
+        }
+        else{
+            self.delete?.isEnabled = true
+            selectedCell = indexPath.item
+            cell?.layer.borderColor = UIColor.black.cgColor
+            cell?.layer.borderWidth = 5
+        }
+            
     }
     
-    @objc func importImage(sender: UIButton){
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        cell?.layer.borderColor = UIColor.lightGray.cgColor
+        cell?.layer.borderWidth = 2
+    }
+    
+    
+    
+    @IBAction func deleteImages(_ sender: Any) {
+       performSegue(withIdentifier: "next", sender: self)
+    }
+    
+    func importImage(){
         let imagePickerController = UIImagePickerController()
         
         imagePickerController.sourceType = .photoLibrary
@@ -117,6 +124,10 @@ class AddMemoryViewController: UIViewController, UICollectionViewDelegate, UICol
         collectionView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var editPage = segue.destination as! DescriptionView
+        editPage.momentToEdit = self.MemList.Moments[selectedCell]
+    }
     
     /*
      // MARK: - Navigation

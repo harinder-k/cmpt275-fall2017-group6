@@ -10,8 +10,10 @@ import UIKit
 
 class MemoriesCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var date: UILabel!
+    //@IBOutlet weak var location: UILabel!
+   // @IBOutlet weak var date: UILabel!
+    //@IBOutlet weak var image: UIImageView!
+    //@IBOutlet weak var button: UIButton!
     @IBOutlet weak var image: UIImageView!
-    @IBOutlet weak var button: UIButton!
+    
 }
