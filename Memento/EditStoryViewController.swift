@@ -6,7 +6,6 @@
 //  Copyright © 2017 memTech. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -15,6 +14,19 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    // @Tim: Update collectionView + Memory array inside this function
+    @IBAction func AddMemoryButtonPressed(_ sender: Any) {
+        // Need this to get memory back from MemoryViewController
+        let memoryViewController = storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
+        
+        memoryViewController.completionHandler = { newMemory in
+            
+            print("name = \(newMemory.name)")
+            print("photos = \(newMemory.photos.count)")
+            return newMemory.photos.count
+        }
+        navigationController?.pushViewController(memoryViewController, animated: true)
     }
     
     //Requried fuction for a UICollectionViewDelegate

@@ -17,6 +17,9 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ------------------------ Class Variables -------------------------- //
     // ------------------------------------------------------------------- //
     var memoryImages: [MemoryImage] = []
+    // Closure property to pass data to EditStoryViewController
+    // This means the closure has one parameter of type Memory and returns one value of type Int
+    var completionHandler:((Memory) -> Int)?
     
     
     override func viewDidLoad() {
@@ -33,9 +36,6 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupTitleTopSeperatorView()
         setupTitleBottomSeperatorView()
         
-        //memoryImages.append(Memory(memDate: "Date", memLoc: "Location", memImage: UIImage(named: "plus")!))
-        
-        // Do any additional setup after loading the view.
     }
     // ------------------------------------------------------------------- //
     // ----------------- Image Picker Delegate Functions ----------------- //
@@ -213,13 +213,15 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
             title = "Memory"
         }
         print(title)
-        /*
-         let newMemory = Memory(name: title, photos: memoryImages)
-         let editStoryViewController = storyboard?.instantiateViewControllerWithIdentifier("EditStoryViewController") as! EditStoryViewController
-         // Todo: Ask Tim to create a memories list in EditStoryViewController
-         editStoryViewController.memories.append(newMemory)
-         navigationController?.pushViewController(editStoryViewController, animated: true)
-         */
+        // Passing memory to EditStoryViewController
+        // 1: Create a memory object from title and memoryImages array
+        let newMemory = Memory(name: title, photos: memoryImages)
+        // 2: Call the closure variable on memory variable
+        let result = completionHandler?(newMemory!)
+        print("completionHandler returns... \(result ?? 0)")
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
+        
     }
     func handleNewImage() {
         let picker = NohanaImagePickerController()
