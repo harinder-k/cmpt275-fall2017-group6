@@ -16,17 +16,22 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ------------------------------------------------------------------- //
     // ------------------------ Class Variables -------------------------- //
     // ------------------------------------------------------------------- //
-    var memory = Memory(name: "Default")
     var memoryImages: [MemoryImage] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(addImageButton)
+        view.addSubview(doneButton)
         view.addSubview(memoryCollectionView)
-        setupAddImageButton()
+        view.addSubview(memoryTitleTextField)
+        view.addSubview(titleTopSeperatorView)
+        view.addSubview(titleBottomSeperatorView)
+        setupDoneButton()
         setupMemoryCollectionView()
+        setupMemoryTitleTextField()
+        setupTitleTopSeperatorView()
+        setupTitleBottomSeperatorView()
         
         //memoryImages.append(Memory(memDate: "Date", memLoc: "Location", memImage: UIImage(named: "plus")!))
         
@@ -50,7 +55,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.exact
         requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
         requestOptions.isSynchronous = true
-    
+        
         var selectedImage = UIImage()
         for asset in pickedAssts
         {
@@ -82,28 +87,6 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! MemoryCell
-        //print("Index Path: \(indexPath.item)")
-        //cell.date.text = memArray[indexPath.item].memDate
-        //cell.location.text = memArray[indexPath.item].memLoc
-        //cell.image.image = memArray[indexPath.item].memImage
-        
-        /*cell.date.text = MemList.Moments[indexPath.item].memDate
-         cell.location.text = MemList.Moments[indexPath.item].memLoc
-         cell.image.image = MemList.Moments[indexPath.item].memImage
-         */
-        //cell.backgroundColor = UIColor.black
-        //cell.button.tag = indexPath.item
-        /*if (cell.button.tag + 1 == memArray.count){
-            
-            cell.button.setTitle("Add Image", for: .normal)
-            cell.button.removeTarget(nil, action:nil, for: .allEvents)
-            cell.button.addTarget(self, action: #selector(importImage), for: .touchUpInside)
-        }
-        else{
-            cell.button.removeTarget(nil, action:nil, for: .allEvents)
-            cell.button.setTitle("Delete memory", for: .normal)
-            cell.button.addTarget(self, action: #selector(deleteImage), for: .touchUpInside)
-        }*/
         if memoryImages.count > indexPath.item  {
             cell.thumbnailImageView.image = memoryImages[indexPath.item].image
         }
@@ -118,23 +101,19 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         if memoryImages.count == indexPath.item {
             handleNewImage()
         }
-        // If User's photo is clicked
+            // If User's photo is clicked
         else{
-            handleEditMemoryImage()
+            showActionSheet(index: indexPath)
         }
     }
     // ------------------------------------------------------------ //
     // ----------------------- UI Objects ------------------------- //
     // ------------------------------------------------------------ //
-    let myImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    let addImageButton: UIButton = {
+    
+    let doneButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161) //5065A1
-        button.setTitle("Photo", for: .normal)
+        button.setTitle("Done", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
@@ -142,7 +121,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         button.translatesAutoresizingMaskIntoConstraints = false
         
         
-        button.addTarget(self, action: #selector(handleAddImageButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
         return button
     }()
     
@@ -152,32 +131,70 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.backgroundColor = UIColor(r: 230, g: 235, b: 240) //E6EBF0
         collectionView.layer.cornerRadius = 10
         collectionView.layer.masksToBounds = true
-
+        
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
-    
-    
+    let memoryTitleTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Memory title"
+        tf.font = UIFont.boldSystemFont(ofSize: 20)
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
+    let titleTopSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let titleBottomSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    private lazy var addInfo: AddInfoViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        // Instantiate View Controller
+        var vc = storyboard.instantiateViewController(withIdentifier: "addInfoView") as! AddInfoViewController
+        // Add View Controller as Child View Controller
+        return vc
+    }()
     // ------------------------------------------------------- //
     // ---------------- Seting up UI Objects ----------------- //
     // ------------------------------------------------------- //
-    func setupImageView() {
+    
+    func setupDoneButton() {
         // Need x, y, width, height constraint
-        myImageView.bottomAnchor.constraint(equalTo: addImageButton.topAnchor).isActive = true
-        myImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        myImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        myImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        doneButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        doneButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -120).isActive = true
+        doneButton.leftAnchor.constraint(equalTo: doneButton.rightAnchor, constant: -120).isActive = true
+        //doneButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        doneButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
-    func setupAddImageButton() {
-        // Need x, y, width, height constraint
-        addImageButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
-        addImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addImageButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        addImageButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    func setupMemoryTitleTextField() {
+        memoryTitleTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        memoryTitleTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 120).isActive = true
+        memoryTitleTextField.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        memoryTitleTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    func setupTitleTopSeperatorView(){
+        titleTopSeperatorView.leftAnchor.constraint(equalTo: memoryTitleTextField.leftAnchor).isActive = true
+        titleTopSeperatorView.topAnchor.constraint(equalTo: memoryTitleTextField.topAnchor).isActive = true
+        titleTopSeperatorView.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        titleTopSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    func setupTitleBottomSeperatorView(){
+        titleBottomSeperatorView.leftAnchor.constraint(equalTo: memoryTitleTextField.leftAnchor).isActive = true
+        titleBottomSeperatorView.bottomAnchor.constraint(equalTo: memoryTitleTextField.bottomAnchor).isActive = true
+        titleBottomSeperatorView.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        titleBottomSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     func setupMemoryCollectionView() {
         memoryCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        memoryCollectionView.topAnchor.constraint(equalTo: addImageButton.bottomAnchor, constant: 20).isActive = true
+        memoryCollectionView.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 20).isActive = true
         memoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
         memoryCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
         memoryCollectionView.dataSource = self
@@ -187,16 +204,22 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
-    @objc func handleAddImageButton() {
-        let picker = NohanaImagePickerController()
-        picker.delegate = self
-        // Hide toolbar
-        picker.toolbarHidden = true
-        // Set the cell size
-        picker.numberOfColumnsInPortrait = 3
-        picker.numberOfColumnsInLandscape = 4
-        
-        present(picker, animated: true, completion: nil)
+    @objc func handleDoneButton() {
+        guard var title = memoryTitleTextField.text else {
+            print("Title is not valid")
+            return
+        }
+        if title == "" {
+            title = "Memory"
+        }
+        print(title)
+        /*
+         let newMemory = Memory(name: title, photos: memoryImages)
+         let editStoryViewController = storyboard?.instantiateViewControllerWithIdentifier("EditStoryViewController") as! EditStoryViewController
+         // Todo: Ask Tim to create a memories list in EditStoryViewController
+         editStoryViewController.memories.append(newMemory)
+         navigationController?.pushViewController(editStoryViewController, animated: true)
+         */
     }
     func handleNewImage() {
         let picker = NohanaImagePickerController()
@@ -209,66 +232,48 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         present(picker, animated: true, completion: nil)
     }
-    lazy var editMemoryLauncher: EditMemoryLauncher = {
-        let editMemoryLauncher = EditMemoryLauncher()
-        editMemoryLauncher.memoryViewController = self
-        return editMemoryLauncher
-    }()
-    func handleEditMemoryImage() {
-        
-        editMemoryLauncher.handleEditMemory()
-    }
-    private lazy var addInfo: AddInfoViewController = {
-        // Load Storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        // Instantiate View Controller
-        var vc = storyboard.instantiateViewController(withIdentifier: "addInfoView") as! AddInfoViewController
-        // Add View Controller as Child View Controller
-        return vc
-    }()
-
     func showControllerForAddInfo() {
         navigationController?.pushViewController(addInfo, animated: true)
-        }
+    }
+    func removeImage(index: IndexPath) {
+        memoryImages.remove(at: index.item)
+        self.memoryCollectionView.deleteItems(at: [index])
+    }
+    func showActionSheet(index: IndexPath) {
+        // 1 Create an option menu
+        let optionMenu = UIAlertController(title: nil, message: "Choose option:", preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        let y_start: CGFloat = self.view.frame.height - 120
+        let height: CGFloat = 120
+        let width: CGFloat = self.view.frame.width
+        optionMenu.popoverPresentationController?.sourceRect = CGRect(x: 0, y: y_start, width: width, height: height)
+        // 2 Create add info action
+        let addInfoAction = UIAlertAction(title: "Add info", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.showControllerForAddInfo()
+            print("Go to add info")
+        })
+        // 3 Create remove photo action
+        let removeAction = UIAlertAction(title: "Remove photo", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.removeImage(index: index)
+            print("Remove photo")
+        })
+        
+        // 4 Create cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        // 4
+        optionMenu.addAction(addInfoAction)
+        optionMenu.addAction(removeAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 5
+        self.present(optionMenu, animated: true, completion: nil)
+    }
     // ----------------------------------------------------- //
-    /*struct Memory{
-     
-     var memDate : String
-     var memLoc : String
-     var memImage : UIImage
-     }*/
-    
-    
-    //var MemList = Memory()
-    
-    
-   // @IBOutlet weak var collectionView: UICollectionView!
-    
-    //var numCell = 0
-    
-
-    /*
-    @objc func deleteImage(sender: UIButton){
-        numCell = numCell - 1
-        //memArray.remove(at: sender.tag)
-        // var indexPathRem = IndexPath(item: sender.tag, section: 0)
-        // collectionView.deleteItems(at: [indexPathRem])
-        collectionView.reloadData()
-        
-    }
-    
-    @objc func importImage(sender: UIButton){
-        let imagePickerController = UIImagePickerController()
-        
-        imagePickerController.sourceType = .photoLibrary
-        
-        imagePickerController.delegate = self as? UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        
-        present(imagePickerController, animated: true, completion: nil)
-        
-    }
-    
-    */
 }
 
 
