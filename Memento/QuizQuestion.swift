@@ -18,16 +18,6 @@ struct Options {
 struct QuizQuestion {
     var question: String
     var imageName: String
-    var options: Options
-    var answer: String
-}
-
-struct PersonalQuizQuestion {
-    var question: String
-    var imageName: String
-    var option1: String
-    var option2: String
-    var option3: String
-    var option4: String
+    var options: [String]
     var answer: String
 }
