@@ -15,6 +15,7 @@
 		0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B6241FB6F65E00EE2140 /* EditMemoryCell.swift */; };
 		0D51B6271FB6F78700EE2140 /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B6261FB6F78700EE2140 /* MemoryCell.swift */; };
 		0D95CF401FBA94C900C8B594 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */; };
+		0D95CF881FC0243600C8B594 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95CF871FC0243600C8B594 /* Story.swift */; };
 		0D9CDFB31FB58BFC00DDFB2A /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */; };
 		0D9CDFB81FB653D100DDFB2A /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9CDFB91FB653D100DDFB2A /* ImagePicker.framework */; };
 		0DA261B31FB65D960031D3A8 /* NohanaImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA261B41FB65D960031D3A8 /* NohanaImagePicker.framework */; };
@@ -65,6 +66,7 @@
 		0D51B6241FB6F65E00EE2140 /* EditMemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoryCell.swift; sourceTree = "<group>"; };
 		0D51B6261FB6F78700EE2140 /* MemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
 		0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
+		0D95CF871FC0243600C8B594 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		0D9CDFB51FB64F5A00DDFB2A /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9CDFB71FB653C500DDFB2A /* Fusuma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fusuma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +155,7 @@
 		0D9CDFB11FB58BE800DDFB2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0D95CF871FC0243600C8B594 /* Story.swift */,
 				0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */,
 			);
 			path = Model;
@@ -531,6 +534,7 @@
 				F56ACEC81FB0F7080089C53F /* MemoriesCollectionViewCell.swift in Sources */,
 				0D9CDFB31FB58BFC00DDFB2A /* Memory.swift in Sources */,
 				F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */,
+				0D95CF881FC0243600C8B594 /* Story.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
