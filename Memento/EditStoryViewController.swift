@@ -15,8 +15,8 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     
     let reuseIdentifier = "cell"
     var timelineData: [MemoryData] = []
+    var chatchText: String = ""
     var chatchMemData: MemoryData = MemoryData()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -22,6 +22,8 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     var completionHandler:((Memory) -> Int)?
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -219,6 +221,12 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         // 2: Call the closure variable on memory variable
         let result = completionHandler?(newMemory!)
         print("completionHandler returns... \(result ?? 0)")
+        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
+            if let destinationViewController = segue.destination as? EditStoryViewController {
+                destinationViewController.chatchText = title
+            }
+        }
         // 3: Go back to previous view
         _ = navigationController?.popViewController(animated: true)
         
