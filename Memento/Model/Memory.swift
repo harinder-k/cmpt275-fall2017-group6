@@ -13,24 +13,27 @@ class Memory {
     // ------------------- Memory properties ----------------- //
     // ------------------------------------------------------- //
     var name: String
-    var photos: [MemoryImage] // optional array
+    var date: String
+    var photos: [MemoryImage] 
     // ------------------------------------------------------- //
     // -------------------- Initialization ------------------- //
     // ------------------------------------------------------- //
-    init?(name: String, photos: [MemoryImage]){
-        if name.isEmpty {
-            print("Memory initializer failed -> name is empty")
+    init?(name: String, date: String, photos: [MemoryImage]){
+        if name.isEmpty || date.isEmpty{
+            print("Memory initializer failed -> name/date is empty")
             return nil
         }
         self.name = name
+        self.date = date
         self.photos = photos
     }
-    init?(name: String){
-        if name.isEmpty {
+    init?(name: String, date: String){
+        if name.isEmpty || date.isEmpty{
             print("Memory initializer failed -> name is empty")
             return nil
         }
         self.name = name
+        self.date = date
         self.photos = []
     }
     // ------------------------------------------------------- //
@@ -64,5 +67,14 @@ class Memory {
 
 struct MemoryImage {
     var image : UIImage
+    var place: String = ""
+    var people: [String] = []
+    var date: String = ""
+    init(image: UIImage){
+        self.image = image
+        self.place = ""
+        self.people = []
+        self.date = ""
+    }
 }
 

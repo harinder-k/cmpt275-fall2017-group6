@@ -8,15 +8,24 @@
 
 import UIKit
 
-class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
     let reuseIdentifier = "cell"
+    @IBOutlet weak var StoryTitleTextField: UITextField!
+    var memoriesArray : [Memory] = []
+    
+    var completionHandler:((Story) -> Int)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        timeLineView.register(StoryCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        timeLineView.backgroundColor = UIColor(r: 230, g: 235, b: 240) //E6EBF0
+        timeLineView.layer.cornerRadius = 10
+        timeLineView.layer.masksToBounds = true
+        //timeLineView.translatesAutoresizingMaskIntoConstraints = false
     }
     // @Tim: Update collectionView + Memory array inside this function
-    @IBAction func AddMemoryButtonPressed(_ sender: Any) {
+    @IBAction func addMemoryButtonPressed(_ sender: Any) {
         // Need this to get memory back from MemoryViewController
         let memoryViewController = storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
         
@@ -24,28 +33,63 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
             
             print("name = \(newMemory.name)")
             print("photos = \(newMemory.photos.count)")
-            return newMemory.photos.count
+            if newMemory.photos.count > 0 {
+                self.memoriesArray.append(newMemory)
+                self.timeLineView.reloadData()
+            }
+            return self.memoriesArray.count
         }
         navigationController?.pushViewController(memoryViewController, animated: true)
     }
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        guard var storyTitle = StoryTitleTextField.text else {
+            print("Title is not valid")
+            return
+        }
+        if storyTitle == "" {
+            storyTitle = "Story"
+        }
+        if let newStory = Story(title: storyTitle, memories: memoriesArray){
+            let result = completionHandler?(newStory)
+            print("completionHandler returns... \(result ?? 0)")
+        }
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
+    }
     
+    // ------------------------------------------------------------------- //
+    // ---------------- Collection View Delegate Functions --------------- //
+    // ------------------------------------------------------------------- //
     //Requried fuction for a UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = timeLineView.frame.width - 32
+        let itemHeight = timeLineView.frame.height/4 - 10
+        return CGSize.init(width: itemWidth, height: itemHeight)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //nothing has been done yet
-        //var memory: UICollectionViewCell = UICollectionViewCell()
-        let memoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewMemoryCell
+
+        let storyCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! StoryCell
+        print("CellView")
+        if memoriesArray.count > indexPath.item  {
+            storyCell.image = memoriesArray[indexPath.item].photos[0].image
+            storyCell.text = memoriesArray[indexPath.item].name
+        }
         
-        //memoryCell.image = 
-        
-        return memoryCell
+        return storyCell
     }
     
     //Requried fuction for a UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //nothing has been done yet
-        return 5
+        return memoriesArray.count
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+
     //For debugging
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
@@ -54,8 +98,8 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     
 }
 
-//Memory Cell Class
-class MyCollectionViewMemoryCell: UICollectionViewCell {
+//Story Cell Class
+class StoryCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,13 +116,20 @@ class MyCollectionViewMemoryCell: UICollectionViewCell {
             }
         }
     }
+    var text: String? {
+        didSet {
+            if let newText = text {
+                memoryTitle.text = newText
+            }
+        }
+    }
     
     let thumbnailImageView : UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.white
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-        imageView.image = UIImage(named: "add_photo")
+        imageView.image = UIImage(named: "add_icon")
         /*
          images source : https://www.iconfinder.com/icons/213524/add_image_new_photo_photograph_photography_picture_icon
          */
@@ -87,15 +138,28 @@ class MyCollectionViewMemoryCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    let memoryTitle : UITextView = {
+        let text = UITextView()
+        text.text = "None"
+        text.font =  .boldSystemFont(ofSize: 20)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
     
     func setupViews() {
         self.addSubview(thumbnailImageView)
-        let hConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView])
-        let vConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView])
+        self.addSubview(memoryTitle)
+        self.backgroundColor = UIColor.white
+        let hConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-32-[v0(150)]-50-[v1]-32-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView, "v1": memoryTitle])
+        let v0Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0(100)]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImageView])
+        let v1Constraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-32-[v0]-32-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": memoryTitle])
         
         NSLayoutConstraint.activate(hConstraint)
-        NSLayoutConstraint.activate(vConstraint)
+        NSLayoutConstraint.activate(v0Constraint)
+        NSLayoutConstraint.activate(v1Constraint)
+        
+        addConstraint(NSLayoutConstraint(item: thumbnailImageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+        addConstraint(NSLayoutConstraint(item: memoryTitle, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+
     }
-    
-    
 }

@@ -28,13 +28,19 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.addSubview(doneButton)
         view.addSubview(memoryCollectionView)
         view.addSubview(memoryTitleTextField)
+        view.addSubview(memoryDateTextField)
         view.addSubview(titleTopSeperatorView)
         view.addSubview(titleBottomSeperatorView)
+        view.addSubview(dateTopSeperatorView)
+        view.addSubview(dateBottomSeperatorView)
         setupDoneButton()
         setupMemoryCollectionView()
         setupMemoryTitleTextField()
+        setupMemoryDateTextField()
         setupTitleTopSeperatorView()
         setupTitleBottomSeperatorView()
+        setupDateTopSeperatorView()
+        setupDateBottomSeperatorView()
         
     }
     // ------------------------------------------------------------------- //
@@ -142,6 +148,13 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    let memoryDateTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Memory date"
+        tf.font = UIFont.boldSystemFont(ofSize: 20)
+        tf.translatesAutoresizingMaskIntoConstraints = false
+        return tf
+    }()
     let titleTopSeperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
@@ -149,6 +162,18 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         return view
     }()
     let titleBottomSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let dateTopSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    let dateBottomSeperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -169,28 +194,46 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     func setupDoneButton() {
         // Need x, y, width, height constraint
         doneButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
-        doneButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -120).isActive = true
-        doneButton.leftAnchor.constraint(equalTo: doneButton.rightAnchor, constant: -120).isActive = true
+        doneButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
+        doneButton.leftAnchor.constraint(equalTo: doneButton.rightAnchor, constant: -100).isActive = true
         //doneButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
         doneButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupMemoryTitleTextField() {
         memoryTitleTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
-        memoryTitleTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 120).isActive = true
-        memoryTitleTextField.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        memoryTitleTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
+        memoryTitleTextField.widthAnchor.constraint(equalToConstant: 250).isActive = true
         memoryTitleTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    func setupMemoryDateTextField() {
+        memoryDateTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        memoryDateTextField.leftAnchor.constraint(equalTo: memoryTitleTextField.rightAnchor, constant: 20).isActive = true
+        memoryDateTextField.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        memoryDateTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupTitleTopSeperatorView(){
         titleTopSeperatorView.leftAnchor.constraint(equalTo: memoryTitleTextField.leftAnchor).isActive = true
         titleTopSeperatorView.topAnchor.constraint(equalTo: memoryTitleTextField.topAnchor).isActive = true
-        titleTopSeperatorView.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        titleTopSeperatorView.rightAnchor.constraint(equalTo: memoryDateTextField.leftAnchor, constant: -20).isActive = true
         titleTopSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     func setupTitleBottomSeperatorView(){
         titleBottomSeperatorView.leftAnchor.constraint(equalTo: memoryTitleTextField.leftAnchor).isActive = true
         titleBottomSeperatorView.bottomAnchor.constraint(equalTo: memoryTitleTextField.bottomAnchor).isActive = true
-        titleBottomSeperatorView.rightAnchor.constraint(equalTo: doneButton.leftAnchor, constant: -20).isActive = true
+        titleBottomSeperatorView.rightAnchor.constraint(equalTo: memoryDateTextField.leftAnchor, constant: -20).isActive = true
         titleBottomSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    func setupDateTopSeperatorView(){
+        dateTopSeperatorView.leftAnchor.constraint(equalTo: memoryDateTextField.leftAnchor).isActive = true
+        dateTopSeperatorView.topAnchor.constraint(equalTo: memoryDateTextField.topAnchor).isActive = true
+        dateTopSeperatorView.rightAnchor.constraint(equalTo: memoryDateTextField.rightAnchor).isActive = true
+        dateTopSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
+    }
+    func setupDateBottomSeperatorView(){
+        dateBottomSeperatorView.leftAnchor.constraint(equalTo: memoryDateTextField.leftAnchor).isActive = true
+        dateBottomSeperatorView.bottomAnchor.constraint(equalTo: memoryDateTextField.bottomAnchor).isActive = true
+        dateBottomSeperatorView.rightAnchor.constraint(equalTo: memoryDateTextField.rightAnchor).isActive = true
+        dateBottomSeperatorView.heightAnchor.constraint(equalToConstant: 2).isActive = true
     }
     func setupMemoryCollectionView() {
         memoryCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -209,13 +252,20 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
             print("Title is not valid")
             return
         }
+        guard var date = memoryDateTextField.text else {
+            print("Date is not valid")
+            return
+        }
         if title == "" {
             title = "Memory"
+        }
+        if date == "" {
+            date = "None"
         }
         print(title)
         // Passing memory to EditStoryViewController
         // 1: Create a memory object from title and memoryImages array
-        let newMemory = Memory(name: title, photos: memoryImages)
+        let newMemory = Memory(name: title, date: date, photos: memoryImages)
         // 2: Call the closure variable on memory variable
         let result = completionHandler?(newMemory!)
         print("completionHandler returns... \(result ?? 0)")
