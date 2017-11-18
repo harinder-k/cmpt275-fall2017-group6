@@ -7,25 +7,20 @@
 //1.0 - Created file and added title using stringOassed
 //1.1 - Mapped buttons to functions and implemented basic quiz
 //1.2 - Implemented quiz
+//1.3 - Implemented personal quizzes
 //TODO: Move to json
-//Known bugs:
 
 
 import Foundation
 import UIKit
-
-struct QuizQuestion {
-    var question: String
-//    var imageName: String
-    var options = [String]()
-    var answer: String
-}
+import Firebase
 
 class TakeQuizViewController:UIViewController {
     let titleEnd = " Quiz"
+    var personalQuizSelected = false
     let correctAnswerMessage = "Correct Answer!"
     let wrongAnswerMessage = "Wrong Answer"
-    let numberOfQuestions = 5
+    var numberOfQuestions = 5
     
     var correctAnswer = ""
     
@@ -70,27 +65,74 @@ class TakeQuizViewController:UIViewController {
         super.viewDidLoad()
         title = quizName + titleEnd
         
-        makeQuiz()
-//        extractFromJson()
-        askQuestion()
+        if personalQuizSelected {
+            startPersonalQuiz()
+        } else {
+            startGeneralQuiz()
+        }
     }
     
-    // Precondition:    Quiz content is available
+    // Precondition:    Personal quiz content is avvilable
     // Postcondition:   Quiz content is arranged into array of structs
-    func makeQuiz() {
-        if quizName == "Animals" {
-            for i in 0...4 {
-                quiz.append(QuizQuestion(question: animalQuestions[i], options: animalOptions[i], answer: animalAnswers[i]))
+    func startPersonalQuiz() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let userID = Auth.auth().currentUser?.uid
+        ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.hasChild("quizzes")
+            {
+                let quizzesSnapshot = snapshot.childSnapshot(forPath: "quizzes")
+                if quizzesSnapshot.hasChild(self.quizName) {
+                    let quizSnapshot = quizzesSnapshot.childSnapshot(forPath: self.quizName)
+                    self.numberOfQuestions = Int(quizSnapshot.childrenCount)
+                    print(self.numberOfQuestions)
+                    for i in 0...1 {
+                        let questionSnapshot = quizSnapshot.childSnapshot(forPath: "\(i+1)") as DataSnapshot
+                        let questionValue = questionSnapshot.value as! NSDictionary
+                        let q = questionValue["question"] as? String ?? ""
+                        let imgName = questionValue["imageName"] as? String ?? ""
+                        let op1 = questionValue["option1"] as? String ?? ""
+                        let op2 = questionValue["option2"] as? String ?? ""
+                        let op3 = questionValue["option3"] as? String ?? ""
+                        let op4 = questionValue["option4"] as? String ?? ""
+                        let ans = questionValue["answer"] as? String ?? ""
+                        self.quiz.append(QuizQuestion(question: q, imageName: imgName, options: [op1, op2, op3, op4], answer: ans))
+                    }
+                    self.askQuestion()
+                } else {
+                let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with any \(self.quizName) in it."
+                self.finishedState(message: noRequestedQuizMessage)
+                }
+            } else {
+                let noQuizMessage = "Sorry, we have no personal quizzes for you yet. Please finish a story so that we can create questions based on your story."
+                self.finishedState(message: noQuizMessage)
             }
-        } else if quizName == "Geography" {
-            for i in 0...4 {
-                quiz.append(QuizQuestion(question: geographyQuestions[i], options: geographyOptions[i], answer: geographyAnswers[i]))
-            }
-        } else if quizName == "Famous People"{
-            for i in 0...4 {
-                quiz.append(QuizQuestion(question: famousPeopleQuestions[i], options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
-            }
+        }) { (error) in
+            print(error.localizedDescription)
         }
+    }
+    
+    // Precondition:    General quiz content is available
+    // Postcondition:   Quiz content is arranged into array of structs
+    func startGeneralQuiz() {
+        switch (quizName) {
+            case "Animals":
+                for i in 0...(numberOfQuestions - 1) {
+                quiz.append(QuizQuestion(question: animalQuestions[i], imageName: "", options: animalOptions[i], answer: animalAnswers[i]))
+            }
+            case "Geography":
+                for i in 0...(numberOfQuestions - 1) {
+                quiz.append(QuizQuestion(question: geographyQuestions[i], imageName: "", options: geographyOptions[i], answer: geographyAnswers[i]))
+            }
+            case "Famous People":
+                for i in 0...(numberOfQuestions - 1)  {
+                quiz.append(QuizQuestion(question: famousPeopleQuestions[i], imageName: "", options: famousPeopleOptions[i], answer: famousPeopleAnswers[i]))
+            }
+            default:
+            break
+        }
+        askQuestion()
     }
     
     // Precondition:    THe user has not yet answered the question
@@ -120,7 +162,7 @@ class TakeQuizViewController:UIViewController {
     
     // Precondition:    The user has pressed the Finish button
     // Postcondition:   All objects are hidden and result is shown
-    func finishedState() {
+    func finishedState(message: String) {
         questionLabel.isHidden = true
         feedbackLabel.isHidden = true
         nextButton.isHidden = true
@@ -128,27 +170,8 @@ class TakeQuizViewController:UIViewController {
         for aButton in optionButtons {
             aButton.isHidden = true
         }
-        resultLabel.text = "You answered \(numCorrectAnswers) out of \(numberOfQuestions) questions correctly."
+        resultLabel.text = message
     }
-    
-    // Precondition:    A json file exists for the appropriate quiz and is well structured
-    // Postcondition:   Quiz data is read from the json file
-//    func extractFromJson(){
-//        if let quizFilePath = Bundle.main.path(forResource: "Animals", ofType: "rtf", inDirectory: "Quiz"){
-//            do {
-//                let data = try Data(contentsOf : URL(fileURLWithPath: quizFilePath), options: .alwaysMapped)
-//                let decoder = JSONDecoder()
-//                let questions = try? decoder.decode([QuizQuestion].self, from: data)
-//                print(questions![0].answer)
-//                question = questions![0].question
-//                NSLog(question)
-//            } catch let error {
-//                print(error.localizedDescription)
-//            }
-//        } else {
-//            print("Invalid filename/path.")
-//        }
-//    }
     
     // Precondition:    There are questions left to be answered
     // Postcondition:   The question, image (if applicanle) and options are visible to the user
@@ -217,7 +240,8 @@ class TakeQuizViewController:UIViewController {
     //                  If all questions have been asked, the result screen is shown
     @IBAction func nextButtonTapped(_ sender: Any) {
         if questionNum == numberOfQuestions - 1 {
-            finishedState()
+            let resultMeesage = "You answered \(numCorrectAnswers) out of \(numberOfQuestions) questions correctly."
+            finishedState(message: resultMeesage)
         } else {
             askQuestion()
         }
