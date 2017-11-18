@@ -27,7 +27,7 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         view.backgroundColor = UIColor.white
         view.addSubview(logoImageView)
         view.addSubview(loginRegisterSegmentedControl)
@@ -179,6 +179,7 @@ class LoginController: UIViewController {
         button.addTarget(self, action: #selector(handleForgotPassword), for: .touchUpInside)
         return button
     }()
+    
     // ------------------------------------------------------- //
     // ---------------- Seting up UI Objects ----------------- //
     // ------------------------------------------------------- //
@@ -188,7 +189,7 @@ class LoginController: UIViewController {
     var passwordTextFieldHeightAnchor: NSLayoutConstraint?
     var confirmPasswordTextFieldHeightAnchor: NSLayoutConstraint?
     var dateOfBirthTextFieldHeightAnchor: NSLayoutConstraint?
-
+    
     func setupForgotPassword() {
         // Need x, y, width, height constraint
         forgotPasswordButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -211,7 +212,7 @@ class LoginController: UIViewController {
         logoImageView.widthAnchor.constraint(equalToConstant: 255).isActive = true
         logoImageView.heightAnchor.constraint(equalToConstant: 255).isActive = true
     }
-
+    
     func setupInputsContainerView() {
         // Need x, y, width, height constraint
         inputsContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -318,6 +319,7 @@ class LoginController: UIViewController {
         dateOfBirthTextFieldHeightAnchor = dateOfBirthTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: 1/5)
         dateOfBirthTextFieldHeightAnchor?.isActive = true
     }
+    
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
@@ -348,7 +350,7 @@ class LoginController: UIViewController {
     @objc func cancelPressed(){
         self.view.endEditing(true)
     }
- 
+    
     @objc func handleLoginRegisterControlToggle() {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         
@@ -410,6 +412,7 @@ class LoginController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
                 print(error!)
+                self.displayMessage(userMessage: "Email address or password is not valid")
                 return
             }
             print("Login successful")
@@ -422,32 +425,56 @@ class LoginController: UIViewController {
         present(resetPasswordController, animated: true, completion: nil)
     }
     @objc func handleRegister() {
+        
         guard let email = emailTextField.text else {
+            displayMessage(userMessage: "Email address is not valid")
             print("Form is not valid")
             return
         }
         guard let password = passwordTextField.text else {
             print("Form is not valid")
+            displayMessage(userMessage: "Password is not valid - password must be longer than 6 characters")
             return
         }
         guard let confirmPassword = confirmPasswordTextField.text else {
+            displayMessage(userMessage: "Confirm password is not valid")
             print("Form is not valid")
             return
         }
         guard let name = nameTextField.text else {
+            displayMessage(userMessage: "Name is not valid")
             print("Form is not valid")
             return
         }
         guard let dateOfBirth = dateOfBirthTextField.text else {
+            displayMessage(userMessage: "Date of birth is not valid")
             print("Form is not valid")
             return
         }
+        if name == "" {
+            displayMessage(userMessage: "Name is not valid")
+            return
+        }
+        if email == "" {
+            displayMessage(userMessage: "Email address is not valid")
+            return
+        }
+        if password.count < 6 {
+            displayMessage(userMessage: "Password is not valid - password must be longer than 6 characters")
+            return
+        }
         if password != confirmPassword {
+            displayMessage(userMessage: "Confirm password does not match password")
             print("Password and confirm password dont match")
+            return
+        }
+        if dateOfBirth == "" {
+            displayMessage(userMessage: "Date of birth is not valid")
             return
         }
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error != nil {
+                self.displayMessage(userMessage: "Email address is not valid")
                 print(error!)
                 return
             }
@@ -462,7 +489,7 @@ class LoginController: UIViewController {
             // Reference to users in database seperated by their uid
             let usersRef = ref.child("users").child(uid)
             // Values to save for this user
-            let values = ["name": name, "email": email, "dateOfBirth": dateOfBirth]
+            let values = ["name": name, "email": email, "dateOfBirth": dateOfBirth, "quizzes": ["people", "places", "dates"]] as [String : Any]
             // Update users in database
             usersRef.updateChildValues(values) { (database_update_error, ref) in
                 if database_update_error != nil {
@@ -475,13 +502,25 @@ class LoginController: UIViewController {
         }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
-            return .lightContent
+        return .lightContent
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func displayMessage(userMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Unvalid form", message: userMessage, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in
+                print("Ok button tapped")
+                DispatchQueue.main.async {
+                    //self.dismiss(animated: true, completion: nil)
+                }
+            })
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 extension UIColor {
@@ -489,3 +528,4 @@ extension UIColor {
         self.init(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
 }
+
