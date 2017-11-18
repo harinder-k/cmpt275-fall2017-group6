@@ -1,0 +1,16 @@
+version: "Apple Swift version 4.0.2 (swiftlang-900.0.69.2 clang-900.0.38)"
+options: "249f571706fec15b1140ebeda5c88380"
+build_time: [1510390873, 880860000]
+inputs:
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/AssetManager.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Views/FooterView.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Views/HeaderView.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Views/InfoLabel.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Library/LayoutConfigurable.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/LightboxConfig.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/LightboxController.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/LightboxImage.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Library/LightboxTransition.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Views/LoadingIndicator.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Views/PageView.swift": [1510352485, 0]
+  "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Lightbox/Source/Library/UIView+Gradient.swift": [1510352485, 0]

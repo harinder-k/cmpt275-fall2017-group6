@@ -1,0 +1,644 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "PickedAssetList"
+provides-nominal:
+- "17NohanaImagePicker15PickedAssetListC"
+provides-member:
+- ["17NohanaImagePicker15PickedAssetListC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "<"
+- !private "=="
+- "Array"
+- "Asset"
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- !private "Dictionary"
+- "Int"
+- "ItemList"
+- "NohanaImagePickerController"
+- !private "Notification"
+- !private "NotificationCenter"
+- !private "NotificationInfo"
+- !private "PhotoKitAsset"
+- "PickedAssetList"
+- "String"
+- !private "StringLiteralType"
+- "Void"
+- !private "fatalError"
+- !private "||"
+depends-member:
+- !private ["Sa", "append"]
+- !private ["Sa", "contains"]
+- !private ["Sa", "count"]
+- !private ["Sa", "filter"]
+- !private ["Sa", "subscript"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV", "PhotoKit"]
+- !private ["17NohanaImagePicker5AssetP", "identifier"]
+- !private ["17NohanaImagePicker5AssetP", "originalAsset"]
+- !private ["s23BidirectionalCollectionP", "append"]
+- !private ["s23BidirectionalCollectionP", "contains"]
+- !private ["s23BidirectionalCollectionP", "count"]
+- !private ["s23BidirectionalCollectionP", "filter"]
+- !private ["s23BidirectionalCollectionP", "init"]
+- !private ["s23BidirectionalCollectionP", "subscript"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "default"]
+- !private ["s7CVarArgP", "delegate"]
+- !private ["s7CVarArgP", "filter"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "maximumNumberOfSelection"]
+- !private ["s7CVarArgP", "post"]
+- !private ["s7CVarArgP", "subscript"]
+- ["s10CollectionP", "Element"]
+- ["s10CollectionP", "Index"]
+- ["s10CollectionP", "IndexDistance"]
+- ["s10CollectionP", "Indices"]
+- ["s10CollectionP", "Item"]
+- ["s10CollectionP", "Iterator"]
+- !private ["s10CollectionP", "Notification"]
+- !private ["s10CollectionP", "NotificationCenter"]
+- !private ["s10CollectionP", "NotificationInfo"]
+- ["s10CollectionP", "SubSequence"]
+- ["s10CollectionP", "_copyContents"]
+- ["s10CollectionP", "_copyToContiguousArray"]
+- ["s10CollectionP", "_customContainsEquatableElement"]
+- ["s10CollectionP", "_customIndexOfEquatableElement"]
+- ["s10CollectionP", "_failEarlyRangeCheck"]
+- ["s10CollectionP", "_preprocessingPass"]
+- !private ["s10CollectionP", "append"]
+- !private ["s10CollectionP", "assetlist"]
+- !private ["s10CollectionP", "contains"]
+- ["s10CollectionP", "count"]
+- ["s10CollectionP", "distance"]
+- ["s10CollectionP", "drop"]
+- ["s10CollectionP", "dropFirst"]
+- ["s10CollectionP", "dropLast"]
+- ["s10CollectionP", "endIndex"]
+- !private ["s10CollectionP", "fatalError"]
+- ["s10CollectionP", "filter"]
+- ["s10CollectionP", "first"]
+- ["s10CollectionP", "forEach"]
+- ["s10CollectionP", "formIndex"]
+- ["s10CollectionP", "index"]
+- ["s10CollectionP", "indices"]
+- !private ["s10CollectionP", "init"]
+- ["s10CollectionP", "isEmpty"]
+- !private ["s10CollectionP", "isPicked"]
+- ["s10CollectionP", "makeIterator"]
+- ["s10CollectionP", "map"]
+- !private ["s10CollectionP", "nohanaImagePickerController"]
+- ["s10CollectionP", "prefix"]
+- ["s10CollectionP", "split"]
+- ["s10CollectionP", "startIndex"]
+- ["s10CollectionP", "subscript"]
+- ["s10CollectionP", "suffix"]
+- ["s10CollectionP", "title"]
+- ["s10CollectionP", "underestimatedCount"]
+- ["s10CollectionP", "update"]
+- ["s10CollectionP", ""]
+- !private ["s10ComparableP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "default"]
+- !private ["s28CustomDebugStringConvertibleP", "delegate"]
+- !private ["s28CustomDebugStringConvertibleP", "filter"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "maximumNumberOfSelection"]
+- !private ["s28CustomDebugStringConvertibleP", "post"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s29CustomPlaygroundQuickLookableP", "_getBuiltinLogicValue"]
+- !private ["s29CustomPlaygroundQuickLookableP", "init"]
+- !private ["s17CustomReflectableP", "_getBuiltinLogicValue"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "contains"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "filter"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "default"]
+- !private ["s23CustomStringConvertibleP", "delegate"]
+- !private ["s23CustomStringConvertibleP", "filter"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "maximumNumberOfSelection"]
+- !private ["s23CustomStringConvertibleP", "post"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s9DecodableP", "_getBuiltinLogicValue"]
+- !private ["s9DecodableP", "append"]
+- !private ["s9DecodableP", "contains"]
+- !private ["s9DecodableP", "count"]
+- !private ["s9DecodableP", "filter"]
+- !private ["s9DecodableP", "init"]
+- !private ["s9DecodableP", "subscript"]
+- !private ["s9EncodableP", "_getBuiltinLogicValue"]
+- !private ["s9EncodableP", "append"]
+- !private ["s9EncodableP", "contains"]
+- !private ["s9EncodableP", "count"]
+- !private ["s9EncodableP", "filter"]
+- !private ["s9EncodableP", "init"]
+- !private ["s9EncodableP", "subscript"]
+- !private ["s9EquatableP", "_getBuiltinLogicValue"]
+- !private ["s9EquatableP", "default"]
+- !private ["s9EquatableP", "delegate"]
+- !private ["s9EquatableP", "init"]
+- !private ["s9EquatableP", "maximumNumberOfSelection"]
+- !private ["s9EquatableP", "post"]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "contains"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "filter"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s27ExpressibleByBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["s8HashableP", "_getBuiltinLogicValue"]
+- !private ["s8HashableP", "default"]
+- !private ["s8HashableP", "delegate"]
+- !private ["s8HashableP", "init"]
+- !private ["s8HashableP", "maximumNumberOfSelection"]
+- !private ["s8HashableP", "post"]
+- ["17NohanaImagePicker8ItemListP", "Element"]
+- ["17NohanaImagePicker8ItemListP", "Index"]
+- ["17NohanaImagePicker8ItemListP", "IndexDistance"]
+- ["17NohanaImagePicker8ItemListP", "Indices"]
+- ["17NohanaImagePicker8ItemListP", "Item"]
+- ["17NohanaImagePicker8ItemListP", "Iterator"]
+- !private ["17NohanaImagePicker8ItemListP", "Notification"]
+- !private ["17NohanaImagePicker8ItemListP", "NotificationCenter"]
+- !private ["17NohanaImagePicker8ItemListP", "NotificationInfo"]
+- ["17NohanaImagePicker8ItemListP", "SubSequence"]
+- ["17NohanaImagePicker8ItemListP", "_copyContents"]
+- ["17NohanaImagePicker8ItemListP", "_copyToContiguousArray"]
+- ["17NohanaImagePicker8ItemListP", "_customContainsEquatableElement"]
+- ["17NohanaImagePicker8ItemListP", "_customIndexOfEquatableElement"]
+- ["17NohanaImagePicker8ItemListP", "_failEarlyRangeCheck"]
+- ["17NohanaImagePicker8ItemListP", "_preprocessingPass"]
+- !private ["17NohanaImagePicker8ItemListP", "assetlist"]
+- ["17NohanaImagePicker8ItemListP", "count"]
+- ["17NohanaImagePicker8ItemListP", "distance"]
+- ["17NohanaImagePicker8ItemListP", "drop"]
+- ["17NohanaImagePicker8ItemListP", "dropFirst"]
+- ["17NohanaImagePicker8ItemListP", "dropLast"]
+- ["17NohanaImagePicker8ItemListP", "endIndex"]
+- !private ["17NohanaImagePicker8ItemListP", "fatalError"]
+- ["17NohanaImagePicker8ItemListP", "filter"]
+- ["17NohanaImagePicker8ItemListP", "first"]
+- ["17NohanaImagePicker8ItemListP", "forEach"]
+- ["17NohanaImagePicker8ItemListP", "formIndex"]
+- ["17NohanaImagePicker8ItemListP", "index"]
+- ["17NohanaImagePicker8ItemListP", "indices"]
+- ["17NohanaImagePicker8ItemListP", "isEmpty"]
+- !private ["17NohanaImagePicker8ItemListP", "isPicked"]
+- ["17NohanaImagePicker8ItemListP", "makeIterator"]
+- ["17NohanaImagePicker8ItemListP", "map"]
+- !private ["17NohanaImagePicker8ItemListP", "nohanaImagePickerController"]
+- ["17NohanaImagePicker8ItemListP", "prefix"]
+- ["17NohanaImagePicker8ItemListP", "split"]
+- ["17NohanaImagePicker8ItemListP", "startIndex"]
+- ["17NohanaImagePicker8ItemListP", "subscript"]
+- ["17NohanaImagePicker8ItemListP", "suffix"]
+- ["17NohanaImagePicker8ItemListP", "title"]
+- ["17NohanaImagePicker8ItemListP", "underestimatedCount"]
+- ["17NohanaImagePicker8ItemListP", "update"]
+- ["17NohanaImagePicker8ItemListP", ""]
+- !private ["s25LosslessStringConvertibleP", "_getBuiltinLogicValue"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["s17MutableCollectionP", "append"]
+- !private ["s17MutableCollectionP", "contains"]
+- !private ["s17MutableCollectionP", "count"]
+- !private ["s17MutableCollectionP", "filter"]
+- !private ["s17MutableCollectionP", "subscript"]
+- !private ["So8NSCodingP", "delegate"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "maximumNumberOfSelection"]
+- !private ["So9NSCopyingP", "init"]
+- !private ["So26NSExtensionRequestHandlingP", "delegate"]
+- !private ["So26NSExtensionRequestHandlingP", "maximumNumberOfSelection"]
+- !private ["So21NSItemProviderReadingP", "init"]
+- !private ["So21NSItemProviderWritingP", "init"]
+- !private ["So16NSMutableCopyingP", "init"]
+- !private ["So8NSObjectC", "default"]
+- !private ["So8NSObjectC", "delegate"]
+- !private ["So8NSObjectC", "maximumNumberOfSelection"]
+- !private ["So8NSObjectC", "post"]
+- !private ["So16NSObjectProtocolP", "default"]
+- !private ["So16NSObjectProtocolP", "delegate"]
+- !private ["So16NSObjectProtocolP", "init"]
+- !private ["So16NSObjectProtocolP", "maximumNumberOfSelection"]
+- !private ["So16NSObjectProtocolP", "post"]
+- !private ["So14NSSecureCodingP", "init"]
+- !private ["So8NSStringC", "init"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "delegate"]
+- !private ["17NohanaImagePicker0abC10ControllerC", "maximumNumberOfSelection"]
+- !private ["17NohanaImagePicker0abC18ControllerDelegateP", "nohanaImagePicker"]
+- !private ["10Foundation12NotificationV", "init"]
+- !private ["So18NotificationCenterC", "default"]
+- !private ["So18NotificationCenterC", "post"]
+- !private ["17NohanaImagePicker16NotificationInfoV", "Asset"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didDrop"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didDropUserInfoKeyAsset"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didDropUserInfoKeyPickedAssetsCount"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didPick"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didPickUserInfoKeyAsset"]
+- !private ["17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV", "didPickUserInfoKeyPickedAssetsCount"]
+- !private ["17NohanaImagePicker13PhotoKitAssetC", "originalAsset"]
+- ["17NohanaImagePicker15PickedAssetListC", "Array"]
+- ["17NohanaImagePicker15PickedAssetListC", "Asset"]
+- ["17NohanaImagePicker15PickedAssetListC", "Bool"]
+- ["17NohanaImagePicker15PickedAssetListC", "Element"]
+- ["17NohanaImagePicker15PickedAssetListC", "Index"]
+- ["17NohanaImagePicker15PickedAssetListC", "IndexDistance"]
+- ["17NohanaImagePicker15PickedAssetListC", "Indices"]
+- ["17NohanaImagePicker15PickedAssetListC", "Int"]
+- ["17NohanaImagePicker15PickedAssetListC", "Item"]
+- ["17NohanaImagePicker15PickedAssetListC", "Iterator"]
+- ["17NohanaImagePicker15PickedAssetListC", "NohanaImagePickerController"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "Notification"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "NotificationCenter"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "NotificationInfo"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "PhotoKitAsset"]
+- ["17NohanaImagePicker15PickedAssetListC", "String"]
+- ["17NohanaImagePicker15PickedAssetListC", "SubSequence"]
+- ["17NohanaImagePicker15PickedAssetListC", "Void"]
+- ["17NohanaImagePicker15PickedAssetListC", "_copyContents"]
+- ["17NohanaImagePicker15PickedAssetListC", "_copyToContiguousArray"]
+- ["17NohanaImagePicker15PickedAssetListC", "_customContainsEquatableElement"]
+- ["17NohanaImagePicker15PickedAssetListC", "_customIndexOfEquatableElement"]
+- ["17NohanaImagePicker15PickedAssetListC", "_failEarlyRangeCheck"]
+- ["17NohanaImagePicker15PickedAssetListC", "_preprocessingPass"]
+- ["17NohanaImagePicker15PickedAssetListC", "assetlist"]
+- ["17NohanaImagePicker15PickedAssetListC", "count"]
+- ["17NohanaImagePicker15PickedAssetListC", "deinit"]
+- ["17NohanaImagePicker15PickedAssetListC", "distance"]
+- ["17NohanaImagePicker15PickedAssetListC", "drop"]
+- ["17NohanaImagePicker15PickedAssetListC", "dropFirst"]
+- ["17NohanaImagePicker15PickedAssetListC", "dropLast"]
+- ["17NohanaImagePicker15PickedAssetListC", "endIndex"]
+- !private ["17NohanaImagePicker15PickedAssetListC", "fatalError"]
+- ["17NohanaImagePicker15PickedAssetListC", "filter"]
+- ["17NohanaImagePicker15PickedAssetListC", "first"]
+- ["17NohanaImagePicker15PickedAssetListC", "forEach"]
+- ["17NohanaImagePicker15PickedAssetListC", "formIndex"]
+- ["17NohanaImagePicker15PickedAssetListC", "index"]
+- ["17NohanaImagePicker15PickedAssetListC", "indices"]
+- ["17NohanaImagePicker15PickedAssetListC", "init"]
+- ["17NohanaImagePicker15PickedAssetListC", "isEmpty"]
+- ["17NohanaImagePicker15PickedAssetListC", "isPicked"]
+- ["17NohanaImagePicker15PickedAssetListC", "makeIterator"]
+- ["17NohanaImagePicker15PickedAssetListC", "map"]
+- ["17NohanaImagePicker15PickedAssetListC", "nohanaImagePickerController"]
+- ["17NohanaImagePicker15PickedAssetListC", "pick"]
+- ["17NohanaImagePicker15PickedAssetListC", "prefix"]
+- ["17NohanaImagePicker15PickedAssetListC", "split"]
+- ["17NohanaImagePicker15PickedAssetListC", "startIndex"]
+- ["17NohanaImagePicker15PickedAssetListC", "subscript"]
+- ["17NohanaImagePicker15PickedAssetListC", "suffix"]
+- ["17NohanaImagePicker15PickedAssetListC", "title"]
+- ["17NohanaImagePicker15PickedAssetListC", "underestimatedCount"]
+- ["17NohanaImagePicker15PickedAssetListC", "update"]
+- !private ["s22RandomAccessCollectionP", "append"]
+- !private ["s22RandomAccessCollectionP", "contains"]
+- !private ["s22RandomAccessCollectionP", "count"]
+- !private ["s22RandomAccessCollectionP", "filter"]
+- !private ["s22RandomAccessCollectionP", "subscript"]
+- !private ["s26RangeReplaceableCollectionP", "append"]
+- !private ["s26RangeReplaceableCollectionP", "contains"]
+- !private ["s26RangeReplaceableCollectionP", "count"]
+- !private ["s26RangeReplaceableCollectionP", "filter"]
+- !private ["s26RangeReplaceableCollectionP", "init"]
+- !private ["s26RangeReplaceableCollectionP", "subscript"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- ["s8SequenceP", "Element"]
+- ["s8SequenceP", "Index"]
+- ["s8SequenceP", "IndexDistance"]
+- ["s8SequenceP", "Indices"]
+- ["s8SequenceP", "Item"]
+- ["s8SequenceP", "Iterator"]
+- !private ["s8SequenceP", "Notification"]
+- !private ["s8SequenceP", "NotificationCenter"]
+- !private ["s8SequenceP", "NotificationInfo"]
+- ["s8SequenceP", "SubSequence"]
+- ["s8SequenceP", "_copyContents"]
+- ["s8SequenceP", "_copyToContiguousArray"]
+- ["s8SequenceP", "_customContainsEquatableElement"]
+- ["s8SequenceP", "_customIndexOfEquatableElement"]
+- ["s8SequenceP", "_failEarlyRangeCheck"]
+- ["s8SequenceP", "_preprocessingPass"]
+- !private ["s8SequenceP", "append"]
+- !private ["s8SequenceP", "assetlist"]
+- !private ["s8SequenceP", "contains"]
+- ["s8SequenceP", "count"]
+- ["s8SequenceP", "distance"]
+- ["s8SequenceP", "drop"]
+- ["s8SequenceP", "dropFirst"]
+- ["s8SequenceP", "dropLast"]
+- ["s8SequenceP", "endIndex"]
+- !private ["s8SequenceP", "fatalError"]
+- ["s8SequenceP", "filter"]
+- ["s8SequenceP", "first"]
+- ["s8SequenceP", "forEach"]
+- ["s8SequenceP", "formIndex"]
+- ["s8SequenceP", "index"]
+- ["s8SequenceP", "indices"]
+- !private ["s8SequenceP", "init"]
+- ["s8SequenceP", "isEmpty"]
+- !private ["s8SequenceP", "isPicked"]
+- ["s8SequenceP", "makeIterator"]
+- ["s8SequenceP", "map"]
+- !private ["s8SequenceP", "nohanaImagePickerController"]
+- ["s8SequenceP", "prefix"]
+- ["s8SequenceP", "split"]
+- ["s8SequenceP", "startIndex"]
+- ["s8SequenceP", "subscript"]
+- ["s8SequenceP", "suffix"]
+- ["s8SequenceP", "title"]
+- ["s8SequenceP", "underestimatedCount"]
+- ["s8SequenceP", "update"]
+- ["s8SequenceP", ""]
+- !private ["s12StaticStringV", "init"]
+- !private ["SS", "init"]
+- !private ["s14StringProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["So21UIAppearanceContainerP", "delegate"]
+- !private ["So21UIAppearanceContainerP", "maximumNumberOfSelection"]
+- !private ["So18UIContentContainerP", "delegate"]
+- !private ["So18UIContentContainerP", "maximumNumberOfSelection"]
+- !private ["So18UIFocusEnvironmentP", "delegate"]
+- !private ["So18UIFocusEnvironmentP", "maximumNumberOfSelection"]
+- !private ["So30UIPasteConfigurationSupportingP", "delegate"]
+- !private ["So30UIPasteConfigurationSupportingP", "maximumNumberOfSelection"]
+- !private ["So11UIResponderC", "delegate"]
+- !private ["So11UIResponderC", "maximumNumberOfSelection"]
+- !private ["So30UIResponderStandardEditActionsP", "delegate"]
+- !private ["So30UIResponderStandardEditActionsP", "maximumNumberOfSelection"]
+- !private ["So16UIStateRestoringP", "delegate"]
+- !private ["So16UIStateRestoringP", "maximumNumberOfSelection"]
+- !private ["So18UITraitEnvironmentP", "delegate"]
+- !private ["So18UITraitEnvironmentP", "maximumNumberOfSelection"]
+- !private ["So16UIViewControllerC", "delegate"]
+- !private ["So16UIViewControllerC", "maximumNumberOfSelection"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "contains"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "filter"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s23_BidirectionalIndexableP", "append"]
+- !private ["s23_BidirectionalIndexableP", "contains"]
+- !private ["s23_BidirectionalIndexableP", "count"]
+- !private ["s23_BidirectionalIndexableP", "filter"]
+- !private ["s23_BidirectionalIndexableP", "init"]
+- !private ["s23_BidirectionalIndexableP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "contains"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "filter"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s39_ExpressibleByBuiltinUTF16StringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s33_ExpressibleByStringInterpolationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- ["s10_IndexableP", "Element"]
+- ["s10_IndexableP", "Index"]
+- ["s10_IndexableP", "IndexDistance"]
+- ["s10_IndexableP", "Indices"]
+- ["s10_IndexableP", "Item"]
+- ["s10_IndexableP", "Iterator"]
+- !private ["s10_IndexableP", "Notification"]
+- !private ["s10_IndexableP", "NotificationCenter"]
+- !private ["s10_IndexableP", "NotificationInfo"]
+- ["s10_IndexableP", "SubSequence"]
+- ["s10_IndexableP", "_copyContents"]
+- ["s10_IndexableP", "_copyToContiguousArray"]
+- ["s10_IndexableP", "_customContainsEquatableElement"]
+- ["s10_IndexableP", "_customIndexOfEquatableElement"]
+- ["s10_IndexableP", "_failEarlyRangeCheck"]
+- ["s10_IndexableP", "_preprocessingPass"]
+- !private ["s10_IndexableP", "append"]
+- !private ["s10_IndexableP", "assetlist"]
+- !private ["s10_IndexableP", "contains"]
+- ["s10_IndexableP", "count"]
+- ["s10_IndexableP", "distance"]
+- ["s10_IndexableP", "drop"]
+- ["s10_IndexableP", "dropFirst"]
+- ["s10_IndexableP", "dropLast"]
+- ["s10_IndexableP", "endIndex"]
+- !private ["s10_IndexableP", "fatalError"]
+- ["s10_IndexableP", "filter"]
+- ["s10_IndexableP", "first"]
+- ["s10_IndexableP", "forEach"]
+- ["s10_IndexableP", "formIndex"]
+- ["s10_IndexableP", "index"]
+- ["s10_IndexableP", "indices"]
+- !private ["s10_IndexableP", "init"]
+- ["s10_IndexableP", "isEmpty"]
+- !private ["s10_IndexableP", "isPicked"]
+- ["s10_IndexableP", "makeIterator"]
+- ["s10_IndexableP", "map"]
+- !private ["s10_IndexableP", "nohanaImagePickerController"]
+- ["s10_IndexableP", "prefix"]
+- ["s10_IndexableP", "split"]
+- ["s10_IndexableP", "startIndex"]
+- ["s10_IndexableP", "subscript"]
+- ["s10_IndexableP", "suffix"]
+- ["s10_IndexableP", "title"]
+- ["s10_IndexableP", "underestimatedCount"]
+- ["s10_IndexableP", "update"]
+- ["s10_IndexableP", ""]
+- ["s14_IndexableBaseP", "Element"]
+- ["s14_IndexableBaseP", "Index"]
+- ["s14_IndexableBaseP", "IndexDistance"]
+- ["s14_IndexableBaseP", "Indices"]
+- ["s14_IndexableBaseP", "Item"]
+- ["s14_IndexableBaseP", "Iterator"]
+- !private ["s14_IndexableBaseP", "Notification"]
+- !private ["s14_IndexableBaseP", "NotificationCenter"]
+- !private ["s14_IndexableBaseP", "NotificationInfo"]
+- ["s14_IndexableBaseP", "SubSequence"]
+- ["s14_IndexableBaseP", "_copyContents"]
+- ["s14_IndexableBaseP", "_copyToContiguousArray"]
+- ["s14_IndexableBaseP", "_customContainsEquatableElement"]
+- ["s14_IndexableBaseP", "_customIndexOfEquatableElement"]
+- ["s14_IndexableBaseP", "_failEarlyRangeCheck"]
+- ["s14_IndexableBaseP", "_preprocessingPass"]
+- !private ["s14_IndexableBaseP", "append"]
+- !private ["s14_IndexableBaseP", "assetlist"]
+- !private ["s14_IndexableBaseP", "contains"]
+- ["s14_IndexableBaseP", "count"]
+- ["s14_IndexableBaseP", "distance"]
+- ["s14_IndexableBaseP", "drop"]
+- ["s14_IndexableBaseP", "dropFirst"]
+- ["s14_IndexableBaseP", "dropLast"]
+- ["s14_IndexableBaseP", "endIndex"]
+- !private ["s14_IndexableBaseP", "fatalError"]
+- ["s14_IndexableBaseP", "filter"]
+- ["s14_IndexableBaseP", "first"]
+- ["s14_IndexableBaseP", "forEach"]
+- ["s14_IndexableBaseP", "formIndex"]
+- ["s14_IndexableBaseP", "index"]
+- ["s14_IndexableBaseP", "indices"]
+- !private ["s14_IndexableBaseP", "init"]
+- ["s14_IndexableBaseP", "isEmpty"]
+- !private ["s14_IndexableBaseP", "isPicked"]
+- ["s14_IndexableBaseP", "makeIterator"]
+- ["s14_IndexableBaseP", "map"]
+- !private ["s14_IndexableBaseP", "nohanaImagePickerController"]
+- ["s14_IndexableBaseP", "prefix"]
+- ["s14_IndexableBaseP", "split"]
+- ["s14_IndexableBaseP", "startIndex"]
+- ["s14_IndexableBaseP", "subscript"]
+- ["s14_IndexableBaseP", "suffix"]
+- ["s14_IndexableBaseP", "title"]
+- ["s14_IndexableBaseP", "underestimatedCount"]
+- ["s14_IndexableBaseP", "update"]
+- ["s14_IndexableBaseP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "delegate"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "maximumNumberOfSelection"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "post"]
+- !private ["s17_MutableIndexableP", "append"]
+- !private ["s17_MutableIndexableP", "contains"]
+- !private ["s17_MutableIndexableP", "count"]
+- !private ["s17_MutableIndexableP", "filter"]
+- !private ["s17_MutableIndexableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "_getBuiltinLogicValue"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "contains"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "filter"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s22_RandomAccessIndexableP", "append"]
+- !private ["s22_RandomAccessIndexableP", "contains"]
+- !private ["s22_RandomAccessIndexableP", "count"]
+- !private ["s22_RandomAccessIndexableP", "filter"]
+- !private ["s22_RandomAccessIndexableP", "subscript"]
+- !private ["s26_RangeReplaceableIndexableP", "append"]
+- !private ["s26_RangeReplaceableIndexableP", "contains"]
+- !private ["s26_RangeReplaceableIndexableP", "count"]
+- !private ["s26_RangeReplaceableIndexableP", "filter"]
+- !private ["s26_RangeReplaceableIndexableP", "init"]
+- !private ["s26_RangeReplaceableIndexableP", "subscript"]
+- !private ["s16_SwiftStringViewP", "init"]
+depends-nominal:
+- !private "Sa"
+- !private "17NohanaImagePicker16NotificationInfoV5AssetV"
+- !private "17NohanaImagePicker5AssetP"
+- !private "s23BidirectionalCollectionP"
+- !private "Sb"
+- !private "s7CVarArgP"
+- "s10CollectionP"
+- !private "s10ComparableP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s29CustomPlaygroundQuickLookableP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "s9DecodableP"
+- !private "s9EncodableP"
+- !private "s9EquatableP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByBooleanLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- !private "s8HashableP"
+- "17NohanaImagePicker8ItemListP"
+- !private "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- !private "s17MutableCollectionP"
+- !private "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So26NSExtensionRequestHandlingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- !private "So8NSObjectC"
+- !private "So16NSObjectProtocolP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "17NohanaImagePicker0abC10ControllerC"
+- !private "17NohanaImagePicker0abC18ControllerDelegateP"
+- !private "10Foundation12NotificationV"
+- !private "So18NotificationCenterC"
+- !private "17NohanaImagePicker16NotificationInfoV"
+- !private "17NohanaImagePicker16NotificationInfoV5AssetV8PhotoKitV"
+- !private "17NohanaImagePicker13PhotoKitAssetC"
+- "17NohanaImagePicker15PickedAssetListC"
+- !private "s22RandomAccessCollectionP"
+- !private "s26RangeReplaceableCollectionP"
+- !private "10Foundation20ReferenceConvertibleP"
+- "s8SequenceP"
+- !private "s12StaticStringV"
+- !private "SS"
+- !private "s14StringProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- !private "So21UIAppearanceContainerP"
+- !private "So18UIContentContainerP"
+- !private "So18UIFocusEnvironmentP"
+- !private "So30UIPasteConfigurationSupportingP"
+- !private "So11UIResponderC"
+- !private "So30UIResponderStandardEditActionsP"
+- !private "So16UIStateRestoringP"
+- !private "So18UITraitEnvironmentP"
+- !private "So16UIViewControllerC"
+- !private "s14_ArrayProtocolP"
+- !private "s23_BidirectionalIndexableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s39_ExpressibleByBuiltinUTF16StringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s33_ExpressibleByStringInterpolationP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "s10_IndexableP"
+- "s14_IndexableBaseP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "s17_MutableIndexableP"
+- !private "s21_ObjectiveCBridgeableP"
+- !private "s22_RandomAccessIndexableP"
+- !private "s26_RangeReplaceableIndexableP"
+- !private "s16_SwiftStringViewP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Metal.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Photos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/Pods/Target Support Files/NohanaImagePicker/NohanaImagePicker-umbrella.h"
+- "/Users/fatemehdarbehani/Desktop/Fall2017/CMPT275/cmpt275-fall2017-group6/DerivedData/Memento/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/NohanaImagePicker.build/unextended-module.modulemap"
+interface-hash: "a0672ad2b3846ca1cae57bd04db70a7b"
