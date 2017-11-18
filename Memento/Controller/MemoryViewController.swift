@@ -20,8 +20,8 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // Closure property to pass data to EditStoryViewController
     // This means the closure has one parameter of type Memory and returns one value of type Int
     var completionHandler:((Memory) -> Int)?
-    
-    
+    var titleSenderTest: String = ""
+    var sendMemory = Memory()
     
     
     override func viewDidLoad() {
@@ -214,23 +214,24 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         if title == "" {
             title = "Memory"
         }
-        print(title)
         // Passing memory to EditStoryViewController
         // 1: Create a memory object from title and memoryImages array
-        let newMemory = Memory(name: title, photos: memoryImages)
+        sendMemory = Memory(name: title, photos: memoryImages)
         // 2: Call the closure variable on memory variable
-        let result = completionHandler?(newMemory!)
-        print("completionHandler returns... \(result ?? 0)")
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            
-            if let destinationViewController = segue.destination as? EditStoryViewController {
-                destinationViewController.chatchText = title
-            }
-        }
+        //let result = completionHandler?(newMemory!)
         // 3: Go back to previous view
-        _ = navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "backToEditor", sender: self)
+        //_ = navigationController?.popViewController(animated: true)
         
     }
+    //for sending data to EditStoryViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Entered override fuction")
+        if let destinationViewController = segue.destination as? EditStoryViewController {
+            destinationViewController.chatchMemData = sendMemory
+        }
+    }
+    
     func handleNewImage() {
         let picker = NohanaImagePickerController()
         picker.delegate = self

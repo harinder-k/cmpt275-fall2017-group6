@@ -14,49 +14,42 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var testTextField: UITextField!
     
     let reuseIdentifier = "cell"
-    var timelineData: [MemoryData] = []
-    var chatchText: String = ""
-    var chatchMemData: MemoryData = MemoryData()
+    var timelineData: [Memory] = []
+    var chatchMemData = Memory()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        testTextField.text = chatchMemData?.name
+        timelineData.append(chatchMemData!)
+        
     }
     
     // @Tim: Update collectionView + Memory array inside this function
     @IBAction func AddMemoryButtonPressed(_ sender: Any) {
-        
         self.performSegue(withIdentifier: "segAddMem", sender: self)
-        
-        /*
-        // Need this to get memory back from MemoryViewController
-        let memoryViewController = storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
-        
-        memoryViewController.completionHandler = { newMemory in
-            
-            print("name = \(newMemory.name)")
-            print("photos = \(newMemory.photos.count)")
-            return newMemory.photos.count
-        }
-        navigationController?.pushViewController(memoryViewController, animated: true)
-        */
     }
     
     //Requried fuction for a UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //nothing has been done yet
-        let memoryCell = UICollectionViewCell()
-        //var memory: UICollectionViewCell = UICollectionViewCell()
-        //let memoryCell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewMemoryCell
         
-        //memoryCell.image = 
+        // get a reference to our storyboard cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! MyCollectionViewCell
         
-        return memoryCell
+        // Use the outlet in our custom class to get a reference to the UILabel in the cell
+        //cell.cellImage.image = timelineData[indexPath.item].photos[0].image
+ 
+        cell.cellImage.image = #imageLiteral(resourceName: "add_photo")
+        
+        //cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        
+        return cell
     }
+    
     
     //Requried fuction for a UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //nothing has been done yet
-        return 5
+        return timelineData.count
     }
     
     //For debugging
@@ -67,16 +60,10 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     
 }
 
-//Variable for each memory in the timeline
-class MemoryData {
+
+import UIKit
+class MyCollectionViewCell: UICollectionViewCell {
     
-    var images: [UIImage] = []
-    var memTitle: String
-    var addedText: String
-    
-    init() {
-        memTitle = "My day"
-        addedText = "I had lots of fun!"
-    }
+    @IBOutlet weak var cellImage: UIImageView!
     
 }

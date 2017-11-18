@@ -157,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eUy-wF-ENu" userLabel="Story Title Text Field">
-                                <rect key="frame" x="499" y="99" width="186" height="30"/>
+                                <rect key="frame" x="499" y="55" width="186" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="186" id="nOb-ws-yH9"/>
                                     <constraint firstAttribute="height" constant="30" id="uXK-lZ-Qhs"/>
@@ -167,7 +167,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Story Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkI-Xs-q55">
-                                <rect key="frame" x="133" y="102" width="79" height="21"/>
+                                <rect key="frame" x="133" y="58" width="79" height="114"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="79" id="6dN-J2-w5b"/>
                                     <constraint firstAttribute="height" constant="21" id="WcQ-Hw-Q3W"/>
@@ -187,7 +187,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikh-ls-vZC" userLabel="Add Memory Button">
-                                <rect key="frame" x="212" y="164" width="343" height="50"/>
+                                <rect key="frame" x="212" y="120" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.31372549019607843" green="0.396078431372549" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bVP-QK-Bcg"/>
@@ -224,21 +224,34 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="OGb-0C-P5Z">
-                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="itemSize" width="240" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lzp-YK-RWF">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="lzp-YK-RWF" customClass="MyCollectionViewCell" customModule="Memento" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2p-rN-WHH">
+                                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                    </subviews>
                                                 </view>
+                                                <connections>
+                                                    <outlet property="cellImage" destination="V2p-rN-WHH" id="M6P-hg-LaW"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2ZW-S1-QaQ" id="BWX-fT-Ebp"/>
+                                            <outlet property="delegate" destination="2ZW-S1-QaQ" id="zc7-9c-qHS"/>
+                                        </connections>
                                     </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -307,6 +320,9 @@
                         <viewLayoutGuide key="safeArea" id="Lh3-g2-8j9"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Memory" id="KWE-uG-cGk"/>
+                    <connections>
+                        <segue destination="2ZW-S1-QaQ" kind="show" identifier="backToEditor" id="gLH-0P-gOj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7f-qS-dai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -728,5 +744,9 @@
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tsP-do-Qi5"/>
+        <segue reference="gLH-0P-gOj"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.31372549019607843" green="0.396078431372549" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
