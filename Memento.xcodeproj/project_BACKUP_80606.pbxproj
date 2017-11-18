@@ -24,9 +24,14 @@
 		38EA12391FA2AA2F00343723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12371FA2AA2F00343723 /* LaunchScreen.storyboard */; };
 		38EA12441FA2AA2F00343723 /* MementoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA12431FA2AA2F00343723 /* MementoTests.swift */; };
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
+<<<<<<< HEAD
+		3F248CA7F046ED67E0CBA444 /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */; };
+		4D7F919AC13485398E9EC825 /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */; };
+		F46D656B1FBB7E8900BA56CD /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */; };
+=======
 		8CB8150A3A741818C56DE43F /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60AEC7F2DFE1A921FC7C97 /* Pods_Memento.framework */; };
 		DBDADEA7A91B1E1DFE5F566C /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0148F56700A8D75A27FF91C /* Pods_MementoUITests.framework */; };
-		F43072FE1FBFBCB600E0067A /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */; };
+>>>>>>> 33b04fe7b1c3dedf267790cb3212865b01f41222
 		F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */; };
 		F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */; };
 		F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */; };
@@ -82,12 +87,22 @@
 		38EA124A1FA2AA2F00343723 /* MementoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MementoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA124E1FA2AA2F00343723 /* MementoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MementoUITests.swift; sourceTree = "<group>"; };
 		38EA12501FA2AA3000343723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		3AFE2DEF758B764529E24144 /* Pods-MementoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FE4220CA13F896F986402DB /* Pods-MementoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		730138B39AF9161590813199 /* Pods_MementoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B92EC8F565BB4A6AFDC0C267 /* Pods_Memento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAD0C3C58C9AE9869EE6BB9F /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E447498E367E71927DA50AF5 /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
+		F30A836122F4030F1EDC6217 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
+		F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+=======
 		5EAA1214BBDBCAC0FB512C8B /* Pods-Memento.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.release.xcconfig"; sourceTree = "<group>"; };
 		6D60AEC7F2DFE1A921FC7C97 /* Pods_Memento.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memento.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB855E7653751B2FA0619E28 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
 		C0148F56700A8D75A27FF91C /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77609AA066C2F185FC60E9D /* Pods-MementoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
+>>>>>>> 33b04fe7b1c3dedf267790cb3212865b01f41222
 		F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
 		F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesNavigationController.swift; sourceTree = "<group>"; };
 		F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeQuizViewController.swift; sourceTree = "<group>"; };
@@ -199,8 +214,11 @@
 				F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */,
 				F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */,
 				F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */,
-				F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */,
+<<<<<<< HEAD
+				F46D656A1FBB7E8900BA56CD /* QuizQuestion.swift */,
+=======
 				0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */,
+>>>>>>> 33b04fe7b1c3dedf267790cb3212865b01f41222
 			);
 			path = Memento;
 			sourceTree = "<group>";
@@ -509,7 +527,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43072FE1FBFBCB600E0067A /* QuizQuestion.swift in Sources */,
 				0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */,
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
@@ -523,7 +540,11 @@
 				F4F0D0721FA3BCA700C2844C /* MeViewController.swift in Sources */,
 				F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */,
 				F4F0D06E1FA3BB6400C2844C /* StoriesViewControler.swift in Sources */,
+<<<<<<< HEAD
+				F46D656B1FBB7E8900BA56CD /* QuizQuestion.swift in Sources */,
+=======
 				0D51B6221FB6F2E600EE2140 /* EditMemoryLauncher.swift in Sources */,
+>>>>>>> 33b04fe7b1c3dedf267790cb3212865b01f41222
 				F56ACEC81FB0F7080089C53F /* MemoriesCollectionViewCell.swift in Sources */,
 				0D9CDFB31FB58BFC00DDFB2A /* Memory.swift in Sources */,
 				F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */,

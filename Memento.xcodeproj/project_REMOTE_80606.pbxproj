@@ -26,7 +26,6 @@
 		38EA124F1FA2AA2F00343723 /* MementoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA124E1FA2AA2F00343723 /* MementoUITests.swift */; };
 		8CB8150A3A741818C56DE43F /* Pods_Memento.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60AEC7F2DFE1A921FC7C97 /* Pods_Memento.framework */; };
 		DBDADEA7A91B1E1DFE5F566C /* Pods_MementoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0148F56700A8D75A27FF91C /* Pods_MementoUITests.framework */; };
-		F43072FE1FBFBCB600E0067A /* QuizQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */; };
 		F4B94FEF1FA7FF0A00B6CB77 /* EditStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */; };
 		F4B94FF11FA7FF7900B6CB77 /* QuizzesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */; };
 		F4B94FF51FA8092600B6CB77 /* TakeQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */; };
@@ -87,7 +86,6 @@
 		BB855E7653751B2FA0619E28 /* Pods-Memento.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memento.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memento/Pods-Memento.debug.xcconfig"; sourceTree = "<group>"; };
 		C0148F56700A8D75A27FF91C /* Pods_MementoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MementoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D77609AA066C2F185FC60E9D /* Pods-MementoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuizQuestion.swift; sourceTree = "<group>"; };
 		F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStoryViewController.swift; sourceTree = "<group>"; };
 		F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzesNavigationController.swift; sourceTree = "<group>"; };
 		F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeQuizViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				F4B94FEE1FA7FF0A00B6CB77 /* EditStoryViewController.swift */,
 				F4B94FF01FA7FF7900B6CB77 /* QuizzesNavigationController.swift */,
 				F4B94FF41FA8092600B6CB77 /* TakeQuizViewController.swift */,
-				F43072FD1FBFBCB600E0067A /* QuizQuestion.swift */,
 				0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */,
 			);
 			path = Memento;
@@ -509,7 +506,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43072FE1FBFBCB600E0067A /* QuizQuestion.swift in Sources */,
 				0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */,
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
