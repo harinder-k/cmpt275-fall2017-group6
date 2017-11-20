@@ -24,7 +24,7 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         timeLineView.layer.masksToBounds = true
         //timeLineView.translatesAutoresizingMaskIntoConstraints = false
     }
-    // @Tim: Update collectionView + Memory array inside this function
+    //Update collectionView + Memory array inside this function
     @IBAction func addMemoryButtonPressed(_ sender: Any) {
         // Need this to get memory back from MemoryViewController
         let memoryViewController = storyboard?.instantiateViewController(withIdentifier: "MemoryViewController") as! MemoryViewController
