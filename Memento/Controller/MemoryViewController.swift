@@ -130,7 +130,6 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         button.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
         return button
     }()
-    
     let memoryCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100) , collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.register(MemoryCell.self, forCellWithReuseIdentifier: "cellId")
