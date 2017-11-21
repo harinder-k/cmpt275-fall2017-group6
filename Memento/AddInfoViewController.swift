@@ -49,7 +49,9 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nameID", for: indexPath) as! nameCell
+        print("go in this!!!!")
         if peopleNames.count > indexPath.item {
+            print("adding...\(peopleNames[indexPath.item])")
             cell.name = peopleNames[indexPath.item]
         }
         return cell
@@ -225,8 +227,15 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
-    @objc func handleAddNameButton() {
-        
+    @IBAction func handleAddNameButton() {
+        let inputName = peopleTextField.text
+        print("Add Name")
+        if !(inputName!.isEmpty) {
+            peopleNames.append(inputName!)
+            print(peopleNames)
+            namesTableView.reloadData()
+        }
+            
     }
     
     override func didReceiveMemoryWarning() {
@@ -250,11 +259,39 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
 //Name cell for name tabe view
 class nameCell: UITableViewCell {
     
-    var name = ""
-    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: UITableViewCellStyle.default, reuseIdentifier: "nameID")
+        setupViews()
+    }
+
+    //required fuction... dont know what it does eather
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //Hold a string and set the text vew to that value
+    var name: String? {
+        didSet {
+            if let newText = name {
+                tableViewText.text = newText
+            }
+        }
+    }
+    //add the Text view to the table
+    let tableViewText: UILabel = {
+        let text = UILabel()
+        text.font =  .boldSystemFont(ofSize: 10)
+        text.translatesAutoresizingMaskIntoConstraints = false
+        return text
+    }()
+    
+    //chose what the veiw looks like
+    func setupViews() {
+        self.addSubview(tableViewText)
+        self.backgroundColor = UIColor.gray
+        
+    }
+    
 
 }
 
