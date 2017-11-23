@@ -23,8 +23,19 @@ class StoriesViewController:UIViewController {
      
     }
     func uploadQuiz(story: Story){
-        // New Quiz entries
-        // I have no idea how to create these based on memroy fields
+        // containers for all dates, photos and people in story
+        var dates = [String]()
+        var photos = [MemoryImage]
+        //var people = [MemoryPeople]
+        //In progress
+        for memoryObject in story.memories {
+            if !memoryObject.photos.isEmpty {
+                
+            }
+            if !memoryObject.date.isEmpty {
+                dates.append(memoryObject.date)
+            }
+        }
         var peopleQuestions: [QuizQuestion] = []
         var placesQuestions: [QuizQuestion] = []
         var datesQuestions: [QuizQuestion] = []
@@ -37,6 +48,7 @@ class StoriesViewController:UIViewController {
         // References to nodes to database (people/places/dates)
         usersRef.observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.hasChild("quizzes"){
+                
                 let peopleQuestionsCount = snapshot.childSnapshot(forPath: "quizzes/people").childrenCount
                 let peopleRef = usersRef.child("quizzes/people/\(peopleQuestionsCount)")
                 
