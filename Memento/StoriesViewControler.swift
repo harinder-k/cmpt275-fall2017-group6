@@ -22,23 +22,65 @@ class StoriesViewController:UIViewController {
         checkIfUserIsLoggedIn()
      
     }
+    
+    // Creates a question based on memory name and memory date
+    func createQuestionType1 (memName: String, memDate: String) -> QuizQuestion {
+        // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
+        q = "When did \(memName) take place?"
+        ops = [memDate, "", "", ""]
+        question = QuizQuestion(question: q, imageName: "", options: ops, answer: memDate)
+    }
+    
+    // Creates a question based on an image and the date it was taken
+    func createQuestionType2 (photoName: String, photoDate: String) -> QuizQuestion {
+        // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
+        q = "When was this photo taken?"
+        ops = [photoDate, "", "", ""]
+        question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: photoDate)
+    }
+    
+    // Creates a question based on an image and the place where it was taken
+    func createQuestionType3 (photoName: String, photoPlace: String) -> QuizQuestion {
+        q = "Where was this photo taken?"
+        ops = [photoPlace, "", "", ""]
+        question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: photoPlace)
+    }
+    
+    // Creates a question based on an image and the date it was taken
+    // In progress
+//    func createQuestionType4 (photoName: String, people: String) -> QuizQuestion {
+//    }
+    
+    //In progress
     func uploadQuiz(story: Story){
-        // containers for all dates, photos and people in story
-        var dates = [String]()
-        var photos = [MemoryImage]
-        //var people = [MemoryPeople]
-        //In progress
-        for memoryObject in story.memories {
-            if !memoryObject.photos.isEmpty {
-                
-            }
-            if !memoryObject.date.isEmpty {
-                dates.append(memoryObject.date)
-            }
-        }
+        // containers for questions
         var peopleQuestions: [QuizQuestion] = []
         var placesQuestions: [QuizQuestion] = []
         var datesQuestions: [QuizQuestion] = []
+        
+        // Creating different questions based on which data is avaiable
+        for mem in story.memories {
+            if mem.name != "Memory" && mem.date != "None" {
+                datesQuestions.append(createQuestionType1(memName: mem.name, memDate: mem.date))
+            }
+            
+            if !mem.photos.isEmpty {
+                // need to get name of image so that QuizQuestion.swift can search for it on Firebase
+                imgName = ""
+                for photo in mem.photos {
+                    if photo.date != "" {
+                        datesQuestions.append(createQuestionType2(photoName: imgName, photoDate: photo.date))
+                    }
+                    if photo.place != "" {
+                        placesQuestions.append(createQuestionType3(photoName: imgName, photoPlace: photo.place))
+                    }
+                    if !photo.people.isEmpty {
+                        
+                    }
+                }
+                
+            }
+        }
         // Reference to database
         var ref: DatabaseReference!
         ref = Database.database().reference(fromURL: "https://memento-da996.firebaseio.com/")

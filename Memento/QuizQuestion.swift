@@ -17,7 +17,7 @@ struct Options {
 
 struct QuizQuestion {
     var question: String
-    var imageName: String
+    var image: String
     var options: [String]
     var answer: String
 }
