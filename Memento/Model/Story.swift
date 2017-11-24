@@ -14,6 +14,11 @@ class Story {
     // ------------------------------------------------------- //
     var title: String
     var memories: [Memory]
+    
+    var imagesDirectoryPath:String!
+    var images:[UIImage]!
+    var titles:[String]!
+    
     // ------------------------------------------------------- //
     // -------------------- Initialization ------------------- //
     // ------------------------------------------------------- //

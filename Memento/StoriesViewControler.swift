@@ -11,6 +11,13 @@ import UIKit
 import Firebase
 
 class StoriesViewController:UIViewController {
+    // ------------------------------------------------------- //
+    // These variables are used to store data locally
+    // ------------------------------------------------------- //
+    var storiesDirectoryPath:String!
+    var stories:[Story]!
+    var titles:[String]!
+    // ------------------------------------------------------- //
     override func viewDidLoad() {
         super.viewDidLoad()
         //var ref: DatabaseReference!
@@ -20,6 +27,26 @@ class StoriesViewController:UIViewController {
         // Logout button:
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
         checkIfUserIsLoggedIn()
+        // ------------------------------------------------------- //
+        // Create a Document directory for this app to save data
+        // locally
+        // ------------------------------------------------------- //
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        // Get the Document directory path
+        let documentDirectorPath:String = paths[0]
+        // Create a new path for the new images folder
+        storiesDirectoryPath = (documentDirectorPath as NSString).appending("/stories")
+        var objcBool:ObjCBool = true
+        let doesExist = FileManager.default.fileExists(atPath: storiesDirectoryPath, isDirectory: &objcBool)
+        // If the folder with the given path doesn't exist already, create it
+        if doesExist == false{
+            do{
+                try FileManager.default.createDirectory(atPath: storiesDirectoryPath, withIntermediateDirectories: true, attributes: nil)
+            }catch{
+                print("Something went wrong while creating a new folder")
+            }
+        }
+        // ------------------------------------------------------- //
      
     }
     func uploadQuiz(story: Story){
