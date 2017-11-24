@@ -26,29 +26,34 @@ class StoriesViewController:UIViewController {
     // Creates a question based on memory name and memory date
     func createQuestionType1 (memName: String, memDate: String) -> QuizQuestion {
         // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
-        q = "When did \(memName) take place?"
-        ops = [memDate, "", "", ""]
-        question = QuizQuestion(question: q, imageName: "", options: ops, answer: memDate)
+        let q = "When did \(memName) take place?"
+        let ops = [memDate, "", "", ""]
+        let question = QuizQuestion(question: q, image: "", options: ops, answer: memDate)
+        return question
     }
     
     // Creates a question based on an image and the date it was taken
     func createQuestionType2 (photoName: String, photoDate: String) -> QuizQuestion {
         // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
-        q = "When was this photo taken?"
-        ops = [photoDate, "", "", ""]
-        question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: photoDate)
+        let q = "When was this photo taken?"
+        let ops = [photoDate, "", "", ""]
+        let question = QuizQuestion(question: q, image: photoName, options: ops, answer: photoDate)
+        return question
     }
     
     // Creates a question based on an image and the place where it was taken
     func createQuestionType3 (photoName: String, photoPlace: String) -> QuizQuestion {
-        q = "Where was this photo taken?"
-        ops = [photoPlace, "", "", ""]
-        question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: photoPlace)
+        let q = "Where was this photo taken?"
+        let ops = [photoPlace, "", "", ""]
+        let question = QuizQuestion(question: q, image: photoName, options: ops, answer: photoPlace)
+        return question
     }
     
     // Creates a question based on an image and the date it was taken
     // In progress
 //    func createQuestionType4 (photoName: String, people: String) -> QuizQuestion {
+//        let q = "Who is in this photo?"
+//        let ops = ["","","",""]
 //    }
     
     //In progress
@@ -58,16 +63,33 @@ class StoriesViewController:UIViewController {
         var placesQuestions: [QuizQuestion] = []
         var datesQuestions: [QuizQuestion] = []
         
+        // variables to track data to be able to populate options
+        var numPeople = 0
+        var peopleNames = [String]()
+        
+        for mem in story.memories {
+            for photo in mem.photos {
+                numPeople = numPeople + photo.people.count
+                peopleNames.append(contentsOf: photo.people)
+            }
+        }
+        
         // Creating different questions based on which data is avaiable
         for mem in story.memories {
+            
             if mem.name != "Memory" && mem.date != "None" {
                 datesQuestions.append(createQuestionType1(memName: mem.name, memDate: mem.date))
             }
             
             if !mem.photos.isEmpty {
-                // need to get name of image so that QuizQuestion.swift can search for it on Firebase
-                imgName = ""
+                
+                
                 for photo in mem.photos {
+                    // need to get name of image so that QuizQuestion.swift can search for it on Firebase
+                    //let imgName = photo.image.??
+                    // temp
+                    let imgName = ""
+                    
                     if photo.date != "" {
                         datesQuestions.append(createQuestionType2(photoName: imgName, photoDate: photo.date))
                     }
@@ -75,7 +97,7 @@ class StoriesViewController:UIViewController {
                         placesQuestions.append(createQuestionType3(photoName: imgName, photoPlace: photo.place))
                     }
                     if !photo.people.isEmpty {
-                        
+                        //numPeople
                     }
                 }
                 
@@ -101,15 +123,15 @@ class StoriesViewController:UIViewController {
                 let datesRef = usersRef.child("quizzes/dates/\(datesQuestionsCount)")
              
                 // Updating the database
-                for question in peopleQuestions{
-                    peopleRef.updateChildValues(["question": question.question,"imageName":question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                }
-                for question in placesQuestions{
-                    placesRef.updateChildValues(["question":question.question,"imageName":question.imageName, "option1": question.options[0], "option2":question.options[1],"option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                }
-                for question in datesQuestions{
-                    datesRef.updateChildValues(["question": question.question,"imageName": question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                }
+//                for question in peopleQuestions{
+//                    peopleRef.updateChildValues(["question": question.question,"imageName":question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
+//                }
+//                for question in placesQuestions{
+//                    placesRef.updateChildValues(["question":question.question,"imageName":question.imageName, "option1": question.options[0], "option2":question.options[1],"option3": question.options[2], "option4": question.options[3],"answer": question.answer])
+//                }
+//                for question in datesQuestions{
+//                    datesRef.updateChildValues(["question": question.question,"imageName": question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
+//                }
             }
             else{
                 // IDK what to do?!?!
