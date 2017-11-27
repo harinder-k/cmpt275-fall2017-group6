@@ -15,6 +15,7 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
     var email = ""
     var name = ""
     var DOB = ""
+    var profileURL = ""
     
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
@@ -37,9 +38,24 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
             self.email = value?["email"] as? String ?? ""
             self.name = value?["name"] as? String ?? ""
             self.DOB = value?["dateOfBirth"] as? String ?? ""
+            if snapshot.hasChild("profileImageURL"){
+                self.profileURL = value?["profileImageURL"] as? String ?? ""
+                self.putProfileImage()
+            }
             //let user = User(username: username)
             self.putItOnProfile()
         }, withCancel: nil)
+    }
+    
+    func putProfileImage (){
+        let url = URL(string: profileURL)
+        URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+            self.profileImage.image = UIImage(data: data!)
+            }.resume()
     }
     
     func putItOnProfile(){   //Display all the information on the me tab
@@ -52,7 +68,7 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
     @IBAction func addProfilePicTapped(_ sender: AnyObject) {
         let image = UIImagePickerController()
         image.delegate = self
-        image.allowsEditing = false;
+        image.allowsEditing = true;
         image.sourceType = UIImagePickerControllerSourceType.photoLibrary
         self.present(image, animated: true)
         {
@@ -62,27 +78,53 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
     
     func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            
             profileImage.image = pickedImage
             
+            ///////////////////////
+            let imageName = NSUUID().uuidString
             
+            let storageRef = Storage.storage().reference().child("profileImages").child("\(imageName).png")
+            if let uploadData = UIImagePNGRepresentation(self.profileImage.image!){
+                storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                    if (error != nil){
+                        print(error!)
+                        return
+                    }
+                    if let profileImageUrl = metadata?.downloadURL()?.absoluteString{
+                        let value = ["profileImageURL": profileImageUrl]
+                        self.uploadimageURl(value: value as [String : AnyObject])
+                    }
+                    
+                })
+            }
             //////////////////////
-            let uid = Auth.auth().currentUser?.uid
-            let ref = Database.database().reference()
-            let storage = Storage.storage().reference()
-            let temp = storage.child("users").child(uid!).child("temp.jpg")
             
-            let metadata = StorageMetadata()
-            metadata.contentType = "pickedImage/jpeg"
-            /////////////////////
             
         }
         else{
             //Error message
         }
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    private func uploadimageURl(value: [String: AnyObject]){
+        let uid = Auth.auth().currentUser?.uid
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let userReference = ref.child("users").child(uid!)
+        userReference.updateChildValues(value, withCompletionBlock:{
+            (err, ref) in
+            
+            if err != nil{
+                print(err!)
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 }
