@@ -15,6 +15,7 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     var memoriesArray : [Memory] = []
     
     var completionHandler:((Story) -> Int)?
+    var myTitle: String = "Story"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,9 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         timeLineView.layer.cornerRadius = 10
         timeLineView.layer.masksToBounds = true
         //timeLineView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        StoryTitleTextField.text = myTitle
     }
     //Update collectionView + Memory array inside this function
     @IBAction func addMemoryButtonPressed(_ sender: Any) {
@@ -41,14 +45,8 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         }
         navigationController?.pushViewController(memoryViewController, animated: true)
     }
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        guard var storyTitle = StoryTitleTextField.text else {
-            print("Title is not valid")
-            return
-        }
-        if storyTitle == "" {
-            storyTitle = "Story"
-        }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let storyTitle = StoryTitleTextField.text!
         if let newStory = Story(title: storyTitle, memories: memoriesArray){
             let result = completionHandler?(newStory)
             print("completionHandler returns... \(result ?? 0)")
@@ -56,7 +54,22 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         // 3: Go back to previous view
         _ = navigationController?.popViewController(animated: true)
     }
-    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        let storyTitle = StoryTitleTextField.text!
+        let writer = VideoWriter()
+        var allImages: [UIImage] = []
+        for i in 0...memoriesArray.count - 1 {
+            for j in 0...memoriesArray[i].photos.count - 1 {
+                allImages.append(memoriesArray[i].photos[j].image)
+            }
+        }
+        //1080 x 1440
+        let size = CGSize(width: 320, height: 480)
+        let pathVideo = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let percorsoVideo = pathVideo[0]
+        writer.writeImagesAsMovie(allImages: allImages, videoPath: percorsoVideo + "/\(storyTitle)", videoSize: size, videoFPS: 1)
+        print("Movie was created")
+    }
     // ------------------------------------------------------------------- //
     // ---------------- Collection View Delegate Functions --------------- //
     // ------------------------------------------------------------------- //

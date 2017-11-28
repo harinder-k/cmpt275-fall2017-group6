@@ -14,10 +14,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     // ------------------------------------------------------- //
     // These variables are used to store data locally
     // ------------------------------------------------------- //
-    var storiesDirectoryPath:String!
-    var stories:[Story]!
-    var images:[UIImage]!
-    var titles:[String]!
+    var stories:[Story] = []
     // ------------------------------------------------------- //
     // ------------------------------------------------------- //
     // These variables are used for the following table views:
@@ -49,61 +46,37 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         checkIfUserIsLoggedIn()
         // -------------------------------------------------------------------------------------------------- //
         // -------------------------------------------------------------------------------------------------- //
-        // Create a Document directory for this app to save data
-        // locally
+        // Load saved data from local directory
         // -------------------------------------------------------------------------------------------------- //
-        stories = []
-        images = []
-        titles = []
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        // Get the Document directory path
-        let documentDirectorPath:String = paths[0]
-        print(paths[0])
-        // Create a new path for the new images folder
-        storiesDirectoryPath = (documentDirectorPath as NSString).appending("/stories")
-        var objcBool:ObjCBool = true
-        let doesExist = FileManager.default.fileExists(atPath: storiesDirectoryPath, isDirectory: &objcBool)
-        // If the folder with the given path doesn't exist already, create it
-        if doesExist == false{
-            do{
-                try FileManager.default.createDirectory(atPath: storiesDirectoryPath, withIntermediateDirectories: true, attributes: nil)
-            }catch{
-                print("Something went wrong while creating a new folder")
-            }
+        if let savedStoriesArray = self.loadStories() {
+            stories += savedStoriesArray
         }
-        self.refreshTable()
+        self.refreshInProgressTable()
         // ------------------------------------------------------- //
      
     }
     // ---------------------------------------------------------------- //
-    // Saves a Story object in app's local directory
-    // path to save the object: /PATH/TO/DOCUMENT/DIRECTORY/story title
+    // Saves list of Story objects in app's local directory
+    // path to save the object: /PATH/TO/DOCUMENT/DIRECTORY/stories
     // ---------------------------------------------------------------- //
-    func saveStory(story: Story){
-        // Save image to Document directory
-        var imagePath = story.title
-        imagePath = imagePath.replacingOccurrences(of: " ", with: "")
-        imagePath = storiesDirectoryPath.appending("/\(imagePath).png")
-        let data = UIImagePNGRepresentation(story.memories[0].photos[0].image)
-        let success = FileManager.default.createFile(atPath: imagePath, contents: data, attributes: nil)
-        print("Saving images locally: " + String(success))
-        self.refreshTable()
+    private func saveStories(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(stories, toFile: Story.ArchiveURL.path)
+        if isSuccessfulSave {
+            print("Stories successfully saved.")
+        } else {
+            print("Failed to save stories...")
+        }
+    }
+    // ---------------------------------------------------------------- //
+    // Loads list of Story objects from app's local directory
+    // path to saved objects: /PATH/TO/DOCUMENT/DIRECTORY/stories
+    // ---------------------------------------------------------------- //
+    func loadStories() -> [Story]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Story.ArchiveURL.path) as? [Story]
     }
     
-    func refreshTable(){
-        do{
-            images.removeAll()
-            titles = try FileManager.default.contentsOfDirectory(atPath: storiesDirectoryPath)
-            print(titles)
-            for image in titles{
-                let data = FileManager.default.contents(atPath: storiesDirectoryPath.appending("/\(image)"))
-                let image = UIImage(data: data!)
-                images.append(image!)
-            }
-            self.inProgressTableView.reloadData()
-        }catch{
-            print("Error")
-        }
+    func refreshInProgressTable(){
+        self.inProgressTableView.reloadData()
     }
     // -------------------------------------------------------------------------------------------------- //
     // Creates and uploads quizzes to database
@@ -162,8 +135,10 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             print(story.title)
             if story.memories.count > 0 {
                 print("I have the memories here!")
-                self.saveStory(story: story)
-                self.uploadQuiz(story: story)
+                self.stories.append(story)
+                self.saveStories()
+                self.refreshInProgressTable()
+                //self.uploadQuiz(story: story)
                 
             }
             return story.memories.count
@@ -207,7 +182,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     // -------------------------------------------------------------------------------------------------- //
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.images.count
+        return self.stories.count
     }
     
     // create a cell for each table view row
@@ -216,15 +191,39 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         // create a new cell if needed or reuse an old one
         let cell:UITableViewCell = self.inProgressTableView.dequeueReusableCell(withIdentifier: inProgressCellReuseIdentifier) as UITableViewCell!
         
-        print(images.count)
+        print(stories.count)
         // set the text from the data model
-        cell.imageView?.image = self.images[indexPath.row]
+        cell.imageView?.image = self.stories[indexPath.row].memories[0].photos[0].image
+        cell.textLabel?.text = self.stories[indexPath.row].title
         
         return cell
     }
-    
+    private lazy var editStory: EditStoryViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        // Instantiate View Controller
+        var vc = storyboard.instantiateViewController(withIdentifier: "EditStoryViewController") as! EditStoryViewController
+        return vc
+    }()
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        //print("You tapped cell number \(indexPath.row).")
+        editStory.memoriesArray = stories[indexPath.row].memories
+        editStory.myTitle = stories[indexPath.row].title
+        stories.remove(at: indexPath.row)
+        editStory.completionHandler = { story in
+            print("photos = \(story.memories.count)")
+            print(story.title)
+            if story.memories.count > 0 {
+                //print("I have the memories here!")
+                self.stories.append(story)
+                self.saveStories()
+                self.refreshInProgressTable()
+                //self.uploadQuiz(story: story)
+                
+            }
+            return story.memories.count
+        }
+        navigationController?.pushViewController(editStory, animated: true)
     }
 }
