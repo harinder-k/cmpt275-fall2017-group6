@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import os.log
 
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
     let reuseIdentifier = "cell"
     @IBOutlet weak var StoryTitleTextField: UITextField!
     var memoriesArray : [Memory] = []
-    
+    //for saving stories
+    var stories = [Story]()
     var completionHandler:((Story) -> Int)?
     
     override func viewDidLoad() {
@@ -89,13 +91,26 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-
+    
     //For debugging
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
     }
     
+    //MARK: Private Methods
+    private func saveStories() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(stories, toFile: Story.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Stories successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save Stories...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadStories() -> [Story]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Story.ArchiveURL.path) as? [Story]
+    }    
 }
 
 //Story Cell Class
