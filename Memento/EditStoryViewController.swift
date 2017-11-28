@@ -14,8 +14,10 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     let reuseIdentifier = "cell"
     @IBOutlet weak var StoryTitleTextField: UITextField!
     var memoriesArray : [Memory] = []
+    
     //for saving stories
     var stories = [Story]()
+    
     var completionHandler:((Story) -> Int)?
     
     override func viewDidLoad() {
@@ -97,6 +99,9 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
     }
+    
+    //Method for edditing the story object
+    
     
     //MARK: Private Methods
     private func saveStories() {
