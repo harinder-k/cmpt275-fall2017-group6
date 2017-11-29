@@ -9,12 +9,16 @@
 import Foundation
 import UIKit
 import Firebase
+import AVKit
+import AVFoundation
 
 class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     // ------------------------------------------------------- //
     // These variables are used to store data locally
     // ------------------------------------------------------- //
     var stories:[Story] = []
+    var videoURLs: [URL] = []
+    var finishedStoriesArray: [Story] = []
     // ------------------------------------------------------- //
     // ------------------------------------------------------- //
     // These variables are used for the following table views:
@@ -26,7 +30,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var inProgressTableView: UITableView!
     let inProgressCellReuseIdentifier = "inProgress"
     // ------------------------------------------------------- //
-    
+    let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     override func viewDidLoad() {
         super.viewDidLoad()
         //var ref: DatabaseReference!
@@ -40,6 +44,8 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         // This view controller itself will provide the delegate methods and row data for the table view.
         inProgressTableView.delegate = self
         inProgressTableView.dataSource = self
+        finishedStoriesTableView.delegate = self
+        finishedStoriesTableView.dataSource = self
         // -------------------------------------------------------------------------------------------------- //
         // Logout button:
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
@@ -48,10 +54,30 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         // -------------------------------------------------------------------------------------------------- //
         // Load saved data from local directory
         // -------------------------------------------------------------------------------------------------- //
+        let ArchiveURL = DocumentsDirectory.appendingPathComponent("FinishedStories")
         if let savedStoriesArray = self.loadStories() {
             stories += savedStoriesArray
         }
         self.refreshInProgressTable()
+        if let savedFinishedStoriesArray = self.loadFinishedStories() {
+            finishedStoriesArray += savedFinishedStoriesArray
+        }
+        if finishedStoriesArray.count < 1 {
+            return
+        }
+        for i in 0...finishedStoriesArray.count - 1 {
+            var outputURL: NSURL {
+                // Use the CachesDirectory so the rendered video file sticks around as long as we need it to.
+                // Using the CachesDirectory ensures the file won't be included in a backup of the app.
+                let fileManager = FileManager.default
+                if let tmpDirURL = try? fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+                    return tmpDirURL.appendingPathComponent(finishedStoriesArray[i].title).appendingPathExtension("mp4") as NSURL
+                }
+                fatalError("URLForDirectory() failed")
+            }
+            videoURLs.append(outputURL as URL)
+        }
+        self.refreshFinishedStoriesTabel()
         // ------------------------------------------------------- //
      
     }
@@ -66,6 +92,13 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             print("Failed to save stories...")
         }
+        let ArchiveURL = DocumentsDirectory.appendingPathComponent("FinishedStories")
+        let isSuccessfulSavefinished = NSKeyedArchiver.archiveRootObject(finishedStoriesArray, toFile: ArchiveURL.path)
+        if isSuccessfulSavefinished {
+            print("Stories successfully saved.")
+        } else {
+            print("Failed to save stories...")
+        }
     }
     // ---------------------------------------------------------------- //
     // Loads list of Story objects from app's local directory
@@ -74,7 +107,13 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func loadStories() -> [Story]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Story.ArchiveURL.path) as? [Story]
     }
-    
+    func loadFinishedStories() -> [Story]? {
+        let ArchiveURL = DocumentsDirectory.appendingPathComponent("FinishedStories")
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ArchiveURL.path) as? [Story]
+    }
+    func refreshFinishedStoriesTabel(){
+        self.finishedStoriesTableView.reloadData()
+    }
     func refreshInProgressTable(){
         self.inProgressTableView.reloadData()
     }
@@ -130,18 +169,44 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func newStoryButtonPressed(_ sender: Any) {
         let editStoryViewController = storyboard?.instantiateViewController(withIdentifier: "EditStoryViewController") as! EditStoryViewController
         
-        editStoryViewController.completionHandler = { story in
-            print("photos = \(story.memories.count)")
-            print(story.title)
-            if story.memories.count > 0 {
-                print("I have the memories here!")
-                self.stories.append(story)
-                self.saveStories()
-                self.refreshInProgressTable()
-                //self.uploadQuiz(story: story)
-                
+        editStoryViewController.completionHandler = { story, type in
+            if type == 0 {
+                print("photos = \(story.memories.count)")
+                print(story.title)
+                if story.memories.count > 0 {
+                    print("I have the memories here!")
+                    self.stories.append(story)
+                    self.saveStories()
+                    self.refreshInProgressTable()
+                    //self.uploadQuiz(story: story)
+                    
+                }
+                return story.memories.count
             }
-            return story.memories.count
+            else{
+                print("photos = \(story.memories.count)")
+                print(story.title)
+                if story.memories.count > 0 {
+                    let storyTitle = story.title
+                    var outputURL: NSURL {
+                        // Use the CachesDirectory so the rendered video file sticks around as long as we need it to.
+                        // Using the CachesDirectory ensures the file won't be included in a backup of the app.
+                        let fileManager = FileManager.default
+                        if let tmpDirURL = try? fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+                            return tmpDirURL.appendingPathComponent(storyTitle).appendingPathExtension("mp4") as NSURL
+                        }
+                        fatalError("URLForDirectory() failed")
+                    }
+                    self.videoURLs.append(outputURL as URL)
+                    self.finishedStoriesArray.append(story)
+                    //print("I have the memories here!")
+                    self.saveStories()
+                    self.refreshFinishedStoriesTabel()
+                    self.refreshInProgressTable()
+                    
+                }
+                return story.memories.count
+            }
         }
         navigationController?.pushViewController(editStoryViewController, animated: true)
         
@@ -177,26 +242,75 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         let loginController = LoginController()
         present(loginController, animated: true, completion: nil)
     }
-    // -------------------------------------------------------------------------------------------------- //
-    //                                      inProgressTable view delegate                                 //
-    // -------------------------------------------------------------------------------------------------- //
-    // number of rows in table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.stories.count
+    // ------------------------------------------------------- //
+    func playVideo(index: Int){
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: videoURLs[index].path) {
+            print("FILE AVAILABLE")
+            let playViewController = AVPlayerViewController()
+            let videoPath = NSURL(fileURLWithPath: videoURLs[index].path)
+            let player = AVPlayer(url: videoPath as URL)
+            //let playerLayer = AVPlayerLayer(player: player)
+            //playerLayer.frame = self.view.bounds
+            playViewController.player = player
+            self.present(playViewController, animated: true){
+                playViewController.player?.play()
+            }
+            //self.view.layer.addSublayer(playerLayer)
+            //player.play()
+        } else {
+            print("FILE NOT AVAILABLE")
+        }
     }
-    
-    // create a cell for each table view row
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func removefinishedStory(index: Int){
+        print(index)
+        finishedStoriesArray.remove(at: index)
+        videoURLs.remove(at: index)
+        self.refreshFinishedStoriesTabel()
+    }
+    func share(index: Int){
         
-        // create a new cell if needed or reuse an old one
-        let cell:UITableViewCell = self.inProgressTableView.dequeueReusableCell(withIdentifier: inProgressCellReuseIdentifier) as UITableViewCell!
+    }
+    func showFinishedVideoActionSheet(index: Int) {
+        // 1 Create an option menu
+        let optionMenu = UIAlertController(title: nil, message: "Choose option:", preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        let y_start: CGFloat = self.view.frame.height - 120
+        let height: CGFloat = 120
+        let width: CGFloat = self.view.frame.width
+        optionMenu.popoverPresentationController?.sourceRect = CGRect(x: 0, y: y_start, width: width, height: height)
+        // 2 Create play action
+        let addInfoAction = UIAlertAction(title: "Play", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.playVideo(index: index)
+            print("Go play video")
+        })
+        // 3 Create share action
+        let shareAction = UIAlertAction(title: "Share to Facebook", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.share(index: index)
+            print("Go play video")
+        })
+        // 4 Create remove photo action
+        let removeAction = UIAlertAction(title: "Remove", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.removefinishedStory(index: index)
+            print("Remove story")
+        })
         
-        print(stories.count)
-        // set the text from the data model
-        cell.imageView?.image = self.stories[indexPath.row].memories[0].photos[0].image
-        cell.textLabel?.text = self.stories[indexPath.row].title
+        // 5 Create cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        // 6
+        optionMenu.addAction(addInfoAction)
+        optionMenu.addAction(shareAction)
+        optionMenu.addAction(removeAction)
+        optionMenu.addAction(cancelAction)
         
-        return cell
+        // 7
+        self.present(optionMenu, animated: true, completion: nil)
     }
     private lazy var editStory: EditStoryViewController = {
         // Load Storyboard
@@ -205,25 +319,140 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         var vc = storyboard.instantiateViewController(withIdentifier: "EditStoryViewController") as! EditStoryViewController
         return vc
     }()
+    func EditStory(index: Int) {
+        if index >= stories.count {
+            return
+        }
+        editStory.memoriesArray = stories[index].memories
+        editStory.myTitle = stories[index].title
+        editStory.completionHandler = { story, type in
+            if type == 0{
+                print("photos = \(story.memories.count)")
+                print(story.title)
+                if story.memories.count > 0 {
+                    //print("I have the memories here!")
+                    self.stories.remove(at: index)
+                    self.stories.append(story)
+                    self.saveStories()
+                    self.refreshInProgressTable()
+                    //self.uploadQuiz(story: story)
+                    
+                }
+                return story.memories.count
+            }
+            else{
+                print("photos = \(story.memories.count)")
+                print(story.title)
+                if story.memories.count > 0 {
+                    let storyTitle = story.title
+                    var outputURL: NSURL {
+                        // Use the CachesDirectory so the rendered video file sticks around as long as we need it to.
+                        // Using the CachesDirectory ensures the file won't be included in a backup of the app.
+                        let fileManager = FileManager.default
+                        if let tmpDirURL = try? fileManager.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true) {
+                            return tmpDirURL.appendingPathComponent(storyTitle).appendingPathExtension("mp4") as NSURL
+                        }
+                        fatalError("URLForDirectory() failed")
+                    }
+                    self.stories.remove(at: index)
+                    self.videoURLs.append(outputURL as URL)
+                    self.finishedStoriesArray.append(story)
+                    //print("I have the memories here!")
+                    self.saveStories()
+                    self.refreshFinishedStoriesTabel()
+                    self.refreshInProgressTable()
+                    
+                }
+                return story.memories.count
+            }
+        }
+        navigationController?.pushViewController(editStory, animated: true)
+    }
+    func removeInProgressStory(index: Int){
+        print(index)
+        stories.remove(at: index)
+        self.refreshInProgressTable()
+    }
+    func showStoriesActionSheet(index: Int) {
+        // 1 Create an option menu
+        let optionMenu = UIAlertController(title: nil, message: "Choose option:", preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = self.view
+        let y_start: CGFloat = self.view.frame.height - 120
+        let height: CGFloat = 120
+        let width: CGFloat = self.view.frame.width
+        optionMenu.popoverPresentationController?.sourceRect = CGRect(x: 0, y: y_start, width: width, height: height)
+        // 2 Create edit action
+        let editAction = UIAlertAction(title: "Edit", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.EditStory(index: index)
+        })
+        // 4 Create remove photo action
+        let removeAction = UIAlertAction(title: "Remove", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.removeInProgressStory(index: index)
+            print("Remove story")
+        })
+        
+        // 5 Create cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancelled")
+        })
+        // 6
+        optionMenu.addAction(editAction)
+        optionMenu.addAction(removeAction)
+        optionMenu.addAction(cancelAction)
+        
+        // 7
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    // -------------------------------------------------------------------------------------------------- //
+    //                                      inProgressTable view delegate                                 //
+    // -------------------------------------------------------------------------------------------------- //
+    // number of rows in table view
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == inProgressTableView{
+            return self.stories.count
+        }
+        else {
+            return self.videoURLs.count
+        }
+    }
+    
+    // create a cell for each table view row
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == inProgressTableView{
+            // create a new cell if needed or reuse an old one
+            let cell:UITableViewCell = self.inProgressTableView.dequeueReusableCell(withIdentifier: inProgressCellReuseIdentifier) as UITableViewCell!
+            
+            print(stories.count)
+            // set the text from the data model
+            cell.imageView?.image = self.stories[indexPath.row].memories[0].photos[0].image
+            cell.textLabel?.text = self.stories[indexPath.row].title
+            
+            return cell
+        }
+        else {
+            // create a new cell if needed or reuse an old one
+            let cell:UITableViewCell = self.finishedStoriesTableView.dequeueReusableCell(withIdentifier: finishedCellReuseIdentifier) as UITableViewCell!
+            
+            print(finishedStoriesArray.count)
+            // set the text from the data model
+            cell.imageView?.image = self.finishedStoriesArray[indexPath.row].memories[0].photos[0].image
+            cell.textLabel?.text = self.finishedStoriesArray[indexPath.row].title
+            return cell
+        }
+        
+    }
+    
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //print("You tapped cell number \(indexPath.row).")
-        editStory.memoriesArray = stories[indexPath.row].memories
-        editStory.myTitle = stories[indexPath.row].title
-        stories.remove(at: indexPath.row)
-        editStory.completionHandler = { story in
-            print("photos = \(story.memories.count)")
-            print(story.title)
-            if story.memories.count > 0 {
-                //print("I have the memories here!")
-                self.stories.append(story)
-                self.saveStories()
-                self.refreshInProgressTable()
-                //self.uploadQuiz(story: story)
-                
-            }
-            return story.memories.count
+        if tableView == inProgressTableView{
+            self.showStoriesActionSheet(index: indexPath.row)
         }
-        navigationController?.pushViewController(editStory, animated: true)
+        else{
+            self.showFinishedVideoActionSheet(index: indexPath.row)
+        }
     }
 }

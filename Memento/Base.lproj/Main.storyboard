@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,17 +118,43 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-TV-yaT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-TV-yaT">
                                 <rect key="frame" x="389" y="413" width="326" height="532"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.90196078430000004" green="0.92156862750000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Finished" id="iav-gc-EUf">
-                                        <rect key="frame" x="0.0" y="28" width="326" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Finished" rowHeight="90" id="iav-gc-EUf">
+                                        <rect key="frame" x="0.0" y="28" width="326" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iav-gc-EUf" id="8qf-Rr-icO">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="90"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-tX-hzJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="117" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="IVH-tX-hzJ" secondAttribute="height" multiplier="35:18" constant="-58" id="4dE-jE-DQH"/>
+                                                        <constraint firstAttribute="height" constant="90" id="NPZ-Uw-Knj"/>
+                                                        <constraint firstAttribute="width" constant="117" id="QFQ-sw-2oH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhR-jh-Cqe">
+                                                    <rect key="frame" x="125" y="11" width="201" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vhR-jh-Cqe" firstAttribute="leading" secondItem="IVH-tX-hzJ" secondAttribute="trailing" constant="8" symbolic="YES" id="9o9-Ua-kqg"/>
+                                                <constraint firstAttribute="trailing" secondItem="IVH-tX-hzJ" secondAttribute="trailing" constant="209" id="Ek7-F9-hFw"/>
+                                                <constraint firstItem="IVH-tX-hzJ" firstAttribute="centerY" secondItem="8qf-Rr-icO" secondAttribute="centerY" id="T3t-gz-eLr"/>
+                                                <constraint firstItem="IVH-tX-hzJ" firstAttribute="top" secondItem="8qf-Rr-icO" secondAttribute="top" id="beF-AE-FZ6"/>
+                                                <constraint firstItem="IVH-tX-hzJ" firstAttribute="leading" secondItem="8qf-Rr-icO" secondAttribute="leadingMargin" constant="-15" id="df8-Wd-bum"/>
+                                                <constraint firstAttribute="trailing" secondItem="vhR-jh-Cqe" secondAttribute="trailing" id="e7l-Rp-uaC"/>
+                                                <constraint firstItem="vhR-jh-Cqe" firstAttribute="top" secondItem="8qf-Rr-icO" secondAttribute="topMargin" id="l4u-7I-9M8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.90196078431372551" green="0.92156862745098034" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

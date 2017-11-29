@@ -8,13 +8,14 @@
 
 import UIKit
 
+
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
     let reuseIdentifier = "cell"
     @IBOutlet weak var StoryTitleTextField: UITextField!
     var memoriesArray : [Memory] = []
     
-    var completionHandler:((Story) -> Int)?
+    var completionHandler:((_ story: Story,_ type: Int) -> Int)?
     var myTitle: String = "Story"
     
     override func viewDidLoad() {
@@ -48,27 +49,32 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     @IBAction func saveButtonPressed(_ sender: Any) {
         let storyTitle = StoryTitleTextField.text!
         if let newStory = Story(title: storyTitle, memories: memoriesArray){
-            let result = completionHandler?(newStory)
+            let result = completionHandler?(newStory, 0)
             print("completionHandler returns... \(result ?? 0)")
         }
         // 3: Go back to previous view
         _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func doneButtonPressed(_ sender: Any) {
+        
         let storyTitle = StoryTitleTextField.text!
-        let writer = VideoWriter()
-        var allImages: [UIImage] = []
-        for i in 0...memoriesArray.count - 1 {
-            for j in 0...memoriesArray[i].photos.count - 1 {
-                allImages.append(memoriesArray[i].photos[j].image)
-            }
+        if memoriesArray.count < 0 {
+            // Go back to previous view
+            _ = navigationController?.popViewController(animated: true)
         }
-        //1080 x 1440
-        let size = CGSize(width: 320, height: 480)
-        let pathVideo = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let percorsoVideo = pathVideo[0]
-        writer.writeImagesAsMovie(allImages: allImages, videoPath: percorsoVideo + "/\(storyTitle)", videoSize: size, videoFPS: 1)
-        print("Movie was created")
+
+        let settings = RenderSettings(videoFilename: storyTitle)
+        let imageAnimator = ImageAnimator(renderSettings: settings, memories: memoriesArray)
+        _ = imageAnimator.render() {
+            print("yes")
+        }
+        //print(videoURL)
+        if let newStory = Story(title: storyTitle, memories: memoriesArray){
+            let result = completionHandler?(newStory, 1)
+            print("completionHandler returns... \(result ?? 0)")
+        }
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
     }
     // ------------------------------------------------------------------- //
     // ---------------- Collection View Delegate Functions --------------- //
