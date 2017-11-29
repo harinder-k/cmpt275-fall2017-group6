@@ -15,9 +15,22 @@ struct Options {
     var option4: String
 }
 
-struct QuizQuestion {
+struct QuizQuestion: Hashable {
+    var hashValue: Int {
+        return question.hashValue
+    }
+    
     var question: String
     var imageName: String
     var options: [String]
     var answer: String
+    
+    static func == (lhs: QuizQuestion, rhs: QuizQuestion) -> Bool {
+        return lhs.question == rhs.question && lhs.imageName == rhs.imageName && lhs.options == rhs.options && lhs.answer == rhs.answer
+    }
 }
+
+
+
+
+
