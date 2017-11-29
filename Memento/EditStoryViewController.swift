@@ -8,13 +8,15 @@
 
 import UIKit
 
+
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
     let reuseIdentifier = "cell"
     @IBOutlet weak var StoryTitleTextField: UITextField!
     var memoriesArray : [Memory] = []
     
-    var completionHandler:((Story) -> Int)?
+    var completionHandler:((_ story: Story,_ type: Int) -> Int)?
+    var myTitle: String = "Story"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,9 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         timeLineView.layer.cornerRadius = 10
         timeLineView.layer.masksToBounds = true
         //timeLineView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        StoryTitleTextField.text = myTitle
     }
     //Update collectionView + Memory array inside this function
     @IBAction func addMemoryButtonPressed(_ sender: Any) {
@@ -41,22 +46,36 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         }
         navigationController?.pushViewController(memoryViewController, animated: true)
     }
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        guard var storyTitle = StoryTitleTextField.text else {
-            print("Title is not valid")
-            return
-        }
-        if storyTitle == "" {
-            storyTitle = "Story"
-        }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let storyTitle = StoryTitleTextField.text!
         if let newStory = Story(title: storyTitle, memories: memoriesArray){
-            let result = completionHandler?(newStory)
+            let result = completionHandler?(newStory, 0)
             print("completionHandler returns... \(result ?? 0)")
         }
         // 3: Go back to previous view
         _ = navigationController?.popViewController(animated: true)
     }
-    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        let storyTitle = StoryTitleTextField.text!
+        if memoriesArray.count < 0 {
+            // Go back to previous view
+            _ = navigationController?.popViewController(animated: true)
+        }
+
+        let settings = RenderSettings(videoFilename: storyTitle)
+        let imageAnimator = ImageAnimator(renderSettings: settings, memories: memoriesArray)
+        _ = imageAnimator.render() {
+            print("yes")
+        }
+        //print(videoURL)
+        if let newStory = Story(title: storyTitle, memories: memoriesArray){
+            let result = completionHandler?(newStory, 1)
+            print("completionHandler returns... \(result ?? 0)")
+        }
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
+    }
     // ------------------------------------------------------------------- //
     // ---------------- Collection View Delegate Functions --------------- //
     // ------------------------------------------------------------------- //

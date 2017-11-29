@@ -10,10 +10,12 @@
 		0D1508281FA785F60044669B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1508271FA785F60044669B /* LoginController.swift */; };
 		0D15082A1FA7BC500044669B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */; };
 		0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2B30FE1FABDEB10093C8F9 /* ResetPasswordController.swift */; };
+		0D4151E91FCC9EC000265FB5 /* MemoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D4151E81FCC9EC000265FB5 /* MemoryData.swift */; };
 		0D51B61E1FB675D700EE2140 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B61D1FB675D700EE2140 /* MemoryViewController.swift */; };
 		0D51B6221FB6F2E600EE2140 /* EditMemoryLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B6211FB6F2E600EE2140 /* EditMemoryLauncher.swift */; };
 		0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B6241FB6F65E00EE2140 /* EditMemoryCell.swift */; };
 		0D51B6271FB6F78700EE2140 /* MemoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D51B6261FB6F78700EE2140 /* MemoryCell.swift */; };
+		0D73144C1FCCDB1300AA5FBD /* VideoWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D73144B1FCCDB1300AA5FBD /* VideoWriter.swift */; };
 		0D95CF401FBA94C900C8B594 /* AddInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */; };
 		0D95CF881FC0243600C8B594 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D95CF871FC0243600C8B594 /* Story.swift */; };
 		0D9CDFB31FB58BFC00DDFB2A /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */; };
@@ -61,10 +63,12 @@
 		0D1508271FA785F60044669B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D2B30FE1FABDEB10093C8F9 /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
+		0D4151E81FCC9EC000265FB5 /* MemoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryData.swift; sourceTree = "<group>"; };
 		0D51B61D1FB675D700EE2140 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
 		0D51B6211FB6F2E600EE2140 /* EditMemoryLauncher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditMemoryLauncher.swift; sourceTree = "<group>"; };
 		0D51B6241FB6F65E00EE2140 /* EditMemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoryCell.swift; sourceTree = "<group>"; };
 		0D51B6261FB6F78700EE2140 /* MemoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCell.swift; sourceTree = "<group>"; };
+		0D73144B1FCCDB1300AA5FBD /* VideoWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoWriter.swift; sourceTree = "<group>"; };
 		0D95CF3F1FBA94C900C8B594 /* AddInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInfoViewController.swift; sourceTree = "<group>"; };
 		0D95CF871FC0243600C8B594 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
@@ -155,8 +159,10 @@
 		0D9CDFB11FB58BE800DDFB2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0D73144B1FCCDB1300AA5FBD /* VideoWriter.swift */,
 				0D95CF871FC0243600C8B594 /* Story.swift */,
 				0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */,
+				0D4151E81FCC9EC000265FB5 /* MemoryData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,11 +522,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F43072FE1FBFBCB600E0067A /* QuizQuestion.swift in Sources */,
+				0D73144C1FCCDB1300AA5FBD /* VideoWriter.swift in Sources */,
 				0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */,
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
 				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
 				0D51B6271FB6F78700EE2140 /* MemoryCell.swift in Sources */,
+				0D4151E91FCC9EC000265FB5 /* MemoryData.swift in Sources */,
 				38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */,
 				0D51B61E1FB675D700EE2140 /* MemoryViewController.swift in Sources */,
 				0D95CF401FBA94C900C8B594 /* AddInfoViewController.swift in Sources */,
