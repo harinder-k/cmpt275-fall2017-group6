@@ -16,7 +16,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ------------------------------------------------------------------- //
     // ------------------------ Class Variables -------------------------- //
     // ------------------------------------------------------------------- //
-    var memoryImages: [MemoryImage] = []
+    var memoryImages: [MemoryData] = []
     // Closure property to pass data to EditStoryViewController
     // This means the closure has one parameter of type Memory and returns one value of type Int
     var completionHandler:((Memory) -> Int)?
@@ -71,7 +71,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
                 PHImageManager.default().requestImage(for: asset , targetSize: PHImageManagerMaximumSize, contentMode: .default, options: requestOptions, resultHandler: { (pickedImage, info) in
                     
                     selectedImage = pickedImage!
-                    self.memoryImages.append(MemoryImage(image: selectedImage))
+                    self.memoryImages.append(MemoryData(image: selectedImage, place: "", people: [], date: "")!)
                 })
             }
         }

@@ -10,13 +10,19 @@
 
 import os.log
 import UIKit
+import os.log
 
+<<<<<<< HEAD
 class Story: NSObject, NSCoding {
+=======
+class Story : NSObject, NSCoding{
+>>>>>>> fatemeh-v3
     // ------------------------------------------------------- //
     // ------------------- Story properties ------------------ //
     // ------------------------------------------------------- //
     var title: String
     var memories: [Memory]
+<<<<<<< HEAD
  
     // Archiving Paths
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -24,10 +30,22 @@ class Story: NSObject, NSCoding {
     
     //Types
     struct PropertyKey {
+=======
+    
+    // Types to save objects of this class
+    struct propertyKey{
+>>>>>>> fatemeh-v3
         static let title = "title"
         static let memories = "memories"
     }
     
+<<<<<<< HEAD
+=======
+    // Path to save objects of this class
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("stories")
+    
+>>>>>>> fatemeh-v3
     // ------------------------------------------------------- //
     // -------------------- Initialization ------------------- //
     // ------------------------------------------------------- //
@@ -39,6 +57,7 @@ class Story: NSObject, NSCoding {
         self.title = title
         self.memories = memories
     }
+<<<<<<< HEAD
 
     
     //MARK: NSCoading
@@ -60,5 +79,28 @@ class Story: NSObject, NSCoding {
         self.init(title: title, memories: memories!)
     }
     
+=======
+    // ------------------------------------------------------- //
+    // ----------------------- NSCoding ---------------------- //
+    // ------------------------------------------------------- //
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(title, forKey: propertyKey.title)
+        aCoder.encode(memories, forKey: propertyKey.memories)
+    }
+    
+    required convenience init?(coder aDecoder: NSCoder) {
+        // The name is required. If we cannot decode a name string, the initializer should fail
+        guard let title = aDecoder.decodeObject(forKey: propertyKey.title) as? String else {
+            os_log("Unable to decode the name for a Memory object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        guard let memories = aDecoder.decodeObject(forKey: propertyKey.memories) as? [Memory] else {
+            os_log("Unable to decode the date for a Memory object.", log: OSLog.default, type: .debug)
+            return nil
+        }
+        // Must call designated initializer.
+        self.init(title: title, memories: memories)
+    }
+>>>>>>> fatemeh-v3
 }
 

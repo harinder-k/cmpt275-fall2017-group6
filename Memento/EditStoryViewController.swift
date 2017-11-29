@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os.log
+
 
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
@@ -15,10 +15,8 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var StoryTitleTextField: UITextField!
     var memoriesArray : [Memory] = []
     
-    //for saving stories
-    var stories = [Story]()
-    
-    var completionHandler:((Story) -> Int)?
+    var completionHandler:((_ story: Story,_ type: Int) -> Int)?
+    var myTitle: String = "Story"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +25,9 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         timeLineView.layer.cornerRadius = 10
         timeLineView.layer.masksToBounds = true
         //timeLineView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        StoryTitleTextField.text = myTitle
     }
     //Update collectionView + Memory array inside this function
     @IBAction func addMemoryButtonPressed(_ sender: Any) {
@@ -45,22 +46,36 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         }
         navigationController?.pushViewController(memoryViewController, animated: true)
     }
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        guard var storyTitle = StoryTitleTextField.text else {
-            print("Title is not valid")
-            return
-        }
-        if storyTitle == "" {
-            storyTitle = "Story"
-        }
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        let storyTitle = StoryTitleTextField.text!
         if let newStory = Story(title: storyTitle, memories: memoriesArray){
-            let result = completionHandler?(newStory)
+            let result = completionHandler?(newStory, 0)
             print("completionHandler returns... \(result ?? 0)")
         }
         // 3: Go back to previous view
         _ = navigationController?.popViewController(animated: true)
     }
-    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        let storyTitle = StoryTitleTextField.text!
+        if memoriesArray.count < 0 {
+            // Go back to previous view
+            _ = navigationController?.popViewController(animated: true)
+        }
+
+        let settings = RenderSettings(videoFilename: storyTitle)
+        let imageAnimator = ImageAnimator(renderSettings: settings, memories: memoriesArray)
+        _ = imageAnimator.render() {
+            print("yes")
+        }
+        //print(videoURL)
+        if let newStory = Story(title: storyTitle, memories: memoriesArray){
+            let result = completionHandler?(newStory, 1)
+            print("completionHandler returns... \(result ?? 0)")
+        }
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
+    }
     // ------------------------------------------------------------------- //
     // ---------------- Collection View Delegate Functions --------------- //
     // ------------------------------------------------------------------- //
@@ -93,29 +108,13 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-    
+
     //For debugging
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
     }
     
-    //Method for edditing the story object
-    
-    
-    //MARK: Private Methods
-    private func saveStories() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(stories, toFile: Story.ArchiveURL.path)
-        if isSuccessfulSave {
-            os_log("Stories successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save Stories...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    private func loadStories() -> [Story]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Story.ArchiveURL.path) as? [Story]
-    }    
 }
 
 //Story Cell Class
