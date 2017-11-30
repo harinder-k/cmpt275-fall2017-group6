@@ -1,3 +1,9 @@
+
+
+
+
+
+
 //
 //  Story.swift
 //  Memento
@@ -12,40 +18,23 @@ import os.log
 import UIKit
 import os.log
 
-<<<<<<< HEAD
-class Story: NSObject, NSCoding {
-=======
-class Story : NSObject, NSCoding{
->>>>>>> fatemeh-v3
+class Story : NSObject, NSCoding {
     // ------------------------------------------------------- //
     // ------------------- Story properties ------------------ //
     // ------------------------------------------------------- //
     var title: String
     var memories: [Memory]
-<<<<<<< HEAD
- 
-    // Archiving Paths
-    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("stories")
-    
-    //Types
-    struct PropertyKey {
-=======
     
     // Types to save objects of this class
     struct propertyKey{
->>>>>>> fatemeh-v3
         static let title = "title"
         static let memories = "memories"
     }
     
-<<<<<<< HEAD
-=======
     // Path to save objects of this class
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("stories")
     
->>>>>>> fatemeh-v3
     // ------------------------------------------------------- //
     // -------------------- Initialization ------------------- //
     // ------------------------------------------------------- //
@@ -57,29 +46,7 @@ class Story : NSObject, NSCoding{
         self.title = title
         self.memories = memories
     }
-<<<<<<< HEAD
-
     
-    //MARK: NSCoading
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(title, forKey: PropertyKey.title)
-        aCoder.encode(memories, forKey: PropertyKey.memories)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder){
-        guard let title = aDecoder.decodeObject(forKey: PropertyKey.title) as? String
-            else {
-                os_log("Unable to decode the title for a Story object.",log: OSLog.default, type: .debug)
-                return nil
-        }
-        
-        let memories = aDecoder.decodeObject(forKey: PropertyKey.memories) as? [Memory]
-        
-        //must call designated initializer
-        self.init(title: title, memories: memories!)
-    }
-    
-=======
     // ------------------------------------------------------- //
     // ----------------------- NSCoding ---------------------- //
     // ------------------------------------------------------- //
@@ -101,6 +68,5 @@ class Story : NSObject, NSCoding{
         // Must call designated initializer.
         self.init(title: title, memories: memories)
     }
->>>>>>> fatemeh-v3
 }
 
