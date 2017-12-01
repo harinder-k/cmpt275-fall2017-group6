@@ -11,6 +11,7 @@ import UIKit
 import Firebase
 import AVKit
 import AVFoundation
+import Social
 
 class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDataSource {
     // ------------------------------------------------------- //
@@ -33,9 +34,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     override func viewDidLoad() {
         super.viewDidLoad()
-        //var ref: DatabaseReference!
-        //ref = Database.database().reference(fromURL: "https://memento-da996.firebaseio.com/")
-        //ref.updateChildValues(["test" : 123])
+
         // ------------------------------------------------------- //
         // Register the table view cell class and its reuse id
         self.finishedStoriesTableView.register(UITableViewCell.self, forCellReuseIdentifier: finishedCellReuseIdentifier)
@@ -48,24 +47,32 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         finishedStoriesTableView.dataSource = self
         // -------------------------------------------------------------------------------------------------- //
         // Logout button:
+<<<<<<< HEAD
         navigationItem
             .leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+=======
+        // -------------------------------------------------------------------------------------------------- //
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+>>>>>>> master
         checkIfUserIsLoggedIn()
         // -------------------------------------------------------------------------------------------------- //
         // -------------------------------------------------------------------------------------------------- //
         // Load saved data from local directory
         // -------------------------------------------------------------------------------------------------- //
+        // Load Saved Stories
         let ArchiveURL = DocumentsDirectory.appendingPathComponent("FinishedStories")
         if let savedStoriesArray = self.loadStories() {
             stories += savedStoriesArray
         }
         self.refreshInProgressTable()
+        // Load Finished Stories
         if let savedFinishedStoriesArray = self.loadFinishedStories() {
             finishedStoriesArray += savedFinishedStoriesArray
         }
         if finishedStoriesArray.count < 1 {
             return
         }
+        // Load the URLs for videos
         for i in 0...finishedStoriesArray.count - 1 {
             var outputURL: NSURL {
                 // Use the CachesDirectory so the rendered video file sticks around as long as we need it to.
@@ -83,7 +90,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     // ---------------------------------------------------------------- //
-    // Saves list of Story objects in app's local directory
+    // Saves list of Story objects and videos in app's local directory
     // path to save the object: /PATH/TO/DOCUMENT/DIRECTORY/stories
     // ---------------------------------------------------------------- //
     private func saveStories(){
@@ -102,7 +109,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     // ---------------------------------------------------------------- //
-    // Loads list of Story objects from app's local directory
+    // Loads list of Story objects and videos from app's local directory
     // path to saved objects: /PATH/TO/DOCUMENT/DIRECTORY/stories
     // ---------------------------------------------------------------- //
     func loadStories() -> [Story]?  {
@@ -548,8 +555,36 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         videoURLs.remove(at: index)
         self.refreshFinishedStoriesTabel()
     }
+    // ----------------------------------------------------------------- //
+    // This function is called when share button is pressed
+    // It first checks if the user is conntected to Facebook
+    // Then, it creates a SLComposeViewController to share to Facebook
+    // ---------------------------------------------------------------- //
     func share(index: Int){
+        //Checking is user is conntected to facebook
+        if SLComposeViewController.isAvailable(forServiceType: SLServiceTypeFacebook){
+            let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+            // Text for the post
+            post.setInitialText(finishedStoriesArray[index].title)
+            // Add Video to the post
+            
+            //Present the viewController (post)
+            self.present(post, animated: true, completion: nil)
+        }
+        else{
+            self.showAlertNotConnectedToFacebook()
+        }
         
+    }
+    // ---------------------------------------------------------------------------------- //
+    // This Alert is presented if user is not connected to Facebook but is tring to post
+    // a video
+    // ---------------------------------------------------------------------------------- //
+    func showAlertNotConnectedToFacebook() {
+        let alert = UIAlertController(title: "Error", message: "You are not conntected to Facebook", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     func showFinishedVideoActionSheet(index: Int) {
         // 1 Create an option menu
@@ -566,7 +601,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             print("Go play video")
         })
         // 3 Create share action
-        let shareAction = UIAlertAction(title: "Share to Facebook", style: .default, handler: {
+        let shareAction = UIAlertAction(title: "Share on Facebook", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
             self.share(index: index)
             print("Go play video")
@@ -687,7 +722,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         self.present(optionMenu, animated: true, completion: nil)
     }
     // -------------------------------------------------------------------------------------------------- //
-    //                                      inProgressTable view delegate                                 //
+    //                         inProgressTable and FinisedTable views delegate                            //
     // -------------------------------------------------------------------------------------------------- //
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

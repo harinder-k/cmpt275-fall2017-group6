@@ -41,6 +41,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupTitleBottomSeperatorView()
         setupDateTopSeperatorView()
         setupDateBottomSeperatorView()
+        createDatePickerToolBar()
         
     }
     // ------------------------------------------------------------------- //
@@ -154,6 +155,17 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    let datePicker: UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.datePickerMode = UIDatePickerMode.date
+        dp.backgroundColor = UIColor.white
+        dp.sizeToFit()
+        dp.layer.cornerRadius = 5
+        dp.layer.masksToBounds = true
+        dp.translatesAutoresizingMaskIntoConstraints = false
+        dp.subviews[0].subviews[0].subviews[1].isHidden = true
+        return dp
+    }()
     let titleTopSeperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
@@ -246,6 +258,33 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
+    func createDatePickerToolBar() {
+        //toolbar
+        let tb = UIToolbar()
+        tb.sizeToFit()
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        doneButton.tintColor = UIColor.black
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPressed))
+        cancelButton.tintColor = UIColor.black
+        
+        tb.setItems([doneButton, UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),cancelButton], animated: true)
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        
+        memoryDateTextField.inputAccessoryView = tb
+        memoryDateTextField.inputView = datePicker
+    }
+    @objc func donePressed(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        memoryDateTextField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func cancelPressed(){
+        self.view.endEditing(true)
+    }
     @objc func handleDoneButton() {
         guard var title = memoryTitleTextField.text else {
             print("Title is not valid")
@@ -256,10 +295,12 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
             return
         }
         if title == "" {
-            title = "Memory"
+            displayMessage(userMessage: "Memory Title not Valid")
+            return
         }
         if date == "" {
-            date = "None"
+            displayMessage(userMessage: "Memory Date not Valid")
+            return
         }
         print(title)
         // Passing memory to EditStoryViewController
@@ -283,7 +324,12 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         present(picker, animated: true, completion: nil)
     }
-    func showControllerForAddInfo() {
+    func showControllerForAddInfo(index: IndexPath) {
+        addInfo.completionHandler = { peopleArray, place in
+            self.memoryImages[index.item].people = peopleArray
+            self.memoryImages[index.item].place = place
+                return peopleArray.count
+        }
         navigationController?.pushViewController(addInfo, animated: true)
     }
     func removeImage(index: IndexPath) {
@@ -301,7 +347,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         // 2 Create add info action
         let addInfoAction = UIAlertAction(title: "Add info", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.showControllerForAddInfo()
+            self.showControllerForAddInfo(index: index)
             print("Go to add info")
         })
         // 3 Create remove photo action
@@ -325,6 +371,19 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.present(optionMenu, animated: true, completion: nil)
     }
     // ----------------------------------------------------- //
+    func displayMessage(userMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Unvalid form", message: userMessage, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in
+                print("Ok button tapped")
+                DispatchQueue.main.async {
+                    //self.dismiss(animated: true, completion: nil)
+                }
+            })
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 
