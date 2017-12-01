@@ -28,6 +28,10 @@ class TakeQuizViewController:UIViewController {
     var questionNum = -1
     var numCorrectAnswers = 0
     
+    //scheduledTimer
+    
+    @IBOutlet weak var beginButton: UIButton!
+    
     @IBOutlet weak var questionLabel: UILabel!
     // to inform the user whether or not their answer was correct
     @IBOutlet weak var feedbackLabel: UILabel!
@@ -51,24 +55,24 @@ class TakeQuizViewController:UIViewController {
     var images:[UIImage] = []
     var imagesIndex = -1
     
-    // Quiz content for general quizzes
+    var beginButtonIsTapped = false
+    
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////// Quiz content for general quizzes ///////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     let animalQuestions = ["What is the fastest land animal?", "What is the tallest animal?", "What is a group of lions called?", "How many legs does a spider have?", "Which of the following animals is a herbivore?"]
-    
     let animalOptions = [["Deer", "Cougar", "Cheetah", "Penguin"], ["Antelope", "Giraffe", "Horse", "Ostrich"], ["Pride", "Gang", "School", "Pack"], ["4", "6", "7", "8"], ["Bear", "Fox", "Frog", "Elephant"]]
-    
     let animalAnswers = ["Cheetah", "Giraffe", "Pride", "8", "Elephant"]
-    
     let geographyQuestions = ["Which country has the highest population?", "What is the capital of Spain?", "In which city is the Eiffel Tower located?", "Which country is the largest by land area?", "What is the biggest continent on Earth?"]
-    
     let geographyOptions = [["India", "China", "United States of America", "Japan"], ["Madrid", "Seville", "Barcelona", "Valencia"], ["London", "Tokyo", "New York", "Paris"], ["Canada", "United States of America", "Russia", "China"], ["Africa", "Asia", "North America", "Antarctica"]]
-    
     let geographyAnswers = ["China", "Madrid", "Paris", "Russia", "Aaia"]
-    
     let famousPeopleQuestions = ["Who is the current president of the United States of America?", "Who invented the telephone?", "Which famous celebrity has the nickname 'The Rock'?", "Who discovered gravity?", "Who was the first person to walk on the moon?"]
-    
     let famousPeopleOptions = [["Barack Obama", "Donald Trump", "Bill Clinton", "George W. Bush"], ["Nikola Tesla", "Thomas Edison", "Alenxander Graham Bell", "Alan Turing"], ["Dwayne Johnson", "Jason Statham", "Vin Diesel", "Matt Damon"], ["Albert Einstein", "Isaac Newton", "Neils Bohr", "Charles Darwin"], ["Buzz Aldrin", "Charles Conrad", "Alan Shepard", "Neil Armstrong"]]
-    
     let famousPeopleAnswers = ["Donald Trump", "Alenxander Graham Bell", "Dwayne Johnson", "Isaac Newton", "Neil Armstrong"]
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////End Of quiz content for general quizzes//////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,26 +85,29 @@ class TakeQuizViewController:UIViewController {
         }
     }
     
-    func downloadImage (imgName: String) {
+    // downloads image from firebase indicated by string and returns it
+    func downloadImage (imgName: String) -> UIImage {
         let imageReference = Storage.storage().reference().child("images")
         let downloadImageRef = imageReference.child(imgName)
         
         // assigning Memento logo in case there is a problem when downloading
-        var image: UIImage = #imageLiteral(resourceName: "icon")
+        var img: UIImage = #imageLiteral(resourceName: "icon")
         let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
             if let data = data {
-                image = UIImage(data: data)!
-                self.images.append(image)
-                print(image.size)
+                let image = UIImage(data: data)!
+                img = image
+//                self.images.append(image)
+//                print(self.images.count)
             }
             print (error ?? "No error")
         }
         
-        downloadTask.observe(.progress) { (snapshot) in
-            print(snapshot.progress ?? "No more progress")
-        }
+//        downloadTask.observe(.progress) { (snapshot) in
+//            print(snapshot.progress ?? "No more progress")
+//        }
         
         downloadTask.resume()
+        return img
     }
     
     // takes random indices upto numberOfQuestions from upto given index
@@ -126,11 +133,20 @@ class TakeQuizViewController:UIViewController {
         return resultArray
     }
     
+    func waitForBeginButton() {
+        
+    }
+    
     // Precondition:    Personal quiz content is avvilable
     // Postcondition:   Quiz content is arranged into array of structs
     func startPersonalQuiz() {
+        initialState()
+        
         var ref: DatabaseReference!
         ref = Database.database().reference()
+        
+        // variable to ensure that images array has correct amount before asking questions
+        var numImages = 0
         
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -157,11 +173,19 @@ class TakeQuizViewController:UIViewController {
                         let ans = questionValue["answer"] as? String ?? ""
                         self.quiz.append(QuizQuestion(question: q, imageName: imgName, options: [op1, op2, op3, op4], answer: ans))
                         
-                        // downloads image associated with question if there is one
+                        // downloading image associated with question if there is one
                         if imgName != "" {
-                            self.downloadImage(imgName: imgName)
+                            numImages = numImages + 1
+                            self.images.append(self.downloadImage(imgName: imgName))
+                            print(self.images.count)
                         }
                     }
+                    var canBegin = false
+                    while !canBegin {
+                        canBegin = self.beginButtonIsTapped
+                        sleep(UInt32(1))
+                    }
+                    
                     self.askQuestion()
                 } else {
                 let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with any \(self.quizName) in it."
@@ -198,13 +222,28 @@ class TakeQuizViewController:UIViewController {
         askQuestion()
     }
     
+    // Precondition:    The user has selected a personal quiz
+    // Postcondition:   The user sees only the Begin button
+    func initialState() {
+        questionLabel.isHidden = true
+        
+        for aButton in optionButtons {
+            aButton.isHidden = true
+        }
+        
+        imageView.isHidden = true
+        feedbackLabel.isHidden = true
+        nextButton.isHidden = true
+    }
+    
     // Precondition:    THe user has not yet answered the question
-    // Postcondition:   Feedback label and Next button are hidden from the user
+    // Postcondition:   Image view, Feedback label and Next button are hidden from the user
     //                  and the option buttions are enabled
     func unansweredState() {
         for aButton in optionButtons {
             aButton.isEnabled = true
         }
+        imageView.isHidden = true
         feedbackLabel.isHidden = true
         nextButton.isHidden = true
     }
@@ -226,6 +265,7 @@ class TakeQuizViewController:UIViewController {
     // Precondition:    The user has pressed the Finish button
     // Postcondition:   All objects are hidden and result is shown
     func finishedState(message: String) {
+        imageView.isHidden = true
         questionLabel.isHidden = true
         feedbackLabel.isHidden = true
         nextButton.isHidden = true
@@ -252,8 +292,20 @@ class TakeQuizViewController:UIViewController {
         // apply corresponding image of question to image, if there is one
         if quiz[questionNum].imageName != "" && !images.isEmpty {
             imagesIndex = imagesIndex + 1
+            imageView.isHidden = false
             imageView.image = images[imagesIndex]
         }
+    }
+    
+    @IBAction func beginButtonTapped(_ sender: Any) {
+        unansweredState()
+        
+        for aButton in optionButtons {
+            aButton.isHidden = false
+        }
+        
+        beginButtonIsTapped = true
+        beginButton.isHidden = true
     }
     
     // Precondition:    An option button is tapped

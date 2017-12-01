@@ -123,8 +123,8 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func uploadImage(img: UIImage) -> String {
         let imageReference = Storage.storage().reference().child("images")
         
-        // using a compression rate of 2
-        guard let imageData = UIImageJPEGRepresentation(img, 2) else { return "" }
+        // compressing image by a ratio of 16 to speed up transmission
+        guard let imageData = UIImageJPEGRepresentation(img, 0) else { return "" }
         
         // giving unique name to image
         let imgName = UUID().uuidString + ".jpg"
