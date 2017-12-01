@@ -489,7 +489,7 @@ class LoginController: UIViewController {
             // Reference to users in database seperated by their uid
             let usersRef = ref.child("users").child(uid)
             // Values to save for this user
-            let values = ["name": name, "email": email, "dateOfBirth": dateOfBirth, "quizzes": ["people", "places", "dates"]] as [String : Any]
+            let values = ["name": name, "email": email, "dateOfBirth": dateOfBirth] as [String : Any]
             // Update users in database
             usersRef.updateChildValues(values) { (database_update_error, ref) in
                 if database_update_error != nil {

@@ -119,6 +119,46 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         self.inProgressTableView.reloadData()
     }
     
+    // uploads given UIImage to firebase and returns string to identify name
+    func uploadImage(img: UIImage) -> String {
+        let imageReference = Storage.storage().reference().child("images")
+        
+        // using a compression rate of 2
+        guard let imageData = UIImageJPEGRepresentation(img, 2) else { return "" }
+        
+        // giving unique name to image
+        let imgName = UUID().uuidString + ".jpg"
+        let uploadImageRef = imageReference.child(imgName)
+        
+        let uploadTask = uploadImageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            print("Finished upload task")
+            print(metadata ?? "No Metadata")
+            print(error ?? "No Error")
+        }
+        
+//        uploadTask.observe(.progress) { (snapshot) in
+//            print(snapshot.progress ?? "No More Progress")
+//        }
+        
+        uploadTask.resume()
+        
+        return imgName
+    }
+    
+    // Takes three elements of a string array to populate incorrect answers for questions
+    func takeThreeRandomElementsOfStringArray (array: [String]) -> [String] {
+        var threeRandomNums:[Int] = []
+        for _ in 0...2 {
+            var randomIndex:Int
+            repeat {
+                randomIndex = Int(arc4random_uniform(UInt32(array.count)))
+            } while threeRandomNums.contains(randomIndex)
+            threeRandomNums.append(randomIndex)
+        }
+        let threeRandomElements = [array[threeRandomNums[0]], array[threeRandomNums[1]], array[threeRandomNums[2]]]
+        return threeRandomElements
+    }
+    
     // Creates a question based on memory name and memory date
     func createQuestionType1 (memName: String, correctDate: String) -> QuizQuestion {
         // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
@@ -140,7 +180,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     // Creates a question based on an image and the place where it was taken
-    func createQuestionType3 (photoName: String, correctPlace: String) -> QuizQuestion {
+    func createQuestionType3 (photoName: String, correctPlace: String, otherOptions: [String]) -> QuizQuestion {
         print("Q3")
         let q = "Where was this photo taken?"
         let ops = [correctPlace, "", "", ""]
@@ -148,19 +188,12 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         return question
     }
     
-    // Creates a question based on an image and the date its memory's date
+    // Creates a question based on an image and a
     func createQuestionType4 (photoName: String, correctPerson: String, otherOptions: [String]) -> QuizQuestion {
         print("Q4")
         let q = "Who is in this photo?"
-        var threeRandomNums:[Int] = []
-        for index in 0...2 {
-            var randomIndex:Int
-            repeat {
-                randomIndex = Int(arc4random_uniform(UInt32(otherOptions.count)))
-            } while threeRandomNums.contains(randomIndex)
-            threeRandomNums[index] = randomIndex
-        }
-        let ops = [correctPerson, otherOptions[threeRandomNums[0]], otherOptions[threeRandomNums[1]], otherOptions[threeRandomNums[2]]]
+        let otherOps = takeThreeRandomElementsOfStringArray(array: otherOptions)
+        let ops = [correctPerson, otherOps[0], otherOps[1], otherOps[2], otherOps[3]]
         let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctPerson)
         return question
     }
@@ -169,32 +202,18 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func createQuestionType5 (memName: String, correctPerson: String, otherOptions: [String]) -> QuizQuestion {
         print("Q5")
         let q = "Who was with you during \(memName)?"
-        var threeRandomNums:[Int] = []
-        for index in 0...2 {
-            var randomIndex:Int
-            repeat {
-                randomIndex = Int(arc4random_uniform(UInt32(otherOptions.count)))
-            } while threeRandomNums.contains(randomIndex)
-            threeRandomNums[index] = randomIndex
-        }
-        let ops = [correctPerson, otherOptions[threeRandomNums[0]], otherOptions[threeRandomNums[1]], otherOptions[threeRandomNums[2]]]
+        let otherOps = takeThreeRandomElementsOfStringArray(array: otherOptions)
+        let ops = [correctPerson, otherOps[0], otherOps[1], otherOps[2]]
         let question = QuizQuestion(question: q, imageName: "", options: ops, answer: correctPerson)
         return question
     }
     
     // creates a function based on an image and it's memory's name
-    func createQuestionType6 (photoName: String, correctMemoryName: String, options: [String]) -> QuizQuestion {
+    func createQuestionType6 (photoName: String, correctMemoryName: String, otherOptions: [String]) -> QuizQuestion {
         print("Q6")
         let q = "Which memory is this photo from?"
-        var threeRandomNums:[Int] = []
-        for index in 0...2 {
-            var randomIndex:Int
-            repeat {
-                randomIndex = Int(arc4random_uniform(UInt32(options.count)))
-            } while threeRandomNums.contains(randomIndex) && options[randomIndex] == correctMemoryName
-            threeRandomNums[index] = randomIndex
-        }
-        let ops = [correctMemoryName, options[threeRandomNums[0]], options[threeRandomNums[1]], options[threeRandomNums[2]]]
+        let otherOps = takeThreeRandomElementsOfStringArray(array: otherOptions)
+        let ops = [correctMemoryName, otherOps[0], otherOps[1], otherOps[2]]
         let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctMemoryName)
         return question
     }
@@ -209,36 +228,52 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
         // variables to track data to be able to populate options
         var storyPeople:[String] = []
+        var storyPlaces:[String] = []
+        
         var memNames:[String] = []
         
         for mem in story.memories {
             memNames.append(mem.name)
             for photo in mem.photos {
                 storyPeople.append(contentsOf: photo.people)
+                storyPlaces.append(contentsOf: photo.people)
             }
         }
+        print(storyPeople)
+        print(storyPlaces)
+        print(memNames)
         
         // Creating different questions based on which data is avaiable
         for mem in story.memories {
             
             var memPeople:[String] = []
             
+            // Making Type 1 question if the memory name and date are not the default values
             if mem.name != "Memory" && mem.date != "None" {
                 datesQuestions.append(createQuestionType1(memName: mem.name, correctDate: mem.date))
             }
             
             if !mem.photos.isEmpty {
                 for photo in mem.photos {
-                    /////////////// need to get name of image so that QuizQuestion.swift can search for it on Firebase /////////////////
-                    //let imgName = photo.image.??
-                    let imgName = ""
-                    
+                    // uploading the image to firebase
+                    let imgName = uploadImage(img: photo.image)
                     memPeople.append(contentsOf: photo.people)
                     
+                    // Making Type 2 question for the image and the memory's date
                     datesQuestions.append(createQuestionType2(photoName: imgName, correctDate: mem.date))
                     
                     if photo.place != "" {
-                        placesQuestions.append(createQuestionType3(photoName: imgName, correctPlace: photo.place))
+                        // Populating options for question type 3 with places not in the same photo
+                        var incorrectType3Options:[String] = []
+                        for place in storyPlaces {
+                            if !(photo.place == place) {
+                                incorrectType3Options.append(place)
+                            }
+                        }
+                        // Making the question if there are enough places not in the photo to show 3 incorrect options
+                        if incorrectType3Options.count >= 3 {
+                            placesQuestions.append(createQuestionType3(photoName: imgName, correctPlace: photo.place, otherOptions: incorrectType3Options))
+                        }
                     }
                     if !photo.people.isEmpty {
                         // Populating options for question type 4 with people not in the same photo
@@ -263,7 +298,7 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
                                 incorrectType5Options.append(person)
                             }
                         }
-                        // Making the question if there are enough people not in the photo to show 3 incorrect options
+                        // Making the question if there are enough people not in the current photo to show 3 incorrect options
                         if incorrectType5Options.count >= 3 {
                             
                             // setting one of the people in the memory as the correct answer
@@ -272,8 +307,16 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
                         }
                     }
                     
-                    if story.memories.count >= 4 {
-                        datesQuestions.append(createQuestionType6(photoName: imgName, correctMemoryName: mem.name, options: memNames))
+                    // Populating options for question type 6 memories with a different name than the current memory
+                    var incorrectType6Options:[String] = []
+                    for memName in memNames {
+                        if !(memName == mem.name) {
+                            incorrectType6Options.append(memName)
+                        }
+                    }
+                    // Making the question if there are enough memories with a different name than the current memory
+                    if incorrectType6Options.count >= 3 {
+                        datesQuestions.append(createQuestionType6(photoName: imgName, correctMemoryName: mem.name, otherOptions: incorrectType6Options))
                     }
                 }
             }
@@ -283,7 +326,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     //In progress
     func uploadQuiz(story: Story){
-        print("uplpadQuiz called")
         // creating questions and saving into a single object
         let (peopleQuestions, placesQuestions, datesQuestions) = createQuestions(story: story)
         
@@ -307,66 +349,62 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             print(error.localizedDescription)
         }
         
-        usersRef.updateChildValues([
-            "quizzes" : [
-                "people" : [
-                ],
-                "places" : [
-                ],
-                "dates" : [
-                ]
-            ]
-        ])
-        
-        let peopleRef = usersRef.child("quizzes").child("people")
-        let placesRef = usersRef.child("quizzes").child("places")
-        let datesRef = usersRef.child("quizzes").child("dates")
+//        usersRef.updateChildValues([
+//            "quizzes" : [
+//                "people" : [
+//                ],
+//                "places" : [
+//                ],
+//                "dates" : [
+//                ]
+//            ]
+//        ])
         
         if !peopleQuestions.isEmpty {
+            let peopleRef = usersRef.child("quizzes").child("People")
             for qNumber in 0...(peopleQuestions.count - 1) {
-                datesRef.updateChildValues([
-                    "\(qNumber + numberOfExistingDatesQs + 1)": [
-                        "question" : datesQuestions[qNumber].question,
-                        "imageName" : datesQuestions[qNumber].imageName,
-                        "option1" : datesQuestions[qNumber].options[0],
-                        "option2" : datesQuestions[qNumber].options[1],
-                        "option3" : datesQuestions[qNumber].options[2],
-                        "option4" : datesQuestions[qNumber].options[3],
-                        "answer" : datesQuestions[qNumber].answer
-                    ]
-                    ])
-                }
+                let qNumberOffsetBy1 = "\(qNumber + numberOfExistingPeopleQs + 1)"
+                peopleRef.child(qNumberOffsetBy1).setValue([
+                    "question" : peopleQuestions[qNumber].question,
+                    "imageName" : peopleQuestions[qNumber].imageName,
+                    "option1" : peopleQuestions[qNumber].options[0],
+                    "option2" : peopleQuestions[qNumber].options[1],
+                    "option3" : peopleQuestions[qNumber].options[2],
+                    "option4" : peopleQuestions[qNumber].options[3],
+                    "answer" : peopleQuestions[qNumber].answer
+                ])
+            }
         }
         
         if !placesQuestions.isEmpty {
-            for qNumber in 0...(datesQuestions.count - 1) {
-                datesRef.updateChildValues([
-                    "\(qNumber + numberOfExistingDatesQs + 1)": [
-                        "question" : datesQuestions[qNumber].question,
-                        "imageName" : datesQuestions[qNumber].imageName,
-                        "option1" : datesQuestions[qNumber].options[0],
-                        "option2" : datesQuestions[qNumber].options[1],
-                        "option3" : datesQuestions[qNumber].options[2],
-                        "option4" : datesQuestions[qNumber].options[3],
-                        "answer" : datesQuestions[qNumber].answer
-                    ]
+            let placesRef = usersRef.child("quizzes").child("Places")
+            for qNumber in 0...(placesQuestions.count - 1) {
+                let qNumberOffsetBy1 = "\(qNumber + numberOfExistingPlacesQs + 1)"
+                placesRef.child(qNumberOffsetBy1).setValue([
+                    "question" : placesQuestions[qNumber].question,
+                    "imageName" : placesQuestions[qNumber].imageName,
+                    "option1" : placesQuestions[qNumber].options[0],
+                    "option2" : placesQuestions[qNumber].options[1],
+                    "option3" : placesQuestions[qNumber].options[2],
+                    "option4" : placesQuestions[qNumber].options[3],
+                    "answer" : placesQuestions[qNumber].answer
                     ])
             }
         }
         
         if !datesQuestions.isEmpty {
+            let datesRef = usersRef.child("quizzes").child("Dates")
             for qNumber in 0...(datesQuestions.count - 1) {
-                datesRef.updateChildValues([
-                    "\(qNumber + numberOfExistingDatesQs + 1)": [
-                        "question" : datesQuestions[qNumber].question,
-                        "imageName" : datesQuestions[qNumber].imageName,
-                        "option1" : datesQuestions[qNumber].options[0],
-                        "option2" : datesQuestions[qNumber].options[1],
-                        "option3" : datesQuestions[qNumber].options[2],
-                        "option4" : datesQuestions[qNumber].options[3],
-                        "answer" : datesQuestions[qNumber].answer
-                    ]
-                ])
+                let qNumberOffsetBy1 = "\(qNumber + numberOfExistingDatesQs + 1)"
+                datesRef.child(qNumberOffsetBy1).setValue([
+                    "question" : datesQuestions[qNumber].question,
+                    "imageName" : datesQuestions[qNumber].imageName,
+                    "option1" : datesQuestions[qNumber].options[0],
+                    "option2" : datesQuestions[qNumber].options[1],
+                    "option3" : datesQuestions[qNumber].options[2],
+                    "option4" : datesQuestions[qNumber].options[3],
+                    "answer" : datesQuestions[qNumber].answer
+                    ])
             }
         }
             

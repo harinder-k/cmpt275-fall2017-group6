@@ -29,7 +29,8 @@ class TakeQuizViewController:UIViewController {
     var numCorrectAnswers = 0
     
     @IBOutlet weak var questionLabel: UILabel!
-    @IBOutlet weak var feedbackLabel: UILabel!                                                  // to inform the user whether or not their answer was correct
+    // to inform the user whether or not their answer was correct
+    @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var resultLabel: UILabel!
     
     @IBOutlet weak var option1Button: UIButton!
@@ -37,12 +38,20 @@ class TakeQuizViewController:UIViewController {
     @IBOutlet weak var option3Button: UIButton!
     @IBOutlet weak var option4Button: UIButton!
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     lazy var optionButtons: [UIButton] = [self.option1Button, self.option2Button, self.option3Button, self.option4Button]
     
     @IBOutlet weak var nextButton: UIButton!
     
-    var quiz = [QuizQuestion]()                                                                 // array of structs to hold quiz content
+    // array of structs to hold quiz content
+    var quiz = [QuizQuestion]()
     
+    // container to hold images used in questions and iterator for said container
+    var images:[UIImage] = []
+    var imagesIndex = -1
+    
+    // Quiz content for general quizzes
     let animalQuestions = ["What is the fastest land animal?", "What is the tallest animal?", "What is a group of lions called?", "How many legs does a spider have?", "Which of the following animals is a herbivore?"]
     
     let animalOptions = [["Deer", "Cougar", "Cheetah", "Penguin"], ["Antelope", "Giraffe", "Horse", "Ostrich"], ["Pride", "Gang", "School", "Pack"], ["4", "6", "7", "8"], ["Bear", "Fox", "Frog", "Elephant"]]
@@ -72,6 +81,51 @@ class TakeQuizViewController:UIViewController {
         }
     }
     
+    func downloadImage (imgName: String) {
+        let imageReference = Storage.storage().reference().child("images")
+        let downloadImageRef = imageReference.child(imgName)
+        
+        // assigning Memento logo in case there is a problem when downloading
+        var image: UIImage = #imageLiteral(resourceName: "icon")
+        let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+            if let data = data {
+                image = UIImage(data: data)!
+                self.images.append(image)
+                print(image.size)
+            }
+            print (error ?? "No error")
+        }
+        
+        downloadTask.observe(.progress) { (snapshot) in
+            print(snapshot.progress ?? "No more progress")
+        }
+        
+        downloadTask.resume()
+    }
+    
+    // takes random indices upto numberOfQuestions from upto given index
+    func pickRandomIndices (totalNum: Int) -> [Int] {
+        var resultArray: [Int] = []
+        
+        // returning default array [0,1,2....]
+        if totalNum < numberOfQuestions {
+            numberOfQuestions = totalNum
+            for index in 0...totalNum {
+                resultArray.append(index)
+            }
+            return resultArray
+        }
+        
+        for _ in 0...(numberOfQuestions - 1) {
+            var randomIndex:Int
+            repeat {
+                randomIndex = Int(arc4random_uniform(UInt32(totalNum)))
+            } while resultArray.contains(randomIndex)
+            resultArray.append(randomIndex)
+        }
+        return resultArray
+    }
+    
     // Precondition:    Personal quiz content is avvilable
     // Postcondition:   Quiz content is arranged into array of structs
     func startPersonalQuiz() {
@@ -85,9 +139,13 @@ class TakeQuizViewController:UIViewController {
                 let quizzesSnapshot = snapshot.childSnapshot(forPath: "quizzes")
                 if quizzesSnapshot.hasChild(self.quizName) {
                     let quizSnapshot = quizzesSnapshot.childSnapshot(forPath: self.quizName)
-                    self.numberOfQuestions = Int(quizSnapshot.childrenCount)
-                    print(self.numberOfQuestions)
-                    for i in 0...1 {
+                    let numQsOnDatabase = Int(quizSnapshot.childrenCount)
+                    
+                    let databaseQIndices = self.pickRandomIndices(totalNum: numQsOnDatabase)
+                    
+                    // selecting random indices from quiz questions on database
+                    for i in databaseQIndices {
+                        // setting values from database
                         let questionSnapshot = quizSnapshot.childSnapshot(forPath: "\(i+1)") as DataSnapshot
                         let questionValue = questionSnapshot.value as! NSDictionary
                         let q = questionValue["question"] as? String ?? ""
@@ -98,6 +156,11 @@ class TakeQuizViewController:UIViewController {
                         let op4 = questionValue["option4"] as? String ?? ""
                         let ans = questionValue["answer"] as? String ?? ""
                         self.quiz.append(QuizQuestion(question: q, imageName: imgName, options: [op1, op2, op3, op4], answer: ans))
+                        
+                        // downloads image associated with question if there is one
+                        if imgName != "" {
+                            self.downloadImage(imgName: imgName)
+                        }
                     }
                     self.askQuestion()
                 } else {
@@ -185,6 +248,12 @@ class TakeQuizViewController:UIViewController {
         option4Button.setTitle(quiz[questionNum].options[3], for: UIControlState.normal)
         
         correctAnswer = quiz[questionNum].answer
+        
+        // apply corresponding image of question to image, if there is one
+        if quiz[questionNum].imageName != "" && !images.isEmpty {
+            imagesIndex = imagesIndex + 1
+            imageView.image = images[imagesIndex]
+        }
     }
     
     // Precondition:    An option button is tapped
