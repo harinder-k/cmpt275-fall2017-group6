@@ -10,9 +10,11 @@ import UIKit
 
 class AddInfoViewController: UIViewController, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    var peopleNames: [String] = []
-    var place = ""
-
+    var peopleNames : [String] = []
+    var place : String = ""
+    // Closure property to pass data to MemoryViewController
+    var completionHandler:((_ peopleNames : [String], _ place: String) -> Int)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,10 +38,14 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
         setupAddNameButton()
         
         
-
-        // Do any additional setup after loading the view.
+        
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        // Do any additional setup after loading the view.
+        peopleNames = []
+        place = ""
+    }
     // ------------------------------------------------------------------- //
     // ----------------- Table view Delegate Functions ------------------- //
     // ------------------------------------------------------------------- //
@@ -160,39 +166,42 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
     // ------------------------------------------------------- //
     func setupAddNameButton() {
         // Need x, y, width, height constraint
-        addNameButton.topAnchor.constraint(equalTo: peopleTextField.topAnchor, constant: 10).isActive = true
-        addNameButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10).isActive = true
+        addNameButton.topAnchor.constraint(equalTo: backToMemoryButton.bottomAnchor, constant: 20).isActive = true
+        addNameButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
         addNameButton.leftAnchor.constraint(equalTo: backToMemoryButton.leftAnchor, constant: 0).isActive = true
-        addNameButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        //addNameButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         addNameButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupBackToMemoryButton() {
         // Need x, y, width, height constraint
         backToMemoryButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         backToMemoryButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
-        backToMemoryButton.leftAnchor.constraint(equalTo: backToMemoryButton.rightAnchor, constant: -100).isActive = true
+        //backToMemoryButton.leftAnchor.constraint(equalTo: placeTextField.rightAnchor, constant: 20).isActive = true
         backToMemoryButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
         backToMemoryButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupNamesTableView() {
         //namesTableView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        namesTableView.topAnchor.constraint(equalTo: peopleBottomSeperatorView.bottomAnchor, constant: 20).isActive = true
+        namesTableView.topAnchor.constraint(equalTo: peopleTextField.bottomAnchor, constant: 20).isActive = true
         namesTableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
-        namesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
-        namesTableView.widthAnchor.constraint(equalToConstant: 350).isActive = true
+        namesTableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -100).isActive = true
+        namesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -90).isActive = true
+        
         namesTableView.dataSource = self
         namesTableView.delegate = self
     }
     func setupPlaceTextField() {
         placeTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
         placeTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
-        placeTextField.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        //placeTextField.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        placeTextField.rightAnchor.constraint(equalTo: backToMemoryButton.leftAnchor, constant: -20)
         placeTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupPeopleTextField() {
-        peopleTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 350).isActive = true
+        peopleTextField.topAnchor.constraint(equalTo: placeTextField.bottomAnchor, constant: 20).isActive = true
         peopleTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 100).isActive = true
-        peopleTextField.widthAnchor.constraint(equalToConstant: 250).isActive = true
+        peopleTextField.rightAnchor.constraint(equalTo: backToMemoryButton.leftAnchor, constant: -20)
+        //peopleTextField.widthAnchor.constraint(equalToConstant: 250).isActive = true
         peopleTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
     }
     func setupPlaceTopSeperatorView(){
@@ -224,11 +233,16 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
     @objc func handleBackToMemoryButton() {
-        
+        // 1: Call the closure variable on memory variable
+        let result = completionHandler?(self.peopleNames, self.place)
+        print("completionHandler returns... \(result ?? 0)")
+        // 3: Go back to previous view
+        _ = navigationController?.popViewController(animated: true)
     }
     
     @IBAction func handleAddNameButton() {
         let inputName = peopleTextField.text
+        peopleTextField.text = ""
         print("Add Name")
         if !(inputName!.isEmpty) {
             peopleNames.append(inputName!)
@@ -238,10 +252,6 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
             
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*
@@ -280,7 +290,7 @@ class nameCell: UITableViewCell {
     //add the Text view to the table
     let tableViewText: UILabel = {
         let text = UILabel()
-        text.font =  .boldSystemFont(ofSize: 10)
+        text.font =  .boldSystemFont(ofSize: 20)
         text.translatesAutoresizingMaskIntoConstraints = false
         return text
     }()
@@ -288,7 +298,12 @@ class nameCell: UITableViewCell {
     //chose what the veiw looks like
     func setupViews() {
         self.addSubview(tableViewText)
-        self.backgroundColor = UIColor.gray
+        self.backgroundColor = UIColor.white
+        let hConstraint = NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": tableViewText])
+        let vConstraint = NSLayoutConstraint.constraints(withVisualFormat: "V:|-16-[v0]-16-|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": tableViewText])
+        
+        NSLayoutConstraint.activate(hConstraint)
+        NSLayoutConstraint.activate(vConstraint)
         
     }
     
