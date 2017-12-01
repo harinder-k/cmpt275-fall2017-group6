@@ -94,7 +94,7 @@ class EditMemoryLauncher: NSObject, UICollectionViewDataSource, UICollectionView
         if indexPath.item == 0 {
             print("add info")
             handleEditMemoryDismiss()
-            self.memoryViewController?.showControllerForAddInfo()
+            self.memoryViewController?.showControllerForAddInfo(index: indexPath)
         }
         if indexPath.item == 1 {
             print("Remove")

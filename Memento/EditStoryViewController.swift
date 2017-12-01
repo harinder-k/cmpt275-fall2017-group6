@@ -16,7 +16,7 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     var memoriesArray : [Memory] = []
     
     var completionHandler:((_ story: Story,_ type: Int) -> Int)?
-    var myTitle: String = "Story"
+    var myTitle: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,10 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
     @IBAction func doneButtonPressed(_ sender: Any) {
         
         let storyTitle = StoryTitleTextField.text!
+        if storyTitle == "" {
+            displayMessage(userMessage: "Story Title not Valid")
+            return
+        }
         if memoriesArray.count < 0 {
             // Go back to previous view
             _ = navigationController?.popViewController(animated: true)
@@ -114,7 +118,19 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
     }
-    
+    func displayMessage(userMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Unvalid form", message: userMessage, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in
+                print("Ok button tapped")
+                DispatchQueue.main.async {
+                    //self.dismiss(animated: true, completion: nil)
+                }
+            })
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 //Story Cell Class

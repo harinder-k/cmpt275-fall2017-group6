@@ -163,6 +163,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         dp.layer.cornerRadius = 5
         dp.layer.masksToBounds = true
         dp.translatesAutoresizingMaskIntoConstraints = false
+        dp.subviews[0].subviews[0].subviews[1].isHidden = true
         return dp
     }()
     let titleTopSeperatorView: UIView = {
@@ -294,10 +295,12 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
             return
         }
         if title == "" {
-            title = "Memory"
+            displayMessage(userMessage: "Memory Title not Valid")
+            return
         }
         if date == "" {
-            date = "None"
+            displayMessage(userMessage: "Memory Date not Valid")
+            return
         }
         print(title)
         // Passing memory to EditStoryViewController
@@ -321,7 +324,12 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         
         present(picker, animated: true, completion: nil)
     }
-    func showControllerForAddInfo() {
+    func showControllerForAddInfo(index: IndexPath) {
+        addInfo.completionHandler = { peopleArray, place in
+            self.memoryImages[index.item].people = peopleArray
+            self.memoryImages[index.item].place = place
+                return peopleArray.count
+        }
         navigationController?.pushViewController(addInfo, animated: true)
     }
     func removeImage(index: IndexPath) {
@@ -339,7 +347,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         // 2 Create add info action
         let addInfoAction = UIAlertAction(title: "Add info", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.showControllerForAddInfo()
+            self.showControllerForAddInfo(index: index)
             print("Go to add info")
         })
         // 3 Create remove photo action
@@ -363,6 +371,19 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         self.present(optionMenu, animated: true, completion: nil)
     }
     // ----------------------------------------------------- //
+    func displayMessage(userMessage: String) -> Void {
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "Unvalid form", message: userMessage, preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default, handler: { (action:UIAlertAction!) in
+                print("Ok button tapped")
+                DispatchQueue.main.async {
+                    //self.dismiss(animated: true, completion: nil)
+                }
+            })
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }
 
 
