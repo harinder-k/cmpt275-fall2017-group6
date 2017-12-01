@@ -41,6 +41,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupTitleBottomSeperatorView()
         setupDateTopSeperatorView()
         setupDateBottomSeperatorView()
+        createDatePickerToolBar()
         
     }
     // ------------------------------------------------------------------- //
@@ -154,6 +155,16 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
+    let datePicker: UIDatePicker = {
+        let dp = UIDatePicker()
+        dp.datePickerMode = UIDatePickerMode.date
+        dp.backgroundColor = UIColor.white
+        dp.sizeToFit()
+        dp.layer.cornerRadius = 5
+        dp.layer.masksToBounds = true
+        dp.translatesAutoresizingMaskIntoConstraints = false
+        return dp
+    }()
     let titleTopSeperatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(r: 220, g: 220, b: 220)
@@ -246,6 +257,33 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
+    func createDatePickerToolBar() {
+        //toolbar
+        let tb = UIToolbar()
+        tb.sizeToFit()
+        //bar button item
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        doneButton.tintColor = UIColor.black
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelPressed))
+        cancelButton.tintColor = UIColor.black
+        
+        tb.setItems([doneButton, UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),cancelButton], animated: true)
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        
+        memoryDateTextField.inputAccessoryView = tb
+        memoryDateTextField.inputView = datePicker
+    }
+    @objc func donePressed(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .none
+        
+        memoryDateTextField.text = dateFormatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func cancelPressed(){
+        self.view.endEditing(true)
+    }
     @objc func handleDoneButton() {
         guard var title = memoryTitleTextField.text else {
             print("Title is not valid")
