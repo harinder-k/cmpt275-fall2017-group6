@@ -47,13 +47,8 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         finishedStoriesTableView.dataSource = self
         // -------------------------------------------------------------------------------------------------- //
         // Logout button:
-<<<<<<< HEAD
-        navigationItem
-            .leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
-=======
         // -------------------------------------------------------------------------------------------------- //
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
->>>>>>> master
         checkIfUserIsLoggedIn()
         // -------------------------------------------------------------------------------------------------- //
         // -------------------------------------------------------------------------------------------------- //
@@ -166,13 +161,42 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         return threeRandomElements
     }
     
+    func createDateOptions (date: String) -> (String, [String]) {
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        
+        // splits mm/dd/yy string into array with mm, dd, yy as 3 strings
+        var dateSegments = date.split(separator: "/")
+        
+        // inferring first two digits of year
+        if Int(dateSegments[2])! > 17 {
+            dateSegments[2] = "19" + dateSegments[2]
+        }
+        else {
+            dateSegments[2] = "20" + dateSegments[2]
+        }
+        // converting from mm/dd/yy to month yy
+        let correctDate = months[Int(dateSegments[0])! - 1] + " " + dateSegments[2]
+        print(correctDate)
+        
+        var incorrectDates:[String] = []
+        for _ in 0...2 {
+            let incorrectMonth = months[Int(arc4random_uniform(UInt32(12)))]
+            let incorrectYear = String(Int(dateSegments[2])! + Int(arc4random_uniform(UInt32(20))) - 10)
+            incorrectDates.append(incorrectMonth + " " + incorrectYear)
+        }
+        print(incorrectDates)
+        return (correctDate, incorrectDates)
+    }
+    
     // Creates a question based on memory name and memory date
     func createQuestionType1 (memName: String, correctDate: String) -> QuizQuestion {
         // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
         print("Q1")
         let q = "When did \(memName) take place?"
-        let ops = [correctDate, "", "", ""]
-        let question = QuizQuestion(question: q, imageName: "", options: ops, answer: correctDate)
+        let (correctOp, otherOps) = createDateOptions(date: correctDate)
+        print(correctOp)
+        let ops = [correctOp, otherOps[0], otherOps[1], otherOps[2]]
+        let question = QuizQuestion(question: q, imageName: "", options: ops, answer: correctOp)
         return question
     }
     
@@ -181,8 +205,9 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
         print("Q2")
         let q = "When was this photo taken?"
-        let ops = [correctDate, "", "", ""]
-        let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctDate)
+        let (correctOp, otherOps) = createDateOptions(date: correctDate)
+        let ops = [correctOp, otherOps[0], otherOps[1], otherOps[2]]
+        let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctOp)
         return question
     }
     

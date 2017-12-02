@@ -620,28 +620,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcZ-Lh-cPY" userLabel="Next Button">
-                                <rect key="frame" x="294" y="487" width="181" height="50"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.39607843139999999" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="181" id="9Q9-7n-dJf"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="181" id="I00-av-BqD"/>
-                                    <constraint firstAttribute="height" constant="50" id="dOE-Fb-jp4"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="r7U-i8-23X"/>
-                                </constraints>
-                                <state key="normal" title="Begin">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="beginButtonTapped:" destination="cLw-iG-oJm" eventType="touchUpInside" id="Ctb-rX-3DC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -649,11 +627,9 @@
                             <constraint firstItem="tYA-Vl-AgV" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" constant="-12" id="33L-NQ-Sha"/>
                             <constraint firstItem="RYO-qF-Pj8" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" constant="-64" id="3jX-dT-YtX"/>
                             <constraint firstItem="ftW-j5-1B7" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" constant="-185" id="GKB-ii-o9h"/>
-                            <constraint firstItem="UcZ-Lh-cPY" firstAttribute="centerX" secondItem="uPi-00-5fn" secondAttribute="centerX" id="Ih8-R8-4Na"/>
                             <constraint firstItem="rHL-4O-WBo" firstAttribute="centerX" secondItem="uPi-00-5fn" secondAttribute="centerX" id="LZD-gw-Ef5"/>
                             <constraint firstItem="tYA-Vl-AgV" firstAttribute="centerX" secondItem="uPi-00-5fn" secondAttribute="centerX" id="Mhd-43-J69"/>
                             <constraint firstItem="21J-fQ-2D0" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" constant="297" id="Oe3-9y-MVe"/>
-                            <constraint firstItem="UcZ-Lh-cPY" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" id="OvH-zA-Ysi"/>
                             <constraint firstItem="8GG-YQ-biF" firstAttribute="centerY" secondItem="uPi-00-5fn" secondAttribute="centerY" constant="47" id="Zzv-m7-Vuu"/>
                             <constraint firstItem="nml-DG-nRf" firstAttribute="centerX" secondItem="uPi-00-5fn" secondAttribute="centerX" id="dAL-hg-dqM"/>
                             <constraint firstItem="ftW-j5-1B7" firstAttribute="centerX" secondItem="uPi-00-5fn" secondAttribute="centerX" id="fMx-WW-Wcu"/>
@@ -668,7 +644,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zme-Ka-qgS"/>
                     <connections>
-                        <outlet property="beginButton" destination="UcZ-Lh-cPY" id="spl-E1-bQE"/>
                         <outlet property="feedbackLabel" destination="eYi-61-6BI" id="2Fx-3H-fbO"/>
                         <outlet property="imageView" destination="rHL-4O-WBo" id="0uU-Mj-Z1o"/>
                         <outlet property="nextButton" destination="21J-fQ-2D0" id="st6-XZ-y3L"/>

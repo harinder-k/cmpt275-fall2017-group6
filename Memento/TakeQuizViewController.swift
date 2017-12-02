@@ -28,10 +28,6 @@ class TakeQuizViewController:UIViewController {
     var questionNum = -1
     var numCorrectAnswers = 0
     
-    //scheduledTimer
-    
-    @IBOutlet weak var beginButton: UIButton!
-    
     @IBOutlet weak var questionLabel: UILabel!
     // to inform the user whether or not their answer was correct
     @IBOutlet weak var feedbackLabel: UILabel!
@@ -54,9 +50,6 @@ class TakeQuizViewController:UIViewController {
     // container to hold images used in questions and iterator for said container
     var images:[UIImage] = []
     var imagesIndex = -1
-    
-    var beginButtonIsTapped = false
-    
     
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////// Quiz content for general quizzes ///////////////////////////////////
@@ -92,22 +85,41 @@ class TakeQuizViewController:UIViewController {
         
         // assigning Memento logo in case there is a problem when downloading
         var img: UIImage = #imageLiteral(resourceName: "icon")
-        let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
-            if let data = data {
-                let image = UIImage(data: data)!
-                img = image
-//                self.images.append(image)
-//                print(self.images.count)
-            }
-            print (error ?? "No error")
-        }
         
-//        downloadTask.observe(.progress) { (snapshot) in
-//            print(snapshot.progress ?? "No more progress")
+        ////////////////////////////////////////////////////////////////////////////
+        /////////////////////////// NEED TO WORK ON THIS ///////////////////////////
+        ////////////////////////////////////////////////////////////////////////////
+//        let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+//            if let data = data {
+//                let image = UIImage(data: data)!
+//                img = image
+////                self.images.append(image)
+////                print(self.images.count)
+//            }
+//            print (error ?? "No error")
 //        }
+//
+////        downloadTask.observe(.progress) { (snapshot) in
+////            print(snapshot.progress ?? "No more progress")
+////        }
+//
+//        downloadTask.resume()
         
-        downloadTask.resume()
         return img
+    }
+    
+    // shuffles 1, 2, 3, 4 and returns as array of Ints
+    func shuffleOneToFour() -> [Int] {
+        var shuffledIndices:[Int] = []
+        for _ in 0...3 {
+            var randomIndex:Int
+            repeat {
+                randomIndex = Int(arc4random_uniform(UInt32(4))) + 1
+            } while shuffledIndices.contains(randomIndex)
+            shuffledIndices.append(randomIndex)
+        }
+        print(shuffledIndices)
+        return shuffledIndices
     }
     
     // takes random indices upto numberOfQuestions from upto given index
@@ -117,7 +129,7 @@ class TakeQuizViewController:UIViewController {
         // returning default array [0,1,2....]
         if totalNum < numberOfQuestions {
             numberOfQuestions = totalNum
-            for index in 0...totalNum {
+            for index in 0...(totalNum - 1) {
                 resultArray.append(index)
             }
             return resultArray
@@ -133,15 +145,9 @@ class TakeQuizViewController:UIViewController {
         return resultArray
     }
     
-    func waitForBeginButton() {
-        
-    }
-    
     // Precondition:    Personal quiz content is avvilable
     // Postcondition:   Quiz content is arranged into array of structs
     func startPersonalQuiz() {
-        initialState()
-        
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
@@ -166,11 +172,16 @@ class TakeQuizViewController:UIViewController {
                         let questionValue = questionSnapshot.value as! NSDictionary
                         let q = questionValue["question"] as? String ?? ""
                         let imgName = questionValue["imageName"] as? String ?? ""
-                        let op1 = questionValue["option1"] as? String ?? ""
-                        let op2 = questionValue["option2"] as? String ?? ""
-                        let op3 = questionValue["option3"] as? String ?? ""
-                        let op4 = questionValue["option4"] as? String ?? ""
+                        
+                        // randomizing order that the options appear in
+                        let shuffledIndices = self.shuffleOneToFour()
+                        let op1 = questionValue["option\(shuffledIndices[0])"] as? String ?? ""
+                        let op2 = questionValue["option\(shuffledIndices[1])"] as? String ?? ""
+                        let op3 = questionValue["option\(shuffledIndices[2])"] as? String ?? ""
+                        let op4 = questionValue["option\(shuffledIndices[3])"] as? String ?? ""
                         let ans = questionValue["answer"] as? String ?? ""
+                        
+                        // creating quiz question using database values as appending into quiz array
                         self.quiz.append(QuizQuestion(question: q, imageName: imgName, options: [op1, op2, op3, op4], answer: ans))
                         
                         // downloading image associated with question if there is one
@@ -180,16 +191,11 @@ class TakeQuizViewController:UIViewController {
                             print(self.images.count)
                         }
                     }
-                    var canBegin = false
-                    while !canBegin {
-                        canBegin = self.beginButtonIsTapped
-                        sleep(UInt32(1))
-                    }
                     
                     self.askQuestion()
                 } else {
-                let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with any \(self.quizName) in it."
-                self.finishedState(message: noRequestedQuizMessage)
+                    let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with any \(self.quizName) in it."
+                    self.finishedState(message: noRequestedQuizMessage)
                 }
             } else {
                 let noQuizMessage = "Sorry, we have no personal quizzes for you yet. Please finish a story so that we can create questions based on your story."
@@ -220,20 +226,6 @@ class TakeQuizViewController:UIViewController {
             break
         }
         askQuestion()
-    }
-    
-    // Precondition:    The user has selected a personal quiz
-    // Postcondition:   The user sees only the Begin button
-    func initialState() {
-        questionLabel.isHidden = true
-        
-        for aButton in optionButtons {
-            aButton.isHidden = true
-        }
-        
-        imageView.isHidden = true
-        feedbackLabel.isHidden = true
-        nextButton.isHidden = true
     }
     
     // Precondition:    THe user has not yet answered the question
@@ -295,17 +287,6 @@ class TakeQuizViewController:UIViewController {
             imageView.isHidden = false
             imageView.image = images[imagesIndex]
         }
-    }
-    
-    @IBAction func beginButtonTapped(_ sender: Any) {
-        unansweredState()
-        
-        for aButton in optionButtons {
-            aButton.isHidden = false
-        }
-        
-        beginButtonIsTapped = true
-        beginButton.isHidden = true
     }
     
     // Precondition:    An option button is tapped
