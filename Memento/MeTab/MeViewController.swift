@@ -1,11 +1,11 @@
 //File Name: MeViewController.swift
 //Team Name: MemTech
 //Group number: Group 6
-//Developers: Harinder
-//Version 1.0
-//Changes:
-//1.0 - Created file
-//Known bugs:
+//Developers: Abhishek
+//Version 3.0
+//Changes: Created the file
+//         Added functionality to access user info from database
+//         
 
 import Foundation
 import UIKit
