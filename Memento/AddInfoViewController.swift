@@ -233,6 +233,11 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
     @objc func handleBackToMemoryButton() {
+        let inputPlace = placeTextField.text
+        if !(inputPlace!.isEmpty) {
+            place = inputPlace!
+        }
+        
         // 1: Call the closure variable on memory variable
         let result = completionHandler?(self.peopleNames, self.place)
         print("completionHandler returns... \(result ?? 0)")

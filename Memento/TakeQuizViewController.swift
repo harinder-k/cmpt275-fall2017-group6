@@ -79,33 +79,32 @@ class TakeQuizViewController:UIViewController {
     }
     
     // downloads image from firebase indicated by string and returns it
-    func downloadImage (imgName: String) -> UIImage {
+    func downloadImage (imgName: String) {
+        if imgName == "" {
+            return
+        }
+        
         let imageReference = Storage.storage().reference().child("images")
+        
         let downloadImageRef = imageReference.child(imgName)
         
         // assigning Memento logo in case there is a problem when downloading
-        var img: UIImage = #imageLiteral(resourceName: "icon")
+//        var img: UIImage = #imageLiteral(resourceName: "icon")
         
         ////////////////////////////////////////////////////////////////////////////
         /////////////////////////// NEED TO WORK ON THIS ///////////////////////////
         ////////////////////////////////////////////////////////////////////////////
-//        let downloadTask = downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
-//            if let data = data {
-//                let image = UIImage(data: data)!
-//                img = image
-////                self.images.append(image)
-////                print(self.images.count)
-//            }
-//            print (error ?? "No error")
-//        }
-//
-////        downloadTask.observe(.progress) { (snapshot) in
-////            print(snapshot.progress ?? "No more progress")
-////        }
-//
-//        downloadTask.resume()
-        
-        return img
+        downloadImageRef.getData(maxSize: 1024 * 1024 * 12) { (data, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                let image = UIImage(data: data!)!
+                self.imageView.isHidden = false
+                self.imageView.image = image
+            }
+            print (error ?? "No error")
+        }
     }
     
     // shuffles 1, 2, 3, 4 and returns as array of Ints
@@ -118,7 +117,6 @@ class TakeQuizViewController:UIViewController {
             } while shuffledIndices.contains(randomIndex)
             shuffledIndices.append(randomIndex)
         }
-        print(shuffledIndices)
         return shuffledIndices
     }
     
@@ -151,8 +149,7 @@ class TakeQuizViewController:UIViewController {
         var ref: DatabaseReference!
         ref = Database.database().reference()
         
-        // variable to ensure that images array has correct amount before asking questions
-        var numImages = 0
+        var imagesNames:[String] = []
         
         let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -184,17 +181,15 @@ class TakeQuizViewController:UIViewController {
                         // creating quiz question using database values as appending into quiz array
                         self.quiz.append(QuizQuestion(question: q, imageName: imgName, options: [op1, op2, op3, op4], answer: ans))
                         
-                        // downloading image associated with question if there is one
+                        // keeping track of images
                         if imgName != "" {
-                            numImages = numImages + 1
-                            self.images.append(self.downloadImage(imgName: imgName))
-                            print(self.images.count)
+                            imagesNames.append(imgName)
                         }
                     }
-                    
                     self.askQuestion()
+                    
                 } else {
-                    let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with any \(self.quizName) in it."
+                    let noRequestedQuizMessage = "Sorry, the \(self.quizName) quiz does not exist because you have not created a story with enough \(self.quizName) in it."
                     self.finishedState(message: noRequestedQuizMessage)
                 }
             } else {
@@ -282,11 +277,12 @@ class TakeQuizViewController:UIViewController {
         correctAnswer = quiz[questionNum].answer
         
         // apply corresponding image of question to image, if there is one
-        if quiz[questionNum].imageName != "" && !images.isEmpty {
-            imagesIndex = imagesIndex + 1
-            imageView.isHidden = false
-            imageView.image = images[imagesIndex]
-        }
+//        if quiz[questionNum].imageName != "" && !images.isEmpty {
+//            imagesIndex = imagesIndex + 1
+//            imageView.isHidden = false
+//            imageView.image = images[imagesIndex]
+//        }
+        downloadImage(imgName: quiz[questionNum].imageName)
     }
     
     // Precondition:    An option button is tapped

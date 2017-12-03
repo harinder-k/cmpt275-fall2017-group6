@@ -176,7 +176,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         }
         // converting from mm/dd/yy to month yy
         let correctDate = months[Int(dateSegments[0])! - 1] + " " + dateSegments[2]
-        print(correctDate)
         
         var incorrectDates:[String] = []
         for _ in 0...2 {
@@ -184,7 +183,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             let incorrectYear = String(Int(dateSegments[2])! + Int(arc4random_uniform(UInt32(20))) - 10)
             incorrectDates.append(incorrectMonth + " " + incorrectYear)
         }
-        print(incorrectDates)
         return (correctDate, incorrectDates)
     }
     
@@ -215,17 +213,18 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     func createQuestionType3 (photoName: String, correctPlace: String, otherOptions: [String]) -> QuizQuestion {
         print("Q3")
         let q = "Where was this photo taken?"
-        let ops = [correctPlace, "", "", ""]
+        let otherOps = takeThreeRandomElementsOfStringArray(array: otherOptions)
+        let ops = [correctPlace, otherOps[0], otherOps[1], otherOps[2]]
         let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctPlace)
         return question
     }
     
-    // Creates a question based on an image and a
+    // Creates a question based on an image and a person in it
     func createQuestionType4 (photoName: String, correctPerson: String, otherOptions: [String]) -> QuizQuestion {
         print("Q4")
         let q = "Who is in this photo?"
         let otherOps = takeThreeRandomElementsOfStringArray(array: otherOptions)
-        let ops = [correctPerson, otherOps[0], otherOps[1], otherOps[2], otherOps[3]]
+        let ops = [correctPerson, otherOps[0], otherOps[1], otherOps[2]]
         let question = QuizQuestion(question: q, imageName: photoName, options: ops, answer: correctPerson)
         return question
     }
@@ -264,16 +263,22 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
         
         var memNames:[String] = []
         
+        // Adding new un
         for mem in story.memories {
             memNames.append(mem.name)
             for photo in mem.photos {
-                storyPeople.append(contentsOf: photo.people)
-                storyPlaces.append(contentsOf: photo.people)
+                for person in photo.people {
+                    // ensuring no people are added more than once
+                    if !storyPeople.contains(person) {
+                        storyPeople.append(person)
+                    }
+                }
+                // ensuring no places are added more than once
+                if !storyPlaces.contains(photo.place) {
+                    storyPlaces.append(photo.place)
+                }
             }
         }
-        print(storyPeople)
-        print(storyPlaces)
-        print(memNames)
         
         // Creating different questions based on which data is avaiable
         for mem in story.memories {
