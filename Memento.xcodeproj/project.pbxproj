@@ -21,6 +21,7 @@
 		0D9CDFB31FB58BFC00DDFB2A /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9CDFB21FB58BFC00DDFB2A /* Memory.swift */; };
 		0D9CDFB81FB653D100DDFB2A /* ImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D9CDFB91FB653D100DDFB2A /* ImagePicker.framework */; };
 		0DA261B31FB65D960031D3A8 /* NohanaImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA261B41FB65D960031D3A8 /* NohanaImagePicker.framework */; };
+		380B91741FD3B6D700AB4B1A /* settingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B91731FD3B6D700AB4B1A /* settingViewController.swift */; };
 		38D6D4071FBFE70A00D8C61D /* shareStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6D4061FBFE70A00D8C61D /* shareStoryViewController.swift */; };
 		38EA122D1FA2AA2F00343723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA122C1FA2AA2F00343723 /* AppDelegate.swift */; };
 		38EA12341FA2AA2F00343723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38EA12321FA2AA2F00343723 /* Main.storyboard */; };
@@ -77,6 +78,7 @@
 		0D9CDFB91FB653D100DDFB2A /* ImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA261B41FB65D960031D3A8 /* NohanaImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NohanaImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2420A1D0CB238B539330FD34 /* Pods-MementoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MementoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MementoUITests/Pods-MementoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		380B91731FD3B6D700AB4B1A /* settingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingViewController.swift; sourceTree = "<group>"; };
 		38D6D4061FBFE70A00D8C61D /* shareStoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shareStoryViewController.swift; sourceTree = "<group>"; };
 		38EA12291FA2AA2F00343723 /* Memento.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memento.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38EA122C1FA2AA2F00343723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		380B91721FD3B6AC00AB4B1A /* MeTab */ = {
+			isa = PBXGroup;
+			children = (
+				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
+				380B91731FD3B6D700AB4B1A /* settingViewController.swift */,
+			);
+			path = MeTab;
+			sourceTree = "<group>";
+		};
 		38EA12201FA2AA2F00343723 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +203,7 @@
 		38EA122B1FA2AA2F00343723 /* Memento */ = {
 			isa = PBXGroup;
 			children = (
+				380B91721FD3B6AC00AB4B1A /* MeTab */,
 				0D51B6231FB6F64200EE2140 /* View */,
 				0D9CDFB11FB58BE800DDFB2A /* Model */,
 				0D1508261FA785A80044669B /* Controller */,
@@ -203,7 +215,6 @@
 				38EA123A1FA2AA2F00343723 /* Info.plist */,
 				F4F0D06D1FA3BB6400C2844C /* StoriesViewControler.swift */,
 				F4F0D06F1FA3BC3300C2844C /* QuizzesViewController.swift */,
-				F4F0D0711FA3BCA700C2844C /* MeViewController.swift */,
 				F4E1408B1FA3FD7F009AF780 /* StoriesNavigationController.swift */,
 				0D1508291FA7BC4F0044669B /* GoogleService-Info.plist */,
 				F56ACEC71FB0F7080089C53F /* MemoriesCollectionViewCell.swift */,
@@ -525,6 +536,7 @@
 				0D73144C1FCCDB1300AA5FBD /* VideoWriter.swift in Sources */,
 				0D51B6251FB6F65E00EE2140 /* EditMemoryCell.swift in Sources */,
 				F4F0D0701FA3BC3300C2844C /* QuizzesViewController.swift in Sources */,
+				380B91741FD3B6D700AB4B1A /* settingViewController.swift in Sources */,
 				0D2B30FF1FABDEB10093C8F9 /* ResetPasswordController.swift in Sources */,
 				0D1508281FA785F60044669B /* LoginController.swift in Sources */,
 				0D51B6271FB6F78700EE2140 /* MemoryCell.swift in Sources */,
