@@ -5,13 +5,15 @@
 //Version 3.0
 //Changes: Created the file
 //         Added functionality to access user info from database
-//
+//         
 
 import Foundation
 import UIKit
 import Firebase
 
 class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+    
+    // Variables to keep the info from database
     var email = ""
     var name = ""
     var DOB = ""
@@ -42,12 +44,11 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
                 self.profileURL = value?["profileImageURL"] as? String ?? ""
                 self.putProfileImage()
             }
-            //let user = User(username: username)
             self.putItOnProfile()
         }, withCancel: nil)
     }
     
-    func putProfileImage (){
+    func putProfileImage (){  //Download the profile image from cloud and shows on the app
         let url = URL(string: profileURL)
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil {
@@ -80,8 +81,6 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             
             profileImage.image = pickedImage
-            
-            ///////////////////////
             let imageName = NSUUID().uuidString
             
             let storageRef = Storage.storage().reference().child("profileImages").child("\(imageName).png")
@@ -98,12 +97,10 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
                     
                 })
             }
-            //////////////////////
-            
-            
         }
         else{
             //Error message
+            print("picker crashed")
         }
         dismiss(animated: true, completion: nil)
     }
@@ -112,7 +109,7 @@ class MeViewController:UIViewController, UIImagePickerControllerDelegate, UINavi
         dismiss(animated: true, completion: nil)
     }
     
-    private func uploadimageURl(value: [String: AnyObject]){
+    private func uploadimageURl(value: [String: AnyObject]){  //Uploads a chnages profile image to database storage
         let uid = Auth.auth().currentUser?.uid
         var ref: DatabaseReference!
         ref = Database.database().reference()

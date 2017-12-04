@@ -138,10 +138,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             print(error ?? "No Error")
         }
         
-//        uploadTask.observe(.progress) { (snapshot) in
-//            print(snapshot.progress ?? "No More Progress")
-//        }
-        
         uploadTask.resume()
         
         return imgName
@@ -188,7 +184,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
     
     // Creates a question based on memory name and memory date
     func createQuestionType1 (memName: String, correctDate: String) -> QuizQuestion {
-        // need to know how date is formatted to create options (also need to decide how specific we should go eg. year vs month vs date)
         print("Q1")
         let q = "When did \(memName) take place?"
         let (correctOp, otherOps) = createDateOptions(date: correctDate)
@@ -386,17 +381,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
             print(error.localizedDescription)
         }
         
-//        usersRef.updateChildValues([
-//            "quizzes" : [
-//                "people" : [
-//                ],
-//                "places" : [
-//                ],
-//                "dates" : [
-//                ]
-//            ]
-//        ])
-        
         if !peopleQuestions.isEmpty {
             let peopleRef = usersRef.child("quizzes").child("People")
             for qNumber in 0...(peopleQuestions.count - 1) {
@@ -444,38 +428,6 @@ class StoriesViewController:UIViewController, UITableViewDelegate, UITableViewDa
                     ])
             }
         }
-            
-        /*
-        // References to nodes to database (people/places/dates)
-        usersRef.observeSingleEvent(of: .value) { (snapshot) in
-            if snapshot.hasChild("quizzes"){
-                
-                let peopleQuestionsCount = snapshot.childSnapshot(forPath: "quizzes/people").childrenCount
-                let peopleRef = usersRef.child("quizzes/people/\(peopleQuestionsCount)")
-                
-                let placesQuestionsCount = snapshot.childSnapshot(forPath: "quizzes/places").childrenCount
-                let placesRef = usersRef.child("quizzes/places/\(placesQuestionsCount)")
-                
-                let datesQuestionsCount = snapshot.childSnapshot(forPath: "quizzes/dates").childrenCount
-                let datesRef = usersRef.child("quizzes/dates/\(datesQuestionsCount)")
-                
-                // Updating the database
-                //                for question in peopleQuestions{
-                //                    peopleRef.updateChildValues(["question": question.question,"imageName":question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                //                }
-                //                for question in placesQuestions{
-                //                    placesRef.updateChildValues(["question":question.question,"imageName":question.imageName, "option1": question.options[0], "option2":question.options[1],"option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                //                }
-                //                for question in datesQuestions{
-                //                    datesRef.updateChildValues(["question": question.question,"imageName": question.imageName,"option1": question.options[0], "option2":question.options[1], "option3": question.options[2], "option4": question.options[3],"answer": question.answer])
-                //                }
-            }
-            else{
-                // IDK what to do?!?!
-            }
-        }
- */
-        
     }
     // -------------------------------------------------------------------------------------------------- //
     // newStoryButtonPressed function is called when newStory is pressed
