@@ -11,8 +11,12 @@ import UIKit
 
 class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var timeLineView: UICollectionView!
-    let reuseIdentifier = "cell"
     @IBOutlet weak var StoryTitleTextField: UITextField!
+    @IBOutlet weak var saveAsStoryButton: UIButton!
+    @IBOutlet weak var saveAsMP4Button: UIButton!
+    
+    let reuseIdentifier = "cell"
+    
     var memoriesArray : [Memory] = []
     
     var completionHandler:((_ story: Story,_ type: Int) -> Int)?
@@ -47,7 +51,12 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         navigationController?.pushViewController(memoryViewController, animated: true)
     }
     @IBAction func saveButtonPressed(_ sender: Any) {
+
         let storyTitle = StoryTitleTextField.text!
+        if storyTitle == "" {
+            displayMessage(userMessage: "Story Title not Valid")
+            return
+        }
         if let newStory = Story(title: storyTitle, memories: memoriesArray){
             let result = completionHandler?(newStory, 0)
             print("completionHandler returns... \(result ?? 0)")
@@ -56,7 +65,6 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
         _ = navigationController?.popViewController(animated: true)
     }
     @IBAction func doneButtonPressed(_ sender: Any) {
-        
         let storyTitle = StoryTitleTextField.text!
         if storyTitle == "" {
             displayMessage(userMessage: "Story Title not Valid")
@@ -66,7 +74,6 @@ class EditStoryViewController:UIViewController, UICollectionViewDataSource, UICo
             // Go back to previous view
             _ = navigationController?.popViewController(animated: true)
         }
-
         let settings = RenderSettings(videoFilename: storyTitle)
         let imageAnimator = ImageAnimator(renderSettings: settings, memories: memoriesArray)
         _ = imageAnimator.render() {

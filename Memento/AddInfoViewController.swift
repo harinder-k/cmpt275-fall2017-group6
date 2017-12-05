@@ -45,6 +45,10 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
         // Do any additional setup after loading the view.
         peopleNames = []
         place = ""
+        namesTableView.reloadData()
+        placeTextField.text = ""
+        peopleTextField.text = ""
+        
     }
     // ------------------------------------------------------------------- //
     // ----------------- Table view Delegate Functions ------------------- //
@@ -86,7 +90,7 @@ class AddInfoViewController: UIViewController, UINavigationControllerDelegate, U
     let backToMemoryButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161) //5065A1
-        button.setTitle("Back To Memory", for: .normal)
+        button.setTitle("Save Info", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true

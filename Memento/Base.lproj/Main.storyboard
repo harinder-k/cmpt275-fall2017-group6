@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="28" width="326" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iav-gc-EUf" id="8qf-Rr-icO">
-                                            <rect key="frame" x="0.0" y="0.0" width="326" height="90"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="326" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IVH-tX-hzJ">
@@ -358,6 +358,8 @@
                     <navigationItem key="navigationItem" title="Edit Story" id="VDO-7P-Y4Y" userLabel="Edit Story"/>
                     <connections>
                         <outlet property="StoryTitleTextField" destination="eUy-wF-ENu" id="YqC-FV-Lwd"/>
+                        <outlet property="saveAsMP4Button" destination="w1I-Sb-AMz" id="l3D-Ti-kN4"/>
+                        <outlet property="saveAsStoryButton" destination="9sF-Is-OTQ" id="2kB-P9-Tj9"/>
                         <outlet property="timeLineView" destination="TTy-1P-FrH" id="clx-CG-cxx"/>
                     </connections>
                 </viewController>

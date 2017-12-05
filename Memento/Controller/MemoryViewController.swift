@@ -33,6 +33,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         view.addSubview(titleBottomSeperatorView)
         view.addSubview(dateTopSeperatorView)
         view.addSubview(dateBottomSeperatorView)
+        view.addSubview(infoLabel)
         setupDoneButton()
         setupMemoryCollectionView()
         setupMemoryTitleTextField()
@@ -42,6 +43,7 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
         setupDateTopSeperatorView()
         setupDateBottomSeperatorView()
         createDatePickerToolBar()
+        setupInfoLabel()
         
     }
     // ------------------------------------------------------------------- //
@@ -116,7 +118,14 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     // ------------------------------------------------------------ //
     // ----------------------- UI Objects ------------------------- //
     // ------------------------------------------------------------ //
-    
+    let infoLabel : UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.text = "Click on each image to add Info to it."
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     let doneButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161) //5065A1
@@ -248,13 +257,18 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     func setupMemoryCollectionView() {
         memoryCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        memoryCollectionView.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 20).isActive = true
+        memoryCollectionView.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 50).isActive = true
         memoryCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
         memoryCollectionView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
         memoryCollectionView.dataSource = self
         memoryCollectionView.delegate = self
     }
-    
+    func setupInfoLabel() {
+        infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        infoLabel.topAnchor.constraint(equalTo: doneButton.bottomAnchor, constant: 10).isActive = true
+        infoLabel.bottomAnchor.constraint(equalTo: memoryCollectionView.topAnchor, constant: -10).isActive = true
+        infoLabel.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -20).isActive = true
+    }
     // ----------------------------------------------------- //
     // ---------------------- Handlers --------------------- //
     // ----------------------------------------------------- //
